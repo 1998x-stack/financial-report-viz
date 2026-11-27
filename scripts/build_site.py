@@ -286,6 +286,16 @@ def report_page(report, issuer, tax):
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
         figures=figures_markup(report,path), metric_tables=metric_tables(report)
     )
+    if report.get("analysis_sections"):
+        chapters=['<section class="block" id="deep-analysis"><div class="section-head"><div><p class="kicker">04 / DEEP RESEARCH</p><h2>调查笔记：数据驱动的投资问题</h2><p>先列可核算事实，再明确管理层解释、分析推论与尚未披露的信息。</p></div></div>']
+        for idx,section in enumerate(report["analysis_sections"],1):
+            chapters.append('<div class="figure-card"><p class="kicker">RESEARCH NOTE '+f'{idx:02d}'+'</p><h3>'+H(section["heading"])+'</h3>')
+            for paragraph in section["body"]:
+                chapters.append('<p style="font-size:14px;color:#334c50;line-height:1.95">'+H(paragraph)+'</p>')
+            chapters.append(pages_html(report,section["pages"])+'</div>')
+        chapters.append('</section>')
+        content=content.replace('<section class="block" id="source-table">',"".join(chapters)+'<section class="block" id="source-table">')
+        content=content.replace('<a href="#source-table">财务表格</a>', '<a href="#deep-analysis">深度研究</a><a href="#source-table">财务表格</a>')
     if report.get("external_research"):
         research = ['<section class="block" id="external-research"><div class="section-head"><div><p class="kicker">06 / INDEPENDENT CONTEXT</p><h2>外部调查与反证</h2><p>第三方资料并非港交所披露；只用于对照市场预期及管理层问答。</p></div></div><div class="method-grid">']
         for ext in report["external_research"]:
