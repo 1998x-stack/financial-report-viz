@@ -1,8 +1,8 @@
 <article class="report-page">
 <header class="report-hero"><div class="breadcrumbs"><a href="$home_href">首页</a> / <a href="$issuer_href">$issuer_name</a> / $period_label</div>
 <p class="eyebrow">$eyebrow</p><h1>$title</h1><p class="report-dek">$lead</p>
-<div class="report-meta"><span>$ticker · $market</span><span>报告期：$period_label</span><span>金额：人民币</span><span class="assurance">经审阅 · 未经审计</span></div>
-<p class="source-highlight">原始资料：<a href="$source_href" target="_blank" rel="noopener noreferrer">$source_title ↗</a> ｜ 原始单位：人民币千元 ｜ 2025 与 2026 对比均为截至 6 月 30 日止六个月。</p></header>
+<div class="report-meta"><span>$ticker · $market</span><span>报告期：$period_label</span><span>货币：$currency_label</span><span class="assurance">$assurance_label</span></div>
+<p class="source-highlight">原始资料：<a href="$source_href" target="_blank" rel="noopener noreferrer">$source_title ↗</a> ｜ 原始单位：$source_unit ｜ 比较期间：$comparison_text</p></header>
 <nav class="report-toc" aria-label="文章目录"><span>本文导览</span><a href="#key-numbers">关键数字</a><a href="#insights">三个观察</a><a href="#visual-evidence">图表解读</a><a href="#source-table">财务表格</a><a href="#methodology">来源口径</a></nav>
 <section class="block" id="key-numbers"><div class="section-head"><div><p class="kicker">01 / AT A GLANCE</p><h2>四个关键信号</h2></div></div><div class="kpi-grid">$kpi_cards</div></section>
 <section class="block" id="insights"><div class="section-head"><div><p class="kicker">02 / THE STORY SO FAR</p><h2>增长之后，利润为何承压？</h2></div></div><div class="insights-grid">$insight_cards</div></section>
@@ -11,6 +11,6 @@
 <div class="table-controls"><label for="metric-search">搜索指标</label><input type="search" id="metric-search" placeholder="例如：研发、现金流、用户"><button type="button" data-download-table>下载 CSV</button></div>$metric_tables</section>
 <section class="block" id="methodology"><div class="section-head"><div><p class="kicker">05 / SOURCE & ACCOUNTING</p><h2>来源、单位与研究边界</h2></div></div>
 <div class="method-grid"><div><h3>原始文件</h3><p><a href="$source_href" target="_blank" rel="noopener noreferrer">$source_title ↗</a></p><p>页面编号以印刷页码记录，图表均附相关页数。</p></div>
-<div><h3>会计口径</h3><p>IAS 34 / IFRS 中期简明合并财务资料，经审阅但未经审计。同比为同长度上半年期间。亿元 = 披露人民币千元 ÷ 100,000。</p></div>
-<div><h3>不应误读</h3><p>不包含股价、PE 或市场一致预期等外部数据；非 IFRS 调整后利润与报表期内利润分开。管理层对业务原因的描述须注明来源。</p><p>财务报表于 2026 年 8 月 28 日获董事会批准，该日期不等同 PDF 发布日。</p></div></div></section>
+<div><h3>会计口径</h3><p>$accounting_text</p></div>
+<div><h3>不应误读</h3><p>不包含股价、PE 或市场一致预期等外部数据；非 IFRS 调整后利润与报表期内利润分开。管理层对业务原因的描述须注明来源。</p><p>$approval_text</p></div></div></section>
 </article>
