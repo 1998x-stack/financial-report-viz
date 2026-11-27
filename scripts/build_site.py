@@ -18,6 +18,7 @@ BASE_URL = "https://1998x-stack.github.io/financial-report-viz/"
 GITHUB = "https://github.com/1998x-stack/financial-report-viz"
 sys.path.insert(0, str(ROOT))
 from src.charts import build_figures  # noqa: E402
+from src.concepts import build_glossary, check_concepts  # noqa: E402
 
 PAGES = []
 KINDS = [("sectors", "sector", "行业"), ("markets", "market", "上市市场"),
@@ -68,7 +69,10 @@ def page(relative, title, description, content, structured=None):
         home_path=H(link(relative, "index.html")),
         reports_path=H(link(relative, "reports/index.html")),
         companies_path=H(link(relative, "companies/index.html")),
-        source_repo=GITHUB, jsonld=jsonld, content=content
+        source_repo=GITHUB, jsonld=jsonld, content=content,
+        concepts_path=H(link(relative,"concepts/index.html")),
+        concepts_css=H(link(relative,"assets/concepts.css")),
+        concepts_js=H(link(relative,"assets/concepts.js"))
     )
     mkdir_file(relative, rendered)
     PAGES.append(relative)
@@ -298,6 +302,8 @@ def main():
     (DIST/"assets").mkdir(parents=True)
     shutil.copy2(SRC/"static/site.css",DIST/"assets/site.css")
     shutil.copy2(SRC/"static/site.js",DIST/"assets/site.js")
+    shutil.copy2(SRC/"static/concepts.css",DIST/"assets/concepts.css")
+    shutil.copy2(SRC/"static/concepts.js",DIST/"assets/concepts.js")
     (DIST/".nojekyll").write_text("",encoding="utf-8")
 
     facets = taxonomy_entries(reports,issuers,taxonomy)
@@ -319,7 +325,9 @@ def main():
         report_count=len(reports),issuer_count=len({r["issuer_id"] for r in reports}),
         market_count=len({issuers[r["issuer_id"]]["market"] for r in reports}),
         facet_cards="".join(facet_cards), lead_growth_value=f"{growth:.1f}",
-        source_repo=GITHUB
+        source_repo=GITHUB,
+        glossary_href=H(link("index.html","concepts/index.html")),
+        glossary_count=len(load("data/concepts.json")["concepts"])
     )
     page("index.html","有来源的上市公司财报可视化","源自公开财报的可视化研究，按公司、行业和市场持续归档。",homepage,
          {"@context":"https://schema.org","@type":"CollectionPage",
@@ -362,6 +370,10 @@ def main():
         page(where,item["name"]+" · 财报分类",item["description"],body)
     for report in reports:
         report_page(report,issuers[report["issuer_id"]],taxonomy)
+    concept_pages=build_glossary(
+        data_path=ROOT/"data/concepts.json",output_dir=DIST,template=template,
+        page=page,link=link,canonical=canonical,H=H
+    )
     catalog=[]
     for report in reports:
         issuer=issuers[report["issuer_id"]]
@@ -380,7 +392,7 @@ def main():
     sitemap+="".join("  <url><loc>"+H(u)+"</loc></url>\n" for u in urls)+"</urlset>\n"
     mkdir_file("sitemap.xml",sitemap)
     mkdir_file("robots.txt","User-agent: *\nAllow: /\nSitemap: "+BASE_URL+"sitemap.xml\n")
-    print(f"PASS: generated {len(PAGES)} pages, {len(reports)} reports, {len(issuers)} issuers, 8 vector figures/report")
+    print(f"PASS: generated {len(PAGES)} pages, {concept_pages} concept HTML pages, {len(reports)} reports, {len(issuers)} issuers, 8 vector figures/report")
 
 
 if __name__ == "__main__":

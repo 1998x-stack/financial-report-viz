@@ -331,11 +331,17 @@ def build_glossary(*, data_path, output_dir, template, page, link, canonical, H)
             f'<h2>{H(category["name"])}</h2><p>{H(category["description"])}</p></div>'
             f'<a href="#glossary-top" class="glossary-back">返回顶部 ↑</a></div>'
             f'<div class="glossary-grid">{cards}</div></section>')
+    buttons="".join(
+        f'<button type="button" data-glossary-filter="{H(cat["id"])}" '
+        f'aria-pressed="false">{H(cat["name"])}</button>'
+        for cat in data["categories"]
+    )
     content=template(
         "concept-index", category_cards="".join(cat_links),
-        concept_sections="".join(sections),
+        category_buttons=buttons, concept_sections="".join(sections),
         concept_count=str(len(concepts)),
         editorial_note=H(data["editorial_note"]),
+        home_href=H(link(index,"index.html")),
         source_href=H(link(index,"reports/index.html"))
     )
     structure={
