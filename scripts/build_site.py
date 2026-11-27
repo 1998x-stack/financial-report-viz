@@ -140,7 +140,7 @@ def taxonomy_entries(reports, issuers, taxonomy):
 
 def yoy(metric):
     prev, curr = metric["values"]["prior"], metric["values"]["current"]
-    if prev is None or curr is None or prev <= 0:
+    if prev is None or curr is None or prev <= 0 or curr < 0:
         return None
     return (curr / prev - 1) * 100
 
@@ -149,18 +149,45 @@ def yoy_label(pct):
     return "—" if pct is None else ("+" if pct >= 0 else "") + f"{pct:.1f}%"
 
 
-def money(v):
-    return f"{v / 100000:,.2f}"
+def money(v, unit="CNY_thousand"):
+    divisor = 100 if unit == "CNY_million" else 100000
+    return f"{v / divisor:,.2f}"
 
 
 def kpi_cards(report):
     v = report["values"]
-    if report["unit"] == "CNY_fen":
-        def n(k,p="current"): return v[k]["values"][p]
-        def card(label,k):
-            return f'<div class="kpi-card"><span class="label">{label}</span><strong>{n(k)/1e10:,.2f}<small>亿元</small></strong><span>{yoy_label(yoy(v[k]))}</span><small>同比 · 九个月</small></div>'
-        margin=lambda p:100*(1-n("cost_of_revenue",p)/n("revenue",p))
-        return card("营业收入","revenue")+card("归母净利润","parent_profit")+f'<div class="kpi-card"><span class="label">营业毛利率（计算）</span><strong>{margin("current"):.2f}%</strong><span>{margin("current")-margin("prior"):+.2f} pp</span></div>'+card("经营现金流","operating_cash_flow")
+    if report["issuer_id"] == "moutai":
+        def mv(k,p="current"): return v[k]["values"][p]
+        def item(label,k,note):
+            m=v[k]; val=mv(k)/10000000000
+            change=yoy_label(yoy(m))
+            return (f'<div class="kpi-card"><span class="label">{H(label)}</span>'
+                    f'<strong>{val:,.2f}<small style="display:inline;font-size:13px;margin-left:5px">亿元</small></strong>'
+                    f'<span class="change {"neg" if change.startswith("-") else ""}">{H(change)}</span><small>{H(note)}</small></div>')
+        margin=lambda p:(1-mv("cost_of_revenue",p)/mv("revenue",p))*100
+        delta=margin("current")-margin("prior")
+        return (item("营业收入","revenue","2026年1—9月 · 同比")
+                +item("归母净利润","parent_profit","2026年1—9月 · 同比")
+                +f'<div class="kpi-card"><span class="label">营业毛利率（计算）</span><strong>{margin("current"):.2f}%</strong><span class="change neg">{delta:+.2f} pp</span><small>收入减成本 / 收入，不含金融利息</small></div>'
+                +item("经营现金流净额","operating_cash_flow","含集团财务公司业务"))
+    if report["issuer_id"] == "tencent":
+        unit = report["unit"]
+        signals = [
+            ("营业收入", money(v["revenue"]["values"]["current"],unit), "亿元",
+             yoy_label(yoy(v["revenue"])), "2026 Q3 · 同比2025 Q3"),
+            ("IFRS归母净利润", money(v["attributable_profit"]["values"]["current"],unit), "亿元",
+             yoy_label(yoy(v["attributable_profit"])), "报告准则利润；非调整口径"),
+            ("Non-IFRS经营利润", money(v["non_ifrs_operating_profit"]["values"]["current"],unit), "亿元",
+             yoy_label(yoy(v["non_ifrs_operating_profit"])), "经调整；不同于IFRS经营利润"),
+            ("应计资本开支", money(v["accrual_capex"]["values"]["current"],unit), "亿元",
+             yoy_label(yoy(v["accrual_capex"])), "非资本开支现金付款额")
+        ]
+        return "".join(
+            f'<div class="kpi-card"><span class="label">{H(name)}</span>'
+            f'<strong>{H(value)}<small style="display:inline;font-size:13px;margin-left:5px">{H(unit_name)}</small></strong>'
+            f'<span class="change {"neg" if change.startswith("-") else ""}">{H(change)}</span><small>{H(foot)}</small></div>'
+            for name,value,unit_name,change,foot in signals
+        )
     growth = yoy(v["revenue"])
     margin = lambda term, p: v[term]["values"][p] / v["revenue"]["values"][p] * 100
     m_curr, m_prior = margin("gross_profit", "current"), margin("gross_profit", "prior")
@@ -186,7 +213,7 @@ def kpi_cards(report):
 
 def figures_markup(report, report_path):
     asset_folder = DIST / Path(report_path).parent / "assets"
-    if report["unit"] == "CNY_fen":
+    if report["issuer_id"] == "moutai":
         from src.moutai import charts
         figure_list = charts(report, asset_folder)
     else:
@@ -201,7 +228,7 @@ def figures_markup(report, report_path):
             f'<h3>{H(fig["title"])}</h3><p>{H(fig["caption"])}</p>'
             f'<div class="figure-scroll"><img loading="lazy" src="{img}" '
             f'alt="{H(fig["title"] + "。图中数值均来自财报，详见来源页和下方数据表。")}" '
-            f'width="1040" height="426"></div>'
+            f'width="{fig.get("width",1040)}" height="{fig.get("height",426)}"></div>'
             f'<figcaption>{H(fig["caption"])}。所有图表均不使用外部市场估值数据。</figcaption>'
             + pages_html(report, fig["pages"]) + "</figure>"
         )
@@ -209,18 +236,27 @@ def figures_markup(report, report_path):
 
 
 def metric_tables(report):
-    if report["unit"] == "CNY_fen":
+    if report["issuer_id"] == "moutai":
         rows=[]
         for key,m in report["values"].items():
             a,b=m["source_values"]["prior"],m["source_values"]["current"]
             unit="万元" if m["source_unit"]=="CNY_10000" else "元"
-            change="—" if m["comparison"]!="2025/2026 Jan-Sep" else yoy_label(yoy(m))
-            rows.append(f'<tr data-metric-row="{H(m["label"]+" "+key)}"><th scope="row">{H(m["label"])}</th><td>{H(a if a is not None else "—")}</td><td>{H(b if b is not None else "—")}</td><td>{unit}</td><td>{H(m["comparison"])}</td><td>{change}</td><td><a href="{source_link(report,m["page"])}">p.{m["page"]}</a></td></tr>')
-        return '<div class="table-wrap"><table><caption>原始披露数值 · 单位及期间逐行标明</caption><thead><tr><th>项目</th><th>比较期</th><th>本期</th><th>人民币单位</th><th>期间</th><th>同比</th><th>来源</th></tr></thead><tbody>'+"".join(rows)+"</tbody></table></div>"
+            change=yoy_label(yoy(m)) if m["comparison"]=="2025/2026 Jan-Sep" else "—"
+            rows.append(
+                f'<tr data-metric-row="{H(m["label"]+" "+key)}"><th scope="row">{H(m["label"])}</th>'
+                f'<td>{H(a if a is not None else "—")}</td><td>{H(b if b is not None else "—")}</td>'
+                f'<td>{H(unit)}</td><td>{H(m["comparison"])}</td><td>{change}</td>'
+                f'<td><a href="{source_link(report,m["page"])}" target="_blank" rel="noopener noreferrer">p.{m["page"]}</a></td></tr>')
+        return ('<div class="table-wrap"><table><caption>财报原始精确数值 · 金额不预先四舍五入</caption>'
+            '<thead><tr><th>项目</th><th>比较期</th><th>本期</th><th>单位</th><th>比较口径</th><th>变化</th><th>财报页码</th></tr></thead><tbody>'
+            + "".join(rows)+"</tbody></table></div>")
     finance, users = [], []
+    term = "H1" if report["period_type"] == "h1" else report["period_type"].upper()
+    prior_label = str(report["year"]-1)+" "+term
+    current_label = str(report["year"])+" "+term
     for key, m in report["values"].items():
-        target = users if m.get("unit") == "thousand_users" else finance
-        unit = "千人" if m.get("unit") == "thousand_users" else "人民币千元"
+        target = users if m.get("unit") in ("thousand_users","million_users") else finance
+        unit = {"thousand_users":"千人","million_users":"百万人"}.get(m.get("unit"),report["unit_display"])
         a, b = m["values"]["prior"], m["values"]["current"]
         if a is None or b is None:
             change = "—"
@@ -241,14 +277,14 @@ def metric_tables(report):
         )
     output = []
     for title, rows, unit in (
-        ("合并财务与业务分部", finance, "人民币千元"),
-        ("用户运营指标", users, "千人"),
+        ("合并财务与业务分部", finance, report["unit_display"]),
+        ("用户运营指标", users, "百万人" if report["issuer_id"]=="tencent" else "千人"),
     ):
         output.append(
             '<div class="table-wrap"><table>'
             '<caption>' + H(title) + " · " + H(unit) + '</caption>'
-            '<thead><tr><th scope="col">项目</th><th scope="col">2025 H1</th>'
-            '<th scope="col">2026 H1</th><th scope="col">同比</th>'
+            '<thead><tr><th scope="col">项目</th><th scope="col">' + H(prior_label) + '</th>'
+            '<th scope="col">' + H(current_label) + '</th><th scope="col">同比</th>'
             '<th scope="col">原文页码 (2026 / 2025)</th></tr></thead><tbody>'
             + "".join(rows) + "</tbody></table></div>"
         )
@@ -265,7 +301,7 @@ def report_page(report, issuer, tax):
             f'<h3>{H(item["title"])}</h3><p>{H(item["body"])}</p>'
             + pages_html(report, item["pages"]) + "</section>"
         )
-    period = str(report["year"]) + (" H1" if report["period_type"]=="h1" else " Q3 · 1—9月累计")
+    period = str(report["year"]) + (" H1" if report["period_type"] == "h1" else (" Q3 · 1—9月累计" if report["issuer_id"] == "moutai" else " Q3"))
     content = template(
         "report", home_href=H(link(path, "index.html")),
         issuer_href=H(link(path, f'companies/{report["issuer_id"]}/index.html')),
@@ -278,13 +314,32 @@ def report_page(report, issuer, tax):
         currency_label=H(report["currency"]),source_unit=H(report["unit_display"]),
         comparison_text=H(report["comparison_period_start"]+" 至 "+report["comparison_period_end"]+" / "+report["period_start"]+" 至 "+report["period_end"]),
         accounting_text=H(report["source"]["statement"]),
-        approval_text=H(("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。"),
+        approval_text=H(("公告发布日期："+report["publication_date"]+"；未经审计中期财务资料已由核数师审阅。") if report.get("publication_date") else (("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。")),
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
         figures=figures_markup(report,path), metric_tables=metric_tables(report)
     )
+    if report.get("analysis_sections"):
+        chapters=['<section class="block" id="deep-analysis"><div class="section-head"><div><p class="kicker">04 / DEEP RESEARCH</p><h2>调查笔记：数据驱动的投资问题</h2><p>先列可核算事实，再明确管理层解释、分析推论与尚未披露的信息。</p></div></div>']
+        for idx,section in enumerate(report["analysis_sections"],1):
+            chapters.append('<div class="figure-card"><p class="kicker">RESEARCH NOTE '+f'{idx:02d}'+'</p><h3>'+H(section["heading"])+'</h3>')
+            for paragraph in section["body"]:
+                chapters.append('<p style="font-size:14px;color:#334c50;line-height:1.95">'+H(paragraph)+'</p>')
+            chapters.append(pages_html(report,section["pages"])+'</div>')
+        chapters.append('</section>')
+        content=content.replace('<section class="block" id="source-table">',"".join(chapters)+'<section class="block" id="source-table">')
+        content=content.replace('<a href="#source-table">财务表格</a>', '<a href="#deep-analysis">深度研究</a><a href="#source-table">财务表格</a>')
     if report.get("research_context"):
-        context = "<section class='block'><h2>外部研究与边界</h2>" + "".join(f'<p><a href="{H(x["url"])}">{H(x["note"])}</a></p>' for x in report["research_context"]) + "</section>"
-        content=content.replace("</article>",context+"</article>")
+        blocks=['<section class="block" id="research-context"><div class="section-head"><div><p class="kicker">CONTEXT / ATTRIBUTED COMMENTARY</p><h2>行业与外部研究视角</h2><p>仅作为外部观点，不属于公司公告事实；不得直接代替实证判断。</p></div></div><div class="method-grid">']
+        for q in report["research_context"]:
+            blocks.append('<div><h3><a target="_blank" rel="noopener noreferrer" href="'+H(q["url"])+'">'+H(q.get("title","外部研究"))+'</a></h3><p>'+H(q["note"])+'</p></div>')
+        blocks.append('</div></section>')
+        content=content.replace('</article>',"".join(blocks)+'</article>')
+    if report.get("external_research"):
+        research = ['<section class="block" id="external-research"><div class="section-head"><div><p class="kicker">06 / INDEPENDENT CONTEXT</p><h2>外部调查与反证</h2><p>第三方资料并非港交所披露；只用于对照市场预期及管理层问答。</p></div></div><div class="method-grid">']
+        for ext in report["external_research"]:
+            research.append('<div><h3><a target="_blank" rel="noopener noreferrer" href="'+H(ext["url"])+'">'+H(ext["label"])+'</a></h3><p>'+H(ext["publisher"])+' · '+H(ext["date"])+'</p><p>'+H(ext["note"])+'</p></div>')
+        research.append('</div><p>本研究的判断属于分析而非管理层指引。财报未单独披露云服务营收规模或AI新品单项损益，故不外推。</p></section>')
+        content += "".join(research)
     structured = {
         "@context":"https://schema.org","@type":"Article",
         "headline":report["title"],"description":report["description"],
@@ -295,10 +350,7 @@ def report_page(report, issuer, tax):
     }
     if report.get("publication_date"):
         structured["datePublished"] = report["publication_date"]
-    if not published(report):
-        content=content.replace("<header class='report-hero'>","<header class='report-hero'>")
-        content=content.replace("<h1>","<p>研究草稿 · 未发布</p><h1>",1)
-    page(path,report["title"],report["description"],content,structured if published(report) else None)
+    page(path,report["title"],report["description"],content,structured)
 
 
 def main():
@@ -314,7 +366,7 @@ def main():
     reports = []
     for f in sorted((ROOT / "data/reports").glob("*/*.json")):
         item = json.loads(f.read_text(encoding="utf-8"))
-        if published(item) or (os.environ.get("ATLAS_PREVIEW_DRAFTS") == "1" and item["status"] == "draft"):
+        if published(item):
             reports.append(item)
     reports.sort(key=lambda r: (r["period_end"],r["report_id"]),reverse=True)
     if DIST.exists():
@@ -404,7 +456,7 @@ def main():
     sitemap+="".join("  <url><loc>"+H(u)+"</loc></url>\n" for u in urls)+"</urlset>\n"
     mkdir_file("sitemap.xml",sitemap)
     mkdir_file("robots.txt","User-agent: *\nAllow: /\nSitemap: "+BASE_URL+"sitemap.xml\n")
-    print(f"PASS: generated {len(PAGES)} pages, {len(reports)} reports, {len(issuers)} issuers, vector assets")
+    print(f"PASS: generated {len(PAGES)} pages, {len(reports)} reports, {len(issuers)} issuers, 8 vector figures/report")
 
 
 if __name__ == "__main__":

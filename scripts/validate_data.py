@@ -59,7 +59,7 @@ def errors_for_report(r, issuers, taxonomy):
           "invalid audit/review status")
     check(urlparse(source.get("url","")).scheme == "https", "primary filing URL must be https")
     check(source.get("pdf_page_offset") is not None, "PDF page offset required")
-    check(r["unit"] in ("CNY_thousand","CNY_million","HKD_thousand","USD_thousand"),
+    check(r["unit"] in ("CNY_thousand","CNY_million","CNY_fen","HKD_thousand","USD_thousand"),
           "unexpected amount unit")
     check(isinstance(r["values"],dict) and bool(r["values"]), "metric dictionary missing")
     for key,m in r["values"].items():
@@ -75,9 +75,9 @@ def errors_for_report(r, issuers, taxonomy):
             check(key2 in ("prior","current") and isinstance(page,int) and page>0,
                   "bad per-period printed page: " + key)
     v = r["values"]
-    if r["unit"] == "CNY_fen":
+    if rid == "moutai-2026-q3":
         from src.moutai import reconciliation_errors
-        return errs + [rid + ": " + e for e in reconciliation_errors(r)]
+        return errs + [rid+": "+x for x in reconciliation_errors(r)]
     def val(key,period):
         return v[key]["values"][period]
     def eq(expression,value,label,period):

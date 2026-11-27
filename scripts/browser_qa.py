@@ -12,7 +12,8 @@ def run():
     from playwright.sync_api import sync_playwright
     targets=[("index.html",None),
              ("reports/index.html","report-search"),
-             ("reports/xindong/2026-h1/index.html","metric-search")]
+             ("reports/xindong/2026-h1/index.html","metric-search"),
+             ("reports/tencent/2026-q3/index.html","tencent-metric-search")]
     if (DIST/"reports/moutai/2026-q3/index.html").exists():
         targets.append(("reports/moutai/2026-q3/index.html","metric-search"))
     sizes=[(1440,900),(768,1024),(390,844),(360,800)]
@@ -53,7 +54,8 @@ def run():
                             if page.locator("[data-filter-container] [data-search]:visible").count()!=1:
                                 issues.append("archive filtering did not restore matching card")
                         else:
-                            page.locator("#metric-search").fill("研发")
+                            term="资本开支" if search=="tencent-metric-search" else "研发"
+                            page.locator("#metric-search").fill(term)
                             count=page.locator("[data-metric-row]:visible").count()
                             if count!=1:issues.append("metric search returned "+str(count))
                             page.locator("#metric-search").fill("")
@@ -64,7 +66,7 @@ def run():
                             dl=event.value
                             if not dl.suggested_filename.endswith(".csv"):
                                 issues.append("CSV download filename invalid")
-                            dl.save_as(output/"financial-metrics.csv")
+                            dl.save_as(output/("financial-metrics-tencent.csv" if search=="tencent-metric-search" else "financial-metrics-xindong.csv"))
                             page.emulate_media(media="print")
                     filename=relative.replace("/","_").replace(".html","")
                     page.screenshot(path=str(output/f"{filename}-{width}.png"),full_page=False)
