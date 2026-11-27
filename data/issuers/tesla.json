@@ -1,0 +1,15 @@
+{
+  "id": "tesla",
+  "legal_name": "Tesla, Inc.",
+  "name": "特斯拉",
+  "english_name": "Tesla, Inc.",
+  "ticker": "TSLA",
+  "market": "nasdaq",
+  "sector": "industrial",
+  "country": "美国",
+  "currency": "USD",
+  "description": "电动汽车、储能与能源系统制造商，扩展自动驾驶软件、Robotaxi 和机器人业务。",
+  "website": "https://www.tesla.com/",
+  "listing_url": "https://www.nasdaq.com/market-activity/stocks/tsla",
+  "status": "active"
+}
