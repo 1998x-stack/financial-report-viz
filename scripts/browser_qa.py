@@ -13,6 +13,7 @@ def run():
     targets=[("index.html",None),
              ("reports/index.html","report-search"),
              ("reports/xindong/2026-h1/index.html","metric-search"),
+             ("reports/tencent/2026-q3/index.html","tencent-metric-search"),
              ("concepts/index.html","concept-search"),
              ("concepts/accounting-equation/index.html","concept-detail"),
              ("concepts/pe-ratio/index.html","concept-detail")]
@@ -55,24 +56,25 @@ def run():
                                 issues.append("archive filtering did not restore matching card")
                         elif search=="concept-search":
                             cards=page.locator("[data-glossary-card]")
-                            if cards.count()!=100:issues.append("concept index must show 100 cards")
+                            if cards.count()!=100:issues.append("concept index must show exactly 100 cards")
                             page.locator("#concept-search").fill("ROE")
                             n=page.locator("[data-glossary-card]:visible").count()
-                            if n<1:issues.append("no search result for ROE")
+                            if n<1:issues.append("concept search missing ROE")
                             page.locator("#concept-search").fill("")
                             page.locator('[data-glossary-filter="cash"]').click()
                             n=page.locator("[data-glossary-card]:visible").count()
-                            if n!=10:issues.append("cash chapter filter should display ten concepts, got "+str(n))
+                            if n!=10:issues.append("cash chapter filter expected ten terms, got "+str(n))
                             page.locator('[data-glossary-filter="all"]').click()
                         elif search=="concept-detail":
                             if page.locator(".glossary-figure img").count()!=1:
-                                issues.append("concept page must include one original SVG")
+                                issues.append("missing concept visual SVG")
                             if page.locator(".glossary-equation").count()!=1:
                                 issues.append("concept formula missing")
                             if page.locator(".glossary-related-card").count()<2:
-                                issues.append("related concept links missing")
+                                issues.append("concept related links missing")
                         else:
-                            page.locator("#metric-search").fill("研发")
+                            term="资本开支" if search=="tencent-metric-search" else "研发"
+                            page.locator("#metric-search").fill(term)
                             count=page.locator("[data-metric-row]:visible").count()
                             if count!=1:issues.append("metric search returned "+str(count))
                             page.locator("#metric-search").fill("")
@@ -83,7 +85,7 @@ def run():
                             dl=event.value
                             if not dl.suggested_filename.endswith(".csv"):
                                 issues.append("CSV download filename invalid")
-                            dl.save_as(output/"financial-metrics.csv")
+                            dl.save_as(output/("financial-metrics-tencent.csv" if search=="tencent-metric-search" else "financial-metrics-xindong.csv"))
                             page.emulate_media(media="print")
                     filename=relative.replace("/","_").replace(".html","")
                     page.screenshot(path=str(output/f"{filename}-{width}.png"),full_page=False)
