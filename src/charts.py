@@ -266,6 +266,9 @@ FIGURES=[
 
 
 def build_figures(report, out_dir):
+    if report.get("issuer_id") == "tesla":
+        from src.tesla_charts import build_tesla_figures
+        return build_tesla_figures(report, out_dir)
     if report.get('issuer_id') == 'tencent':
         from src.charts_tencent import build_figures as tencent_figures
         return tencent_figures(report, out_dir)

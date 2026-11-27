@@ -1,0 +1,702 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "tesla-2026-q3",
+  "issuer_id": "tesla",
+  "slug": "2026-q3",
+  "title": "特斯拉 2026 Q3：毛利修复与算力投资的利润拉锯",
+  "short_title": "Tesla · 2026 Q3",
+  "description": "从 Tesla 33 页官方财报和 SEC 10-Q 出发，以收入归因瀑布图、利润桥、现金流、交付与 FSD、资产负债 SVG 拆解 2026 年第三季度经营变化。",
+  "status": "published",
+  "language": "zh-CN",
+  "year": 2026,
+  "period_type": "q3",
+  "period_start": "2026-07-01",
+  "period_end": "2026-09-30",
+  "comparison_period_start": "2025-07-01",
+  "comparison_period_end": "2025-09-30",
+  "review_approval_date": null,
+  "publication_date": "2026-10-21",
+  "source": {
+    "url": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q3-2026-Update.pdf",
+    "title": "Tesla Q3 2026 Update（33 页）",
+    "pdf_pages": 33,
+    "pdf_page_offset": 0,
+    "statement": "Tesla 2026 Q3 股东季度更新，依美国 GAAP 编制的未经审计合并季度财务数据；报表金额为百万美元，股数等项目另有说明。SEC 原始 10-Q：https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm",
+    "source_type": "primary_issuer_report",
+    "accounting_standard": "US GAAP",
+    "assurance": "unaudited"
+  },
+  "currency": "USD",
+  "unit": "USD_million",
+  "unit_display": "百万美元",
+  "topics": [
+    "growth",
+    "profitability",
+    "segments",
+    "cash-flow",
+    "users"
+  ],
+  "keywords": [
+    "Tesla",
+    "TSLA",
+    "特斯拉",
+    "2026 Q3",
+    "汽车",
+    "储能",
+    "FSD",
+    "Robotaxi",
+    "自由现金流"
+  ],
+  "narrative": {
+    "eyebrow": "NASDAQ TSLA / 2026 THIRD QUARTER",
+    "lead": "营收与去年同期基本持平，却出现毛利回升、营业利润下滑的背离；汽车与储能收入下降被服务收入增长抵消，研发和股权激励等成本继续挤压营业利润。季度经营现金流稳定，但资本开支翻倍令自由现金流骤降。",
+    "findings": [
+      {
+        "title": "汽车、能源两项收入下降，服务板块补位",
+        "body": "汽车收入同比减少 6.45 亿美元，能源收入减少 5.34 亿美元；服务及其他增加 11.30 亿美元，几乎完全抵消前两项下滑。管理层将汽车表现部分归因于交付量、ASP 和监管积分收入下降；服务增长与充电、保险和零部件业务相关。以上驱动解释来自公司管理层，并非独立因果识别。",
+        "pages": [
+          4,
+          25,
+          27
+        ]
+      },
+      {
+        "title": "毛利增 8.7%，营业利润却降 55.8%",
+        "body": "毛利润同比增加 4.40 亿美元，而营业费用多出 13.46 亿美元，主要源于研发费用增长 11.31 亿美元及销售行政费用增长。汽车扣除监管积分后的毛利率由 15.4% 升至 18.1%；该值属于公司披露的 Non-GAAP 口径，不能和 GAAP 毛利率混称。",
+        "pages": [
+          4,
+          25,
+          27,
+          30
+        ]
+      },
+      {
+        "title": "现金未枯竭，但投资周期更吃现金",
+        "body": "经营现金流 62.63 亿美元，与去年同期基本相当；资本开支从 22.48 亿增至 47.32 亿美元，自由现金流从 39.90 亿降至 15.31 亿。年末投资与机器人产能能否变现尚不确定；现金与短期投资合计为 454.47 亿美元，并不代表可以无约束支配。",
+        "pages": [
+          4,
+          28,
+          29,
+          31
+        ]
+      }
+    ]
+  },
+  "quarterly_series": {
+    "periods": [
+      "2025 Q3",
+      "2025 Q4",
+      "2026 Q1",
+      "2026 Q2",
+      "2026 Q3"
+    ],
+    "revenue": [
+      28095,
+      24901,
+      22387,
+      28236,
+      28046
+    ],
+    "gross_profit": [
+      5054,
+      5009,
+      4720,
+      4751,
+      5494
+    ],
+    "operating_profit": [
+      1624,
+      1409,
+      941,
+      398,
+      718
+    ],
+    "operating_cash_flow": [
+      6238,
+      3813,
+      3937,
+      4697,
+      6263
+    ],
+    "capital_expenditures": [
+      2248,
+      2393,
+      2493,
+      5789,
+      4732
+    ],
+    "free_cash_flow": [
+      3990,
+      1420,
+      1444,
+      -1092,
+      1531
+    ],
+    "source_pages": [
+      4,
+      27,
+      31
+    ],
+    "unit": "USD_million",
+    "status": "reported"
+  },
+  "secondary_context": [
+    {
+      "date": "2026-10-19",
+      "source": "Tesla company-compiled Q3 analyst consensus",
+      "url": "https://ir.tesla.com/press-release/earnings-consensus-third-quarter-2026",
+      "detail": "发布前卖方平均预期收入 28,341 百万美元、营业利润 721 百万美元、资本开支 7,771 百万美元、自由现金流 -4,506 百万美元。公司明确不为分析师预期背书；预期非报告业绩。"
+    },
+    {
+      "date": "2026-10-22",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/autos-transportation/tesla-drops-spending-pullback-clouds-ai-robotics-ambitions-2026-10-22/",
+      "detail": "报道强调 2026 年资本开支目标下修带来的争论；其解读与 Tesla 披露的历史数字分开使用。"
+    }
+  ],
+  "values": {
+    "revenue": {
+      "label": "总营收",
+      "values": {
+        "prior": 28095,
+        "current": 28046
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "automotive_revenue": {
+      "label": "汽车业务收入",
+      "values": {
+        "prior": 21205,
+        "current": 20560
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "automotive_sales": {
+      "label": "整车销售收入",
+      "values": {
+        "prior": 20359,
+        "current": 20094
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "regulatory_credits": {
+      "label": "汽车监管积分收入",
+      "values": {
+        "prior": 417,
+        "current": 113
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "automotive_leasing": {
+      "label": "汽车租赁收入",
+      "values": {
+        "prior": 429,
+        "current": 353
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "energy_revenue": {
+      "label": "能源生产与储能收入",
+      "values": {
+        "prior": 3415,
+        "current": 2881
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "services_revenue": {
+      "label": "服务及其他收入",
+      "values": {
+        "prior": 3475,
+        "current": 4605
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "cost_of_revenue": {
+      "label": "总收入成本",
+      "values": {
+        "prior": 23041,
+        "current": 22552
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "automotive_cost": {
+      "label": "汽车收入成本",
+      "values": {
+        "prior": 17590,
+        "current": 16754
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "energy_cost": {
+      "label": "能源储能收入成本",
+      "values": {
+        "prior": 2342,
+        "current": 1927
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "services_cost": {
+      "label": "服务及其他收入成本",
+      "values": {
+        "prior": 3109,
+        "current": 3871
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "gross_profit": {
+      "label": "毛利润",
+      "values": {
+        "prior": 5054,
+        "current": 5494
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "operating_expenses": {
+      "label": "营业费用合计",
+      "values": {
+        "prior": 3430,
+        "current": 4776
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "research_development": {
+      "label": "研发费用",
+      "values": {
+        "prior": 1630,
+        "current": 2761
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "selling_general_admin": {
+      "label": "销售、一般与行政费用",
+      "values": {
+        "prior": 1562,
+        "current": 2015
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "restructuring_other": {
+      "label": "重组及其他费用",
+      "values": {
+        "prior": 238,
+        "current": null
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "operating_profit": {
+      "label": "营业利润",
+      "values": {
+        "prior": 1624,
+        "current": 718
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "interest_income": {
+      "label": "利息收入",
+      "values": {
+        "prior": 439,
+        "current": 445
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "interest_expense": {
+      "label": "利息费用",
+      "values": {
+        "prior": 76,
+        "current": 90
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "other_income_net": {
+      "label": "其他收入（费用）净额",
+      "values": {
+        "prior": -28,
+        "current": -117
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "profit_before_tax": {
+      "label": "税前利润",
+      "values": {
+        "prior": 1959,
+        "current": 956
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "income_tax_expense": {
+      "label": "所得税费用",
+      "values": {
+        "prior": 570,
+        "current": 152
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "period_profit": {
+      "label": "净利润（含少数股东）",
+      "values": {
+        "prior": 1389,
+        "current": 804
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "noncontrolling_profit": {
+      "label": "少数股东等归属利润",
+      "values": {
+        "prior": 16,
+        "current": 17
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "attributable_profit": {
+      "label": "GAAP 普通股股东应占净利润",
+      "values": {
+        "prior": 1373,
+        "current": 787
+      },
+      "page": 27,
+      "kind": "reported"
+    },
+    "non_gaap_attributable_profit": {
+      "label": "Non-GAAP 归母净利润",
+      "values": {
+        "prior": 1770,
+        "current": 1697
+      },
+      "page": 30,
+      "kind": "reported"
+    },
+    "stock_comp_net_tax": {
+      "label": "Non-GAAP 调整：股权激励（税后）",
+      "values": {
+        "prior": 459,
+        "current": 982
+      },
+      "page": 30,
+      "kind": "reported"
+    },
+    "digital_asset_adjustment": {
+      "label": "Non-GAAP 调整：数字资产未实现损益（税后）",
+      "values": {
+        "prior": -62,
+        "current": -224
+      },
+      "page": 30,
+      "kind": "reported"
+    },
+    "spacex_investment_adjustment": {
+      "label": "Non-GAAP 调整：投资未实现损益（税后）",
+      "values": {
+        "prior": null,
+        "current": 108
+      },
+      "page": 30,
+      "kind": "reported"
+    },
+    "certain_tax_adjustment": {
+      "label": "Non-GAAP 调整：特定税项",
+      "values": {
+        "prior": null,
+        "current": 44
+      },
+      "page": 30,
+      "kind": "reported"
+    },
+    "adjusted_ebitda": {
+      "label": "Adjusted EBITDA (Non-GAAP)",
+      "values": {
+        "prior": 4227,
+        "current": 3900
+      },
+      "page": 30,
+      "kind": "reported"
+    },
+    "operating_cash_flow": {
+      "label": "经营活动现金流",
+      "values": {
+        "prior": 6238,
+        "current": 6263
+      },
+      "page": 29,
+      "kind": "reported"
+    },
+    "capital_expenditures": {
+      "label": "资本开支（绝对值）",
+      "values": {
+        "prior": 2248,
+        "current": 4732
+      },
+      "page": 29,
+      "kind": "reported"
+    },
+    "free_cash_flow": {
+      "label": "自由现金流（Non-GAAP）",
+      "values": {
+        "prior": 3990,
+        "current": 1531
+      },
+      "page": 4,
+      "kind": "reported"
+    },
+    "investing_cash_flow": {
+      "label": "投资活动现金流净额",
+      "values": {
+        "prior": -4355,
+        "current": -3977
+      },
+      "page": 29,
+      "kind": "reported"
+    },
+    "financing_cash_flow": {
+      "label": "筹资活动现金流净额",
+      "values": {
+        "prior": 983,
+        "current": 327
+      },
+      "page": 29,
+      "kind": "reported"
+    },
+    "cash_and_investments": {
+      "label": "现金、现金等价物与短期投资",
+      "values": {
+        "prior": 41647,
+        "current": 45447
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "total_current_assets": {
+      "label": "流动资产合计",
+      "values": {
+        "prior": 64653,
+        "current": 70402
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "accounts_receivable": {
+      "label": "应收账款净额",
+      "values": {
+        "prior": 4703,
+        "current": 4636
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "inventory": {
+      "label": "存货",
+      "values": {
+        "prior": 12276,
+        "current": 14092
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "pp_and_e": {
+      "label": "固定资产净额",
+      "values": {
+        "prior": 39407,
+        "current": 50591
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "total_assets": {
+      "label": "总资产",
+      "values": {
+        "prior": 133735,
+        "current": 157517
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "total_current_liabilities": {
+      "label": "流动负债",
+      "values": {
+        "prior": 31290,
+        "current": 40492
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "total_liabilities": {
+      "label": "总负债",
+      "values": {
+        "prior": 53019,
+        "current": 67628
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "total_stockholders_equity": {
+      "label": "归属于公司股东权益",
+      "values": {
+        "prior": 79970,
+        "current": 89289
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "noncontrolling_equity": {
+      "label": "少数股东权益",
+      "values": {
+        "prior": 687,
+        "current": 546
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "redeemable_noncontrolling_equity": {
+      "label": "可赎回少数股东权益",
+      "values": {
+        "prior": 59,
+        "current": 54
+      },
+      "page": 28,
+      "kind": "reported"
+    },
+    "total_production": {
+      "label": "汽车产量",
+      "values": {
+        "prior": 447450,
+        "current": 464391
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "vehicles"
+    },
+    "total_deliveries": {
+      "label": "汽车交付量",
+      "values": {
+        "prior": 497099,
+        "current": 486532
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "vehicles"
+    },
+    "model_3_y_deliveries": {
+      "label": "Model 3/Y 交付量",
+      "values": {
+        "prior": 481166,
+        "current": 478237
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "vehicles"
+    },
+    "other_models_deliveries": {
+      "label": "其他车型交付量",
+      "values": {
+        "prior": 15933,
+        "current": 8295
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "vehicles"
+    },
+    "fsd_active_subscriptions": {
+      "label": "活跃 FSD 订阅（百万）",
+      "values": {
+        "prior": 1.04,
+        "current": 1.74
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "million_subscriptions"
+    },
+    "energy_deployed": {
+      "label": "储能部署（GWh）",
+      "values": {
+        "prior": 12.5,
+        "current": 13.7
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "GWh"
+    },
+    "global_inventory_days": {
+      "label": "全球新车库存天数",
+      "values": {
+        "prior": 10,
+        "current": 11
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "days"
+    },
+    "supercharger_stations": {
+      "label": "超级充电站数量",
+      "values": {
+        "prior": 7753,
+        "current": 8904
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "stations"
+    },
+    "supercharger_connectors": {
+      "label": "超级充电桩接口",
+      "values": {
+        "prior": 73817,
+        "current": 84465
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "connectors"
+    }
+  },
+  "consensus": {
+    "as_of": "2026-10-19",
+    "url": "https://ir.tesla.com/press-release/earnings-consensus-third-quarter-2026",
+    "items": [
+      {
+        "key": "revenue",
+        "label": "营业收入",
+        "mean": 28341,
+        "actual": 28046
+      },
+      {
+        "key": "operating_profit",
+        "label": "营业利润",
+        "mean": 721,
+        "actual": 718
+      },
+      {
+        "key": "capital_expenditures",
+        "label": "资本开支（支出绝对值）",
+        "mean": 7771,
+        "actual": 4732
+      },
+      {
+        "key": "free_cash_flow",
+        "label": "自由现金流",
+        "mean": -4506,
+        "actual": 1531
+      }
+    ]
+  }
+}
