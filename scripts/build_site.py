@@ -159,6 +159,9 @@ def money(v, unit="CNY_thousand"):
 
 
 def kpi_cards(report):
+    if report.get("issuer_id") == "yuncong":
+        from src.yuncong import kpi_cards as yuncong_kpi
+        return yuncong_kpi(report)
     if report.get("issuer_id") == "tesla":
         from src.tesla_page import kpi_cards as tesla_kpi
         return tesla_kpi(report)
@@ -243,6 +246,9 @@ def figures_markup(report, report_path):
 
 
 def metric_tables(report):
+    if report.get("issuer_id") == "yuncong":
+        from src.yuncong import metric_tables as yuncong_tables
+        return yuncong_tables(report, source_link)
     if report.get("issuer_id") == "tesla":
         from src.tesla_page import metric_tables as tesla_table
         return tesla_table(report,source_link)
@@ -311,7 +317,7 @@ def report_page(report, issuer, tax):
             f'<h3>{H(item["title"])}</h3><p>{H(item["body"])}</p>'
             + pages_html(report, item["pages"]) + "</section>"
         )
-    period = str(report["year"]) + (" H1" if report["period_type"] == "h1" else (" Q3 · 1—9月累计" if report["issuer_id"] == "moutai" else " Q3"))
+    period = str(report["year"]) + (" H1" if report["period_type"] == "h1" else (" Q3 · 1—9月累计" if report["issuer_id"] in ("moutai","yuncong") else " Q3"))
     content = template(
         "report", home_href=H(link(path, "index.html")),
         issuer_href=H(link(path, f'companies/{report["issuer_id"]}/index.html')),
@@ -324,10 +330,17 @@ def report_page(report, issuer, tax):
         currency_label=H(report["currency"]),source_unit=H(report["unit_display"]),
         comparison_text=H(report["comparison_period_start"]+" 至 "+report["comparison_period_end"]+" / "+report["period_start"]+" 至 "+report["period_end"]),
         accounting_text=H(report["source"]["statement"]),
-        approval_text=H(("公告日期："+report["publication_date"]+"；US GAAP 季度报表未经审计。") if report["issuer_id"]=="tesla" else ("公告发布日期："+report["publication_date"]+"；未经审计中期财务资料已由核数师审阅。") if report.get("publication_date") else (("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。")),
+        approval_text=H(("公告发布日期："+str(report["publication_date"])+"；董事会落款："+str(report["review_approval_date"])+"；2026年三季报未经审计。") if report["issuer_id"]=="yuncong" else ("公告日期："+report["publication_date"]+"；US GAAP 季度报表未经审计。") if report["issuer_id"]=="tesla" else ("公告发布日期："+report["publication_date"]+"；未经审计中期财务资料已由核数师审阅。") if report.get("publication_date") else (("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。")),
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
         figures=figures_markup(report,path), metric_tables=metric_tables(report)
     )
+    if report["issuer_id"] == "yuncong":
+        from src.yuncong import cross_filing_block
+        content=content.replace("增长之后，利润为何承压？","收入下行，减亏质量如何？")
+        content=content.replace("非 IFRS 调整后利润与报表期内利润分开。管理层对业务原因的描述须注明来源。",
+                                "三季报为未经审计中国企业会计准则财务报表；研发投入不等于研发费用；期末存量指标不是九个月同比。管理层对收入下降的解释需归因标注。")
+        content=content.replace("</article>", cross_filing_block(report)+"</article>")
+        content=content.replace('<a href="#source-table">财务表格</a>','<a href="#cross-filings">跨期资料</a><a href="#source-table">财务表格</a>')
     if report["issuer_id"] == "tesla":
         from src.tesla_page import research_block
         content = content.replace("独立矢量图，金额使用人民币亿元；精确数值保存在下方的原始指标表。",

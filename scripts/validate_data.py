@@ -65,7 +65,7 @@ def errors_for_report(r, issuers, taxonomy):
     check(isinstance(r["values"],dict) and bool(r["values"]), "metric dictionary missing")
     for key,m in r["values"].items():
         check(bool(re.fullmatch("[a-z][a-z0-9_]*",key)), "bad metric key " + key)
-        check(m.get("kind") == "reported", "actual report metrics must be source-reported: "+key)
+        check(m.get("kind") == "reported" or (rid == "yuncong-2026-q3" and key == "gross_profit" and m.get("kind") == "derived" and m.get("formula") == "revenue - cost_of_revenue"), "actual report metrics must be source-reported (except explicitly derived gross profit): "+key)
         check(isinstance(m.get("label"),str) and bool(m.get("label")), "label missing: "+key)
         check(isinstance(m.get("page"),int) and 1 <= m["page"] <= source.get("pdf_pages",9999),
               "bad source printed page: "+key)
@@ -77,6 +77,9 @@ def errors_for_report(r, issuers, taxonomy):
             check(key2 in ("prior","current") and isinstance(page,int) and page>0,
                   "bad per-period printed page: " + key)
     v = r["values"]
+    if rid == "yuncong-2026-q3":
+        from src.yuncong import reconciliation_errors
+        return errs + [rid+": "+x for x in reconciliation_errors(r)]
     if rid == "moutai-2026-q3":
         from src.moutai import reconciliation_errors
         return errs + [rid+": "+x for x in reconciliation_errors(r)]
