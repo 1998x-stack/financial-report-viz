@@ -34,7 +34,8 @@ def run():
                             if msg.type=="error" else None)
                     page.goto((DIST/relative).as_uri(),wait_until="load")
                     page.locator("main h1").wait_for()
-                    page.wait_for_timeout(50)
+                    page.locator("img").evaluate_all("(imgs) => imgs.forEach(img => img.loading = 'eager')")
+                    page.wait_for_function("Array.from(document.images).every(img => img.complete)", timeout=15000)
                     overflow=page.evaluate(
                         "()=>document.documentElement.scrollWidth-window.innerWidth")
                     if overflow>2:issues.append("horizontal document overflow: "+str(overflow))
