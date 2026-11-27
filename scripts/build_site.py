@@ -155,6 +155,12 @@ def money(v):
 
 def kpi_cards(report):
     v = report["values"]
+    if report["unit"] == "CNY_fen":
+        def n(k,p="current"): return v[k]["values"][p]
+        def card(label,k):
+            return f'<div class="kpi-card"><span class="label">{label}</span><strong>{n(k)/1e10:,.2f}<small>亿元</small></strong><span>{yoy_label(yoy(v[k]))}</span><small>同比 · 九个月</small></div>'
+        margin=lambda p:100*(1-n("cost_of_revenue",p)/n("revenue",p))
+        return card("营业收入","revenue")+card("归母净利润","parent_profit")+f'<div class="kpi-card"><span class="label">营业毛利率（计算）</span><strong>{margin("current"):.2f}%</strong><span>{margin("current")-margin("prior"):+.2f} pp</span></div>'+card("经营现金流","operating_cash_flow")
     growth = yoy(v["revenue"])
     margin = lambda term, p: v[term]["values"][p] / v["revenue"]["values"][p] * 100
     m_curr, m_prior = margin("gross_profit", "current"), margin("gross_profit", "prior")
@@ -180,7 +186,11 @@ def kpi_cards(report):
 
 def figures_markup(report, report_path):
     asset_folder = DIST / Path(report_path).parent / "assets"
-    figure_list = build_figures(report, asset_folder)
+    if report["unit"] == "CNY_fen":
+        from src.moutai import charts
+        figure_list = charts(report, asset_folder)
+    else:
+        figure_list = build_figures(report, asset_folder)
     parts = []
     for i, fig in enumerate(figure_list, 1):
         p = fig["filename"]
@@ -199,6 +209,14 @@ def figures_markup(report, report_path):
 
 
 def metric_tables(report):
+    if report["unit"] == "CNY_fen":
+        rows=[]
+        for key,m in report["values"].items():
+            a,b=m["source_values"]["prior"],m["source_values"]["current"]
+            unit="万元" if m["source_unit"]=="CNY_10000" else "元"
+            change="—" if m["comparison"]!="2025/2026 Jan-Sep" else yoy_label(yoy(m))
+            rows.append(f'<tr data-metric-row="{H(m["label"]+" "+key)}"><th scope="row">{H(m["label"])}</th><td>{H(a if a is not None else "—")}</td><td>{H(b if b is not None else "—")}</td><td>{unit}</td><td>{H(m["comparison"])}</td><td>{change}</td><td><a href="{source_link(report,m["page"])}">p.{m["page"]}</a></td></tr>')
+        return '<div class="table-wrap"><table><caption>原始披露数值 · 单位及期间逐行标明</caption><thead><tr><th>项目</th><th>比较期</th><th>本期</th><th>人民币单位</th><th>期间</th><th>同比</th><th>来源</th></tr></thead><tbody>'+"".join(rows)+"</tbody></table></div>"
     finance, users = [], []
     for key, m in report["values"].items():
         target = users if m.get("unit") == "thousand_users" else finance
@@ -247,7 +265,7 @@ def report_page(report, issuer, tax):
             f'<h3>{H(item["title"])}</h3><p>{H(item["body"])}</p>'
             + pages_html(report, item["pages"]) + "</section>"
         )
-    period = str(report["year"]) + " H1"
+    period = str(report["year"]) + (" H1" if report["period_type"]=="h1" else " Q3 · 1—9月累计")
     content = template(
         "report", home_href=H(link(path, "index.html")),
         issuer_href=H(link(path, f'companies/{report["issuer_id"]}/index.html')),
@@ -264,6 +282,9 @@ def report_page(report, issuer, tax):
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
         figures=figures_markup(report,path), metric_tables=metric_tables(report)
     )
+    if report.get("research_context"):
+        context = "<section class='block'><h2>外部研究与边界</h2>" + "".join(f'<p><a href="{H(x["url"])}">{H(x["note"])}</a></p>' for x in report["research_context"]) + "</section>"
+        content=content.replace("</article>",context+"</article>")
     structured = {
         "@context":"https://schema.org","@type":"Article",
         "headline":report["title"],"description":report["description"],
@@ -274,7 +295,10 @@ def report_page(report, issuer, tax):
     }
     if report.get("publication_date"):
         structured["datePublished"] = report["publication_date"]
-    page(path,report["title"],report["description"],content,structured)
+    if not published(report):
+        content=content.replace("<header class='report-hero'>","<header class='report-hero'>")
+        content=content.replace("<h1>","<p>研究草稿 · 未发布</p><h1>",1)
+    page(path,report["title"],report["description"],content,structured if published(report) else None)
 
 
 def main():
@@ -290,7 +314,7 @@ def main():
     reports = []
     for f in sorted((ROOT / "data/reports").glob("*/*.json")):
         item = json.loads(f.read_text(encoding="utf-8"))
-        if published(item):
+        if published(item) or (os.environ.get("ATLAS_PREVIEW_DRAFTS") == "1" and item["status"] == "draft"):
             reports.append(item)
     reports.sort(key=lambda r: (r["period_end"],r["report_id"]),reverse=True)
     if DIST.exists():
@@ -380,7 +404,7 @@ def main():
     sitemap+="".join("  <url><loc>"+H(u)+"</loc></url>\n" for u in urls)+"</urlset>\n"
     mkdir_file("sitemap.xml",sitemap)
     mkdir_file("robots.txt","User-agent: *\nAllow: /\nSitemap: "+BASE_URL+"sitemap.xml\n")
-    print(f"PASS: generated {len(PAGES)} pages, {len(reports)} reports, {len(issuers)} issuers, 8 vector figures/report")
+    print(f"PASS: generated {len(PAGES)} pages, {len(reports)} reports, {len(issuers)} issuers, vector assets")
 
 
 if __name__ == "__main__":

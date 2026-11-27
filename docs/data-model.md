@@ -39,3 +39,5 @@ https://img.xdcdn.net/xdwp/2026/10/20261009091224167.pdf
 Primary figures: financial highlights printed p.5; segment revenue p.9 and notes pp.68-69; consolidated income p.49; operating cash p.58; operation users p.5; geography p.70. Reporting basis: IFRS/IAS 34, reviewed interim financial information (unaudited). Board approval/reviewer date August 28, 2026 (pp.47,53), **not asserted as publication date**.
 
 No fictitious peer, valuation band, price, revenue forecasts or company's unpublished user data should be added.
+### Moutai Q3 extension
+For CNY_fen reports, `values` are integer fen to preserve exact two-decimal CNY yuan values and allow integer reconciliation. `source_values` stores exact printed decimal strings with `source_unit` (CNY_yuan or CNY_10000); `comparison` disambiguates YTD, standalone quarter and point-in-time comparisons. Gross profit is calculated, not stored as reported. Draft previews are enabled only with ATLAS_PREVIEW_DRAFTS=1; do not deploy them.
