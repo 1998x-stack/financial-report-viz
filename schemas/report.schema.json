@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Financial Report Atlas report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "report_id",
+    "issuer_id",
+    "slug",
+    "title",
+    "status",
+    "language",
+    "year",
+    "period_type",
+    "period_start",
+    "period_end",
+    "comparison_period_start",
+    "comparison_period_end",
+    "source",
+    "currency",
+    "unit",
+    "topics",
+    "values"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "report_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "issuer_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(fy|h1|q1|q3)$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 8
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "published"
+      ]
+    },
+    "language": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 2000
+    },
+    "period_type": {
+      "enum": [
+        "fy",
+        "h1",
+        "q1",
+        "q3"
+      ]
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "comparison_period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "comparison_period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_approval_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "publication_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "unit": {
+      "enum": [
+        "CNY_thousand",
+        "HKD_thousand",
+        "USD_thousand"
+      ]
+    },
+    "topics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "url",
+        "title",
+        "pdf_page_offset",
+        "accounting_standard",
+        "assurance"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        },
+        "pdf_page_offset": {
+          "type": "integer"
+        },
+        "accounting_standard": {
+          "type": "string"
+        },
+        "assurance": {
+          "enum": [
+            "audited",
+            "reviewed_unaudited",
+            "unaudited",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "values": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "label",
+          "values",
+          "page",
+          "kind"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "kind": {
+            "enum": [
+              "reported",
+              "derived",
+              "estimate"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "values": {
+            "type": "object",
+            "required": [
+              "prior",
+              "current"
+            ],
+            "properties": {
+              "prior": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "current": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

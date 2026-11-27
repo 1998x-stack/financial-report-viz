@@ -1,0 +1,467 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "xindong-2026-h1",
+  "issuer_id": "xindong",
+  "slug": "2026-h1",
+  "title": "心动公司 2026 中期财报：收入增长与利润回落之间",
+  "short_title": "心动公司 · 2026 H1",
+  "description": "拆解心动公司 2026 年上半年营收、游戏与 TapTap 分部、毛利与利润桥、现金流以及用户指标，并逐项链接原始财报。",
+  "status": "published",
+  "language": "zh-CN",
+  "year": 2026,
+  "period_type": "h1",
+  "period_start": "2026-01-01",
+  "period_end": "2026-06-30",
+  "comparison_period_start": "2025-01-01",
+  "comparison_period_end": "2025-06-30",
+  "review_approval_date": "2026-08-28",
+  "publication_date": null,
+  "source": {
+    "url": "https://img.xdcdn.net/xdwp/2026/10/20261009091224167.pdf",
+    "title": "心动有限公司 2026 年中期报告",
+    "pdf_pages": 110,
+    "pdf_page_offset": 1,
+    "statement": "IAS 34 中期简明合并财务资料；经核数师审阅，但未经审计；所有金额除注明外为人民币千元。",
+    "source_type": "primary_issuer_report",
+    "accounting_standard": "IFRS / IAS 34",
+    "assurance": "reviewed_unaudited"
+  },
+  "currency": "CNY",
+  "unit": "CNY_thousand",
+  "unit_display": "人民币千元",
+  "topics": [
+    "growth",
+    "profitability",
+    "segments",
+    "cash-flow",
+    "users",
+    "geography"
+  ],
+  "keywords": [
+    "心动",
+    "TapTap",
+    "2400",
+    "中期报告",
+    "游戏",
+    "2026"
+  ],
+  "narrative": {
+    "eyebrow": "HKEX 2400 / 2026 INTERIM",
+    "lead": "增长仍在继续，但利润未同步扩张。上半年游戏分部贡献新增收入，TapTap 平台收入略降；毛利率随收入成本上升而回落。",
+    "findings": [
+      {
+        "title": "营收增 7.5%，利润降 10.6%",
+        "body": "游戏分部收入同比增长 11.9%，抵消了 TapTap 平台约 1.6% 的收入下降。由于收入成本、研发和所得税开支增加，期内利润下降。",
+        "pages": [
+          5,
+          9,
+          49
+        ]
+      },
+      {
+        "title": "游戏分部成为收入增量的主要来源",
+        "body": "公司将游戏收入增长主要归因于《心动小镇》《火炬之光：无限》及《星痕共鸣》等游戏表现；该解释来自管理层讨论，而非逐款产品收入披露。",
+        "pages": [
+          10
+        ]
+      },
+      {
+        "title": "经营现金流增长，但不等于净利润",
+        "body": "经营活动现金净额由 6.32 亿元升至 7.12 亿元；同期净利润从 8.11 亿元降至 7.24 亿元，二者受到营运资本与非现金项目等差异影响。",
+        "pages": [
+          49,
+          58
+        ]
+      }
+    ]
+  },
+  "values": {
+    "revenue": {
+      "label": "营业收入",
+      "values": {
+        "prior": 3081986,
+        "current": 3312235
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "cost_of_revenue": {
+      "label": "收入成本",
+      "values": {
+        "prior": 829228,
+        "current": 982950
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "gross_profit": {
+      "label": "毛利润",
+      "values": {
+        "prior": 2252758,
+        "current": 2329285
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "period_profit": {
+      "label": "期内利润",
+      "values": {
+        "prior": 810596,
+        "current": 724312
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "attributable_profit": {
+      "label": "归属公司权益持有人利润",
+      "values": {
+        "prior": 754856,
+        "current": 714297
+      },
+      "page": 50,
+      "kind": "reported"
+    },
+    "adjusted_profit": {
+      "label": "经调整期内利润（非 IFRS）",
+      "values": {
+        "prior": 852855,
+        "current": 783510
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "adjusted_attributable_profit": {
+      "label": "经调整归母利润（非 IFRS）",
+      "values": {
+        "prior": 795650,
+        "current": 771984
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "selling_marketing": {
+      "label": "销售及营销开支",
+      "values": {
+        "prior": 743857,
+        "current": 769500
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "research_development": {
+      "label": "研发开支",
+      "values": {
+        "prior": 548871,
+        "current": 639233
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "general_admin": {
+      "label": "一般及行政开支",
+      "values": {
+        "prior": 125983,
+        "current": 138210
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "impairment_reversal_net": {
+      "label": "金融资产减值拨回／（亏损）净额",
+      "values": {
+        "prior": -3476,
+        "current": 2858
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "other_income": {
+      "label": "其他收入",
+      "values": {
+        "prior": 17187,
+        "current": 54246
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "other_gains_net": {
+      "label": "其他收益净额",
+      "values": {
+        "prior": 13603,
+        "current": 6673
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "operating_profit": {
+      "label": "经营利润",
+      "values": {
+        "prior": 861361,
+        "current": 846119
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "finance_income_net": {
+      "label": "财务收入净额",
+      "values": {
+        "prior": 18389,
+        "current": 15731
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "equity_method_result": {
+      "label": "权益法投资结果份额",
+      "values": {
+        "prior": 938,
+        "current": 2470
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "profit_before_tax": {
+      "label": "税前利润",
+      "values": {
+        "prior": 880688,
+        "current": 864320
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "income_tax_expense": {
+      "label": "所得税开支",
+      "values": {
+        "prior": 70092,
+        "current": 140008
+      },
+      "page": 49,
+      "kind": "reported"
+    },
+    "game_revenue": {
+      "label": "游戏分部收入",
+      "values": {
+        "prior": 2071260,
+        "current": 2317903
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "taptap_revenue": {
+      "label": "TapTap 平台分部收入",
+      "values": {
+        "prior": 1010726,
+        "current": 994332
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "game_cost": {
+      "label": "游戏分部收入成本",
+      "values": {
+        "prior": 663812,
+        "current": 835161
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "taptap_cost": {
+      "label": "TapTap 分部收入成本",
+      "values": {
+        "prior": 165416,
+        "current": 147789
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "game_gross_profit": {
+      "label": "游戏分部毛利润",
+      "values": {
+        "prior": 1407448,
+        "current": 1482742
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "taptap_gross_profit": {
+      "label": "TapTap 分部毛利润",
+      "values": {
+        "prior": 845310,
+        "current": 846543
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "network_games": {
+      "label": "网络游戏收入",
+      "values": {
+        "prior": 1982085,
+        "current": 2199821
+      },
+      "page": 9,
+      "kind": "reported"
+    },
+    "paid_games": {
+      "label": "付费游戏收入",
+      "values": {
+        "prior": 63028,
+        "current": 82529
+      },
+      "page": 9,
+      "kind": "reported"
+    },
+    "game_other": {
+      "label": "游戏业务其他收入",
+      "values": {
+        "prior": 26147,
+        "current": 35553
+      },
+      "page": 9,
+      "kind": "reported"
+    },
+    "platform_promotion": {
+      "label": "TapTap 在线推广服务收入",
+      "values": {
+        "prior": 976083,
+        "current": 972321
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "platform_other": {
+      "label": "TapTap 其他收入",
+      "values": {
+        "prior": 34643,
+        "current": 22011
+      },
+      "page": 68,
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
+    },
+    "operating_cash_flow": {
+      "label": "经营活动所得现金净额",
+      "values": {
+        "prior": 631618,
+        "current": 711934
+      },
+      "page": 58,
+      "kind": "reported"
+    },
+    "investing_cash_flow": {
+      "label": "投资活动现金净额",
+      "values": {
+        "prior": -80364,
+        "current": -74122
+      },
+      "page": 58,
+      "kind": "reported"
+    },
+    "financing_cash_flow": {
+      "label": "融资活动现金净额",
+      "values": {
+        "prior": -350494,
+        "current": -520052
+      },
+      "page": 58,
+      "kind": "reported"
+    },
+    "cash_and_equivalents": {
+      "label": "期末现金及现金等价物",
+      "values": {
+        "prior": 2971628,
+        "current": 3778775
+      },
+      "page": 58,
+      "kind": "reported"
+    },
+    "network_games_mau": {
+      "label": "网络游戏平均月活跃用户",
+      "values": {
+        "prior": 11409,
+        "current": 12548
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "thousand_users"
+    },
+    "network_games_mpu": {
+      "label": "网络游戏平均月付费用户",
+      "values": {
+        "prior": 1322,
+        "current": 1440
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "thousand_users"
+    },
+    "taptap_cn_mau": {
+      "label": "TapTap 中国版平均月活跃用户",
+      "values": {
+        "prior": 43625,
+        "current": 45397
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "thousand_users"
+    },
+    "taptap_global_mau": {
+      "label": "TapTap 国际版平均月活跃用户",
+      "values": {
+        "prior": 5020,
+        "current": 3115
+      },
+      "page": 5,
+      "kind": "reported",
+      "unit": "thousand_users"
+    },
+    "mainland_game_revenue": {
+      "label": "中国内地游戏运营收入",
+      "values": {
+        "prior": 1029406,
+        "current": 799741
+      },
+      "page": 70,
+      "kind": "reported"
+    },
+    "overseas_game_revenue": {
+      "label": "其他地区游戏运营收入",
+      "values": {
+        "prior": 1015707,
+        "current": 1482609
+      },
+      "page": 70,
+      "kind": "reported"
+    }
+  }
+}

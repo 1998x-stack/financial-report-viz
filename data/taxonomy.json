@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "sectors": [
+    {
+      "id": "gaming-digital-platforms",
+      "name": "游戏与数字平台",
+      "description": "游戏研发发行、游戏平台及相关数字服务"
+    },
+    {
+      "id": "internet-services",
+      "name": "互联网服务",
+      "description": "非游戏互联网及平台服务"
+    },
+    {
+      "id": "consumer",
+      "name": "消费与零售",
+      "description": "消费品、零售与服务"
+    },
+    {
+      "id": "technology",
+      "name": "科技与软件",
+      "description": "软件、硬件及信息技术"
+    },
+    {
+      "id": "industrial",
+      "name": "工业与制造",
+      "description": "制造、设备与工程"
+    }
+  ],
+  "markets": [
+    {
+      "id": "hkex",
+      "name": "香港交易所",
+      "description": "香港上市证券"
+    },
+    {
+      "id": "sse",
+      "name": "上海证券交易所",
+      "description": "上海上市证券"
+    },
+    {
+      "id": "szse",
+      "name": "深圳证券交易所",
+      "description": "深圳上市证券"
+    },
+    {
+      "id": "nasdaq",
+      "name": "NASDAQ",
+      "description": "纳斯达克上市证券"
+    },
+    {
+      "id": "nyse",
+      "name": "NYSE",
+      "description": "纽约证券交易所上市证券"
+    }
+  ],
+  "periods": [
+    {
+      "id": "h1",
+      "name": "中期报告",
+      "description": "上半年六个月期间"
+    },
+    {
+      "id": "fy",
+      "name": "年度报告",
+      "description": "完整财政年度"
+    },
+    {
+      "id": "q1",
+      "name": "第一季度",
+      "description": "独立或累计区间须特别注明"
+    },
+    {
+      "id": "q3",
+      "name": "第三季度",
+      "description": "独立或累计区间须特别注明"
+    }
+  ],
+  "topics": [
+    {
+      "id": "growth",
+      "name": "收入增长",
+      "description": "规模与同比变化"
+    },
+    {
+      "id": "profitability",
+      "name": "盈利质量",
+      "description": "利润率与费用结构"
+    },
+    {
+      "id": "segments",
+      "name": "业务分部",
+      "description": "分部收入、毛利贡献与结构"
+    },
+    {
+      "id": "cash-flow",
+      "name": "现金流",
+      "description": "经营现金、投资及融资"
+    },
+    {
+      "id": "users",
+      "name": "运营用户",
+      "description": "活跃、付费及区域用户数据"
+    },
+    {
+      "id": "geography",
+      "name": "区域结构",
+      "description": "收入地区构成"
+    },
+    {
+      "id": "valuation",
+      "name": "估值研究",
+      "description": "需要独立可溯源市场数据"
+    }
+  ]
+}
