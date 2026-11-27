@@ -69,3 +69,22 @@ python scripts/check_site.py
 python scripts/browser_qa.py  # optional, requires playwright and Chromium
 python -m http.server 8000 -d dist
 ```
+
+
+## New publication system: financial concept encyclopedia (100 + 1)
+
+The site has two separate editorial systems: (1) real company report analysis under data/reports with original source citations and (2) general financial education under data/concepts.json with **synthetic illustrative examples only**. Never copy illustration values into real company financial statements, market quotes, or peer claims.
+
+The initial glossary is an editor-curated sequence of exactly 100 concepts in 10 chapters. Numbers 001–100 indicate **learning order**, not empirically measured term-frequency rankings. The single source is data/concepts.json; src/concepts.py deterministically generates 100 concept HTMLs, 100 original standalone SVG assets, and one overview HTML. Never edit generated dist/.
+
+### Agents editing concepts MUST
+
+1. Read docs/concepts.md, schemas/concepts.schema.json, and the upstream Financial-Visualization SKILL. Respect boundaries between teaching explanations and verified issuer facts.
+2. Preserve stable English slugs, chapter IDs and 101 canonical URLs. A correction is a data edit plus regression test; never renumber silently.
+3. Each concept needs a precise Chinese/English name, tailored diagram, real financial relationship/formula, example inputs, one unique common pitfall and contextual links.
+4. Mathematical truth is a release blocker: an accounting equation or bridge must reconcile; no zero denominator; percentages vs multiples vs days must be labeled accurately. Do not present educational prices as real-time quotes.
+5. Run python scripts/validate_concepts.py, python -m unittest discover -s tests -v, python scripts/build_site.py, python scripts/check_site.py and python scripts/browser_qa.py. CI should confirm **exactly 101 glossary HTML pages and 100 standalone glossary SVGs** in addition to existing report pages.
+6. Verify keyboard-accessible search/category controls, real mobile browser widths, local SVG exports, print style and offline mode. If unavailable, report not verified rather than claiming pass.
+7. Do not use fuzzy matching to link concepts to real company facts. A future verified metric-to-concept map should be explicit and audited.
+
+Financial concept definitions are simplified for education; IFRS, US GAAP, industry and period differences should be called out. Readers must consult the original issuer disclosure when analyzing a real report.
