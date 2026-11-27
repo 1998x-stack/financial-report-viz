@@ -14,6 +14,7 @@ def run():
              ("reports/index.html","report-search"),
              ("reports/xindong/2026-h1/index.html","metric-search"),
              ("reports/tencent/2026-q3/index.html","tencent-metric-search"),
+             ("reports/tesla/2026-q3/index.html","tesla-metric-search"),
              ("concepts/index.html","concept-search"),
              ("concepts/accounting-equation/index.html","concept-detail"),
              ("concepts/pe-ratio/index.html","concept-detail")]
@@ -75,7 +76,7 @@ def run():
                             if page.locator(".glossary-related-card").count()<2:
                                 issues.append("concept related links missing")
                         else:
-                            term="资本开支" if search=="tencent-metric-search" else "研发"
+                            term="资本开支" if search=="tencent-metric-search" else "研发费用" if search=="tesla-metric-search" else "研发"
                             page.locator("#metric-search").fill(term)
                             count=page.locator("[data-metric-row]:visible").count()
                             if count!=1:issues.append("metric search returned "+str(count))
@@ -87,7 +88,7 @@ def run():
                             dl=event.value
                             if not dl.suggested_filename.endswith(".csv"):
                                 issues.append("CSV download filename invalid")
-                            dl.save_as(output/("financial-metrics-tencent.csv" if search=="tencent-metric-search" else "financial-metrics-xindong.csv"))
+                            dl.save_as(output/("financial-metrics-"+("tencent" if search=="tencent-metric-search" else "tesla" if search=="tesla-metric-search" else "xindong")+".csv"))
                             page.emulate_media(media="print")
                     filename=relative.replace("/","_").replace(".html","")
                     page.screenshot(path=str(output/f"{filename}-{width}.png"),full_page=False)

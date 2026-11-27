@@ -105,7 +105,8 @@
         "CNY_million",
         "HKD_thousand",
         "USD_thousand",
-        "CNY_fen"
+        "CNY_fen",
+        "USD_million"
       ]
     },
     "topics": {
