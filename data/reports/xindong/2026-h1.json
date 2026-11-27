@@ -245,7 +245,11 @@
         "current": 2317903
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "taptap_revenue": {
       "label": "TapTap 平台分部收入",
@@ -254,7 +258,11 @@
         "current": 994332
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "game_cost": {
       "label": "游戏分部收入成本",
@@ -263,7 +271,11 @@
         "current": 835161
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "taptap_cost": {
       "label": "TapTap 分部收入成本",
@@ -272,7 +284,11 @@
         "current": 147789
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "game_gross_profit": {
       "label": "游戏分部毛利润",
@@ -281,7 +297,11 @@
         "current": 1482742
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "taptap_gross_profit": {
       "label": "TapTap 分部毛利润",
@@ -290,7 +310,11 @@
         "current": 846543
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "network_games": {
       "label": "网络游戏收入",
@@ -326,7 +350,11 @@
         "current": 972321
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "platform_other": {
       "label": "TapTap 其他收入",
@@ -335,7 +363,11 @@
         "current": 22011
       },
       "page": 68,
-      "kind": "reported"
+      "kind": "reported",
+      "pages": {
+        "prior": 69,
+        "current": 68
+      }
     },
     "operating_cash_flow": {
       "label": "经营活动所得现金净额",
