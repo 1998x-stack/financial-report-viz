@@ -1,0 +1,15 @@
+{
+  "id": "tencent",
+  "legal_name": "腾讯控股有限公司",
+  "name": "腾讯控股",
+  "english_name": "Tencent Holdings Limited",
+  "ticker": "0700",
+  "market": "hkex",
+  "sector": "gaming-digital-platforms",
+  "country": "中国",
+  "currency": "CNY",
+  "description": "拥有微信与 WeChat、网络游戏、广告、金融科技与企业服务业务的综合互联网科技集团。",
+  "website": "https://www.tencent.com/",
+  "listing_url": "https://www1.hkexnews.hk/",
+  "status": "active"
+}
