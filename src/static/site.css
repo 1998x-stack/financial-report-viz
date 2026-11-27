@@ -61,3 +61,14 @@ table{border-collapse:collapse;width:100%;min-width:690px;font-size:12px;font-va
 .research-panel h3{font-size:18px}.research-panel p,.evidence-note{font-size:13px;color:var(--muted);line-height:1.85}
 .evidence-note{margin:20px 0}.evidence-note a{color:var(--teal)}
 @media(max-width:860px){.research-grid{grid-template-columns:1fr}}
+
+/* Constrain large disclosure captions and research annotations on narrow screens. */
+@media(max-width:640px){
+ .report-page,.report-hero,.report-page .block,.research-grid,.research-panel,
+ .report-page .figure-card,.report-page .insight-card,.report-page .method-grid>div{
+    min-width:0;max-width:100%;
+ }
+ .report-page p,.report-page figcaption,.report-page a{overflow-wrap:anywhere}
+ .report-page .kpi-card{min-width:0;overflow:hidden}
+ .report-page .kpi-card strong{font-size:clamp(18px,5.5vw,25px)}
+}
