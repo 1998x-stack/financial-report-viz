@@ -307,6 +307,7 @@ def main():
             f'<span>{H(kind_label)} / {len(matches)} 篇<i aria-hidden="true">↗</i></span>'
             f'<strong>{H(item["name"])}</strong><small>{H(item["description"])}</small></a>')
     growth = yoy(chosen["values"]["revenue"])
+    growth = yoy(chosen["values"]["revenue"])
     homepage = template(
         "home",featured_href=H(link("index.html",latest_url)),
         reports_href=H(link("index.html","reports/index.html")),
