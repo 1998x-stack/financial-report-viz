@@ -12,7 +12,10 @@ def run():
     from playwright.sync_api import sync_playwright
     targets=[("index.html",None),
              ("reports/index.html","report-search"),
-             ("reports/xindong/2026-h1/index.html","metric-search")]
+             ("reports/xindong/2026-h1/index.html","metric-search"),
+             ("concepts/index.html","concept-search"),
+             ("concepts/accounting-equation/index.html","concept-detail"),
+             ("concepts/pe-ratio/index.html","concept-detail")]
     sizes=[(1440,900),(768,1024),(390,844),(360,800)]
     output=ROOT/"reports"/"browser"
     output.mkdir(parents=True,exist_ok=True)
@@ -50,6 +53,24 @@ def run():
                             page.locator("#report-search").fill("心动")
                             if page.locator("[data-filter-container] [data-search]:visible").count()!=1:
                                 issues.append("archive filtering did not restore matching card")
+                        elif search=="concept-search":
+                            cards=page.locator("[data-glossary-card]")
+                            if cards.count()!=100:issues.append("concept index must show 100 cards")
+                            page.locator("#concept-search").fill("ROE")
+                            n=page.locator("[data-glossary-card]:visible").count()
+                            if n<1:issues.append("no search result for ROE")
+                            page.locator("#concept-search").fill("")
+                            page.locator('[data-glossary-filter="cash"]').click()
+                            n=page.locator("[data-glossary-card]:visible").count()
+                            if n!=10:issues.append("cash chapter filter should display ten concepts, got "+str(n))
+                            page.locator('[data-glossary-filter="all"]').click()
+                        elif search=="concept-detail":
+                            if page.locator(".glossary-figure img").count()!=1:
+                                issues.append("concept page must include one original SVG")
+                            if page.locator(".glossary-equation").count()!=1:
+                                issues.append("concept formula missing")
+                            if page.locator(".glossary-related-card").count()<2:
+                                issues.append("related concept links missing")
                         else:
                             page.locator("#metric-search").fill("研发")
                             count=page.locator("[data-metric-row]:visible").count()

@@ -117,3 +117,15 @@
 @media(max-width:375px){.glossary-category-grid{grid-template-columns:1fr 1fr}.glossary-category-card{min-height:234px}.glossary-grid{grid-template-columns:1fr}.glossary-card{min-height:170px}}
 @media(prefers-reduced-motion:reduce){.glossary *{scroll-behavior:auto!important;transition:none!important}}
 @media print{.glossary-hero-art,.glossary-filter-row,.glossary-searchbar,.glossary-side,.glossary-prevnext{display:none!important}.glossary-figure-scroll{overflow:visible}.glossary-figure img{min-width:0!important}.glossary-concept-section{break-inside:avoid}}
+
+/* Homepage: integrated encyclopedia feature */
+.glossary-home-promo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:6%;margin:95px 0 0;border:1px solid #dfe8e0;background:#fffdfa}
+.glossary-home-illustration{min-height:355px;padding:27px 31px;background:#19453f;color:#eaf3ed;display:flex;flex-direction:column;justify-content:space-between}
+.glossary-home-illustration>span{font:730 10px system-ui;letter-spacing:.14em;color:#bad4c6}
+.glossary-home-illustration strong{font:300 clamp(100px,10vw,145px)/1 system-ui;letter-spacing:-.08em}
+.glossary-home-illustration p{font:700 10px system-ui;color:#c6d9c9;letter-spacing:.12em}
+.glossary-home-illustration svg{max-width:100%;height:auto}
+.glossary-home-copy{padding:30px 45px 32px 0}.glossary-home-copy h2{font-size:clamp(28px,3.2vw,41px);margin:18px 0}
+.glossary-home-copy p{font-size:14px;line-height:1.9;color:#61706d;margin-bottom:25px}
+@media(max-width:900px){.glossary-home-promo{grid-template-columns:1fr}.glossary-home-copy{padding:22px 26px 34px}.glossary-home-illustration{min-height:260px}}
+@media(max-width:600px){.glossary-home-promo{margin-top:55px}.glossary-home-illustration{padding:24px;min-height:245px}.glossary-home-copy{padding:22px 21px 31px}}
