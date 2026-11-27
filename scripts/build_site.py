@@ -32,8 +32,8 @@ def load(path):
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
 
-def template(name, **data):
-    source = (SRC / "templates" / (name + ".html")).read_text(encoding="utf-8")
+def template(template_name, **data):
+    source = (SRC / "templates" / (template_name + ".html")).read_text(encoding="utf-8")
     return Template(source).substitute(data)
 
 
