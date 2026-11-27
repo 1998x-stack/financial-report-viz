@@ -81,3 +81,39 @@ python -m http.server 8000 -d dist
 心动公司 2026 H1 是 IFRS/IAS 34 经审阅、未经审计的中期信息。收入 33.12 亿元、期内利润 7.24 亿元（同比 +7.5%/-10.6%），提供八张基于披露数据的原创独立 SVG：规模、分部、利润率、详细利润桥、费用、现金流、用户、地区。保留 39 条原始关键指标、来源 PDF 页码、比较期及导出 CSV。未制作缺乏价格来源的 PE/股价图，也不填充伪造的竞争对手数据。
 
 设计和绘图方法参考 Financial-Visualization，但本项目独立编写模板、CSS 和图表。本站数据来自公开发行人报告，本站不镜像源 PDF；研究图解不构成投资建议。
+
+
+## 新增模块：财报概念图鉴 100 + 1
+
+图鉴首页：https://1998x-stack.github.io/financial-report-viz/concepts/
+
+- 会计等式：https://1998x-stack.github.io/financial-report-viz/concepts/accounting-equation/
+- 毛利率：https://1998x-stack.github.io/financial-report-viz/concepts/gross-margin/
+- ROE：https://1998x-stack.github.io/financial-report-viz/concepts/roe/
+- 市盈率：https://1998x-stack.github.io/financial-report-viz/concepts/pe-ratio/
+
+这是一份人工策划的核心 100 概念学习顺序，而非经过统计的金融关键词词频排名。按10个章节展开，每个概念包含中英术语、定义、原生SVG、核心公式、合成数字示例、常见误区、关联导航和独立可分享页面。新增 **100个概念详情HTML + 1个索引HTML**，不覆盖现有财报研究。
+
+| 路径 | 说明 |
+|---|---|
+| data/concepts.json | 100 概念的统一内容来源（含教学数字） |
+| schemas/concepts.schema.json | 机器可检验数据契约 |
+| src/concepts.py | 101 静态页面编译器与八类独立 SVG 生成器 |
+| src/templates/concept-index.html | 分类、搜索、图鉴总览页 |
+| src/templates/concept-detail.html | 单概念详细图解页 |
+| src/static/concepts.css, concepts.js | 视觉设计、搜索与分类交互 |
+| scripts/validate_concepts.py | 校验数量、分类、勾稽、零分母 |
+| tests/test_concepts.py | 100图形可访问性、数值回归测试 |
+| docs/concepts.md | 概念编写、未来扩展和 Agent 边界规范 |
+
+验证：
+
+```bash
+python scripts/validate_concepts.py
+python -m unittest discover -s tests -v
+python scripts/build_site.py
+python scripts/check_site.py
+python scripts/browser_qa.py
+```
+
+所有示例金额、价格、股数均为人工合成的教学案例，不代表发行人公开披露或实时行情。真实财务指标仍需依据原始报表与附注逐项核实。
