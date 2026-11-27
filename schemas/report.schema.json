@@ -102,8 +102,10 @@
     "unit": {
       "enum": [
         "CNY_thousand",
+        "CNY_million",
         "HKD_thousand",
-        "USD_thousand"
+        "USD_thousand",
+        "CNY_fen"
       ]
     },
     "topics": {

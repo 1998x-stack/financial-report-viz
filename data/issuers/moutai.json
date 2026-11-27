@@ -1,0 +1,14 @@
+{
+  "id": "moutai",
+  "legal_name": "贵州茅台酒股份有限公司",
+  "name": "贵州茅台",
+  "ticker": "600519",
+  "market": "sse",
+  "sector": "consumer",
+  "country": "中国",
+  "currency": "CNY",
+  "description": "白酒生产及销售，主要产品为茅台酒和系列酒。",
+  "website": "https://www.moutaichina.com/",
+  "listing_url": "https://www.sse.com.cn/",
+  "status": "active"
+}

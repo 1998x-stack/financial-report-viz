@@ -59,7 +59,7 @@ def errors_for_report(r, issuers, taxonomy):
           "invalid audit/review status")
     check(urlparse(source.get("url","")).scheme == "https", "primary filing URL must be https")
     check(source.get("pdf_page_offset") is not None, "PDF page offset required")
-    check(r["unit"] in ("CNY_thousand","HKD_thousand","USD_thousand"),
+    check(r["unit"] in ("CNY_thousand","CNY_million","HKD_thousand","USD_thousand"),
           "unexpected amount unit")
     check(isinstance(r["values"],dict) and bool(r["values"]), "metric dictionary missing")
     for key,m in r["values"].items():
@@ -75,6 +75,9 @@ def errors_for_report(r, issuers, taxonomy):
             check(key2 in ("prior","current") and isinstance(page,int) and page>0,
                   "bad per-period printed page: " + key)
     v = r["values"]
+    if r["unit"] == "CNY_fen":
+        from src.moutai import reconciliation_errors
+        return errs + [rid + ": " + e for e in reconciliation_errors(r)]
     def val(key,period):
         return v[key]["values"][period]
     def eq(expression,value,label,period):
@@ -136,6 +139,49 @@ def errors_for_report(r, issuers, taxonomy):
             if rid=="xindong-2026-h1":
                 eq(total,200760 if period=="prior" else 117760,
                    "cash flow before currency translation",period)
+    if rid == "tencent-2026-q3":
+        required = ("revenue","cost_of_revenue","gross_profit","period_profit",
+                    "vas_revenue","marketing_revenue","fintech_revenue","other_revenue",
+                    "vas_gross_profit","marketing_gross_profit","fintech_gross_profit","other_gross_profit",
+                    "selling_marketing","general_admin","other_gains_net","operating_profit",
+                    "investments_net_gains","interest_income","finance_costs","equity_method_result",
+                    "profit_before_tax","income_tax_expense","attributable_profit","minority_profit")
+        for key in required:
+            check(key in v, "Tencent required statement key missing: " + key)
+        if all(key in v for key in required):
+            for period in ("prior","current"):
+                valp=lambda k:val(k,period)
+                eq(sum(valp(k+"_revenue") for k in ("vas","marketing","fintech","other")),
+                   valp("revenue"),"four segment revenues",period)
+                eq(sum(valp(k+"_gross_profit") for k in ("vas","marketing","fintech","other")),
+                   valp("gross_profit"),"four segment gross profits",period)
+                eq(valp("gross_profit")-valp("selling_marketing")-valp("general_admin")
+                   +valp("other_gains_net"),valp("operating_profit"),
+                   "Tencent IFRS operating profit",period)
+                eq(valp("operating_profit")+valp("investments_net_gains")+valp("interest_income")
+                   -valp("finance_costs")+valp("equity_method_result"),
+                   valp("profit_before_tax"),"Tencent IFRS pretax profit",period)
+                eq(valp("attributable_profit")+valp("minority_profit"),
+                   valp("period_profit"),"owners plus minority",period)
+        sup=r.get("supplementary",{})
+        cf=sup.get("quarterly_cash_flow_rounded")
+        if cf:
+            eq(cf["operating"]-cf["capex_payments"]-cf["media_payments"]-cf["lease_payments"],
+               cf["free_cash_flow"],"rounded Q3 free cash flow","2026 Q3")
+        else: check(False,"Tencent rounded quarterly cash flow missing")
+        liq=sup.get("liquidity")
+        if liq:
+            for i,p in enumerate(liq["periods"]):
+                eq(liq["cash_and_equivalents"][i]+liq["term_deposits_and_others"][i]
+                   -liq["borrowings"][i]-liq["notes_payable"][i],
+                   liq["net_cash_debt"][i],"net cash/(debt)",p)
+        else: check(False,"Tencent liquidity missing")
+        nine=sup.get("nine_month_cash_flows")
+        if nine:
+            for i,p in enumerate(("2025 9M","2026 9M")):
+                eq(nine["operating"][i]+nine["investing"][i]+nine["financing"][i],
+                   nine["change_in_cash"][i],"nine-month cash change",p)
+        else: check(False,"Tencent 9-month cash flow missing")
     return errs
 
 
