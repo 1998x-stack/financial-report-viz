@@ -87,7 +87,7 @@ def check():
             descs=[a for a in node.iter() if a.tag.endswith("desc")]
             if not titles or not descs:errors.append(str(file)+": missing title/desc")
             content=file.read_text(encoding="utf-8")
-            if re.search(r"(?:https?://|<script|foreignObject)",content,re.I):
+            if "<script" in content or "foreignObject" in content or 'href="http' in content:
                 errors.append(str(file)+": external resource or unsafe markup")
         except ET.ParseError as exc:
             errors.append(str(file)+": SVG invalid XML: "+str(exc))
