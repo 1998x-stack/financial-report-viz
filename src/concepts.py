@@ -379,12 +379,15 @@ def build_glossary(*, data_path, output_dir, template, page, link, canonical, H)
             return (f'<a href="{href}"><small>{label} · {cand["order"]:03d}</small>'
                     f'<strong>{H(cand["title"])}</strong></a>')
         suggestions=_related(c,concepts)
-        related_html="".join(
-            f'<a class="glossary-related-card" href="{H(link(detail,f"concepts/{x["id"]}/index.html"))}">'
-            f'<span>{x["order"]:03d}</span><strong>{H(x["title"])}</strong>'
-            f'<small>{H(x["en"])}</small></a>'
-            for x in suggestions
-        )
+        related_parts=[]
+        for related in suggestions:
+            related_href=H(link(detail,"concepts/"+related["id"]+"/index.html"))
+            related_parts.append(
+                f'<a class="glossary-related-card" href="{related_href}">'
+                f'<span>{related["order"]:03d}</span><strong>{H(related["title"])}</strong>'
+                f'<small>{H(related["en"])}</small></a>'
+            )
+        related_html="".join(related_parts)
         content=template(
             "concept-detail",title=H(c["title"]),english=H(c["en"]),
             chapter_title=H(category["name"]),category_id=H(category["id"]),
