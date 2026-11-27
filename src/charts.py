@@ -266,6 +266,9 @@ FIGURES=[
 
 
 def build_figures(report, out_dir):
+    if report.get("issuer_id") == "tesla":
+        from src.tesla_charts import build_tesla_figures
+        return build_tesla_figures(report, out_dir)
     out_dir=Path(out_dir)
     out_dir.mkdir(parents=True,exist_ok=True)
     created=[]
