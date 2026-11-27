@@ -12,7 +12,8 @@ def run():
     from playwright.sync_api import sync_playwright
     targets=[("index.html",None),
              ("reports/index.html","report-search"),
-             ("reports/xindong/2026-h1/index.html","metric-search")]
+             ("reports/xindong/2026-h1/index.html","metric-search"),
+             ("reports/tesla/2026-q3/index.html","metric-search")]
     sizes=[(1440,900),(768,1024),(390,844),(360,800)]
     output=ROOT/"reports"/"browser"
     output.mkdir(parents=True,exist_ok=True)
