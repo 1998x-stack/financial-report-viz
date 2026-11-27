@@ -1,0 +1,38 @@
+<article class="glossary glossary-detail">
+<nav class="glossary-crumbs" aria-label="当前位置"><a href="$index_href">财报概念图鉴</a><span aria-hidden="true">/</span><a href="$index_href#category-$category_id">$chapter_title</a><span aria-hidden="true">/</span>$title</nav>
+<div class="glossary-detail-grid">
+ <div class="glossary-detail-main">
+  <header class="glossary-concept-hero"><p class="glossary-overline">CONCEPT $order / 100 · $chapter_title</p>
+    <h1>$title</h1><p class="glossary-subtitle">$english</p>
+    <p class="glossary-lead">$description</p>
+    <div class="glossary-concept-metadata"><span>原创 SVG 图解</span><span>概念与公式</span><span>教学示例，不是上市公司数据</span></div>
+  </header>
+  <section class="glossary-concept-section" id="concept-visual"><span class="glossary-section-number">01 / VISUAL EXPLANATION</span>
+   <div class="glossary-section-heading"><h2>先用一张图理解</h2><a href="$svg_href" download="concept.svg" aria-label="下载$title 的独立SVG">下载 SVG ↓</a></div>
+   <figure class="glossary-figure"><div class="glossary-figure-scroll"><img src="$chart_src" alt="$chart_alt" width="1100" height="470" loading="eager"></div>
+   <figcaption>所有示意数值均为合成数据。对于不同量纲、会计项目和时间节点，图中的数值、形状和面积只用于教学，不代表真实披露或保证可加总。</figcaption></figure>
+  </section>
+  <section class="glossary-concept-section" id="concept-formula"><span class="glossary-section-number">02 / THE RELATIONSHIP</span><h2>核心计算与勾稽</h2>
+    <div class="glossary-equation"><span>核心关系 / FORMULA</span><p>$formula</p></div>
+    <p class="glossary-reading-tip">$reading_tip</p>
+  </section>
+  <section class="glossary-concept-section" id="concept-example"><span class="glossary-section-number">03 / WORKED EXAMPLE</span><h2>把数字放进概念里</h2>
+    <p>下表保留本页原创图中的假设数值，帮助对照理解。数值单位依概念情境而定，金额、股数、倍数、天数之间不可直接相加。</p>
+    <div class="glossary-table-wrap"><table><caption>$title · 纯教学示例</caption><thead><tr><th scope="col">示例变量</th><th scope="col">示例数值</th></tr></thead><tbody>$input_rows</tbody></table></div>$example_result
+    <p class="glossary-example-disclaimer">这里不是任何公司的真实财报、未经审计数据或实时市场行情。模型和公式均为入门简化；特别是同比、估值和资本回报的定义需要关注期间和口径。</p>
+  </section>
+  <section class="glossary-concept-section" id="concept-pitfall"><span class="glossary-section-number">04 / COMMON MISREADING</span><h2>最容易误读的地方</h2>
+    <div class="glossary-pitfall"><span>注意 / CAUTION</span><p>$pitfall</p></div>
+    <p>学习概念后，应该回到具体公司的财务报表、会计政策与附注，确认对应的报告主体、会计期间和列报单位。</p>
+    <a href="$report_href" class="glossary-in-report">去已收录财报中练习 →</a>
+  </section>
+  <section class="glossary-concept-section" id="concept-related"><span class="glossary-section-number">05 / CONNECT THE IDEAS</span><h2>继续探索关联概念</h2><div class="glossary-related-grid">$related_cards</div></section>
+  <nav class="glossary-prevnext" aria-label="相邻概念">$prev_link $next_link</nav>
+ </div>
+ <aside class="glossary-side"><div class="glossary-side-inner"><span class="glossary-side-overline">LEARNING PATH</span><div class="glossary-side-count">$order <span>/ 100</span></div>
+   <p>第 $chapter_title 章</p><div class="glossary-side-rule"></div>
+   <a href="#concept-visual">01 视觉图解</a><a href="#concept-formula">02 计算关系</a><a href="#concept-example">03 数字示例</a><a href="#concept-pitfall">04 常见误区</a><a href="#concept-related">05 相关概念</a>
+   <div class="glossary-side-rule"></div><a class="glossary-side-home" href="$index_href">返回 100 个概念总览 ↗</a>
+  </div></aside>
+</div>
+</article>

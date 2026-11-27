@@ -77,8 +77,22 @@ def check():
                     errors.append(str(file)+": JSON-LD lacks @context")
             except ValueError:
                 errors.append(str(file)+": invalid JSON-LD")
+    # A published glossary is exactly 100 detail pages and one index.
+    terms=list((DIST/"concepts").glob("*/index.html"))
+    overview=DIST/"concepts/index.html"
+    if not overview.exists() or len(terms)!=100:
+        errors.append(f"glossary: expected 100 detail HTML + 1 overview, got {len(terms)} details")
+    glossary_svgs=list((DIST/"concepts").glob("*/assets/concept.svg"))
+    if len(glossary_svgs)!=100:
+        errors.append(f"glossary: expected 100 independent SVG files, got {len(glossary_svgs)}")
+    try:
+        glossary=json.loads((DIST/"concepts/catalog.json").read_text(encoding="utf-8"))
+        if len(glossary.get("concepts",[]))!=100 or len(glossary.get("categories",[]))!=10:
+            errors.append("glossary catalog: expected 100 concepts and ten chapters")
+    except Exception as exc:
+        errors.append("glossary catalog: "+str(exc))
     svgs=sorted(DIST.rglob("*.svg"))
-    if len(svgs)<8:errors.append("expected eight original SVG figures in first report")
+    if len(svgs)<108:errors.append("expected 100 educational SVGs and eight original report figures")
     for file in svgs:
         try:
             node=ET.parse(file).getroot()
@@ -107,4 +121,4 @@ if __name__=="__main__":
     if issues:
         for issue in issues:print("ERROR:",issue,file=sys.stderr)
         raise SystemExit(1)
-    print("PASS: local links, metadata, source catalog, accessible SVGs and site structure")
+    print("PASS: local links, JSON-LD, 101 glossary HTMLs, 108 independent SVG assets and original report")
