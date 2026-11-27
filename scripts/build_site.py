@@ -318,7 +318,8 @@ def main():
         report_cards=report_cards("index.html",reports[:6]),
         report_count=len(reports),issuer_count=len({r["issuer_id"] for r in reports}),
         market_count=len({issuers[r["issuer_id"]]["market"] for r in reports}),
-        facet_cards="".join(facet_cards), lead_growth_value=f"{growth:.1f}"
+        facet_cards="".join(facet_cards), lead_growth_value=f"{growth:.1f}",
+        source_repo=GITHUB
     )
     page("index.html","有来源的上市公司财报可视化","源自公开财报的可视化研究，按公司、行业和市场持续归档。",homepage,
          {"@context":"https://schema.org","@type":"CollectionPage",
