@@ -154,6 +154,9 @@ def money(v):
 
 
 def kpi_cards(report):
+    if report.get("issuer_id") == "tesla":
+        from src.tesla_page import kpi_cards as tesla_kpi
+        return tesla_kpi(report)
     v = report["values"]
     growth = yoy(v["revenue"])
     margin = lambda term, p: v[term]["values"][p] / v["revenue"]["values"][p] * 100
@@ -199,6 +202,9 @@ def figures_markup(report, report_path):
 
 
 def metric_tables(report):
+    if report.get("issuer_id") == "tesla":
+        from src.tesla_page import metric_tables as tesla_metrics
+        return tesla_metrics(report, source_link)
     finance, users = [], []
     for key, m in report["values"].items():
         target = users if m.get("unit") == "thousand_users" else finance
@@ -247,7 +253,7 @@ def report_page(report, issuer, tax):
             f'<h3>{H(item["title"])}</h3><p>{H(item["body"])}</p>'
             + pages_html(report, item["pages"]) + "</section>"
         )
-    period = str(report["year"]) + " H1"
+    period = str(report["year"]) + " " + report["period_type"].upper()
     content = template(
         "report", home_href=H(link(path, "index.html")),
         issuer_href=H(link(path, f'companies/{report["issuer_id"]}/index.html')),
@@ -262,7 +268,10 @@ def report_page(report, issuer, tax):
         accounting_text=H(report["source"]["statement"]),
         approval_text=H(("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。"),
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
-        figures=figures_markup(report,path), metric_tables=metric_tables(report)
+        figures=figures_markup(report,path), metric_tables=metric_tables(report),
+        figure_intro=H("独立 SVG · 金额展示为十亿美元，精确原始数据为百万美元；非金额指标保留独立单位。" if report["issuer_id"] == "tesla" else "独立 SVG · 金额单位人民币亿元；精确原始数据保留人民币千元。"),
+        accounting_caveat=H("GAAP 与 Non-GAAP 调整后归母净利润不得混称；FSD 订阅数不等于自动驾驶业务收入；市场一致预期单独注明统计日期与来源。" if report["issuer_id"] == "tesla" else "不包含股价、PE 或市场一致预期等外部数据；非 IFRS 调整后利润与报表期内利润分开。管理层对业务原因的描述须注明来源。"),
+        research_block=(__import__("src.tesla_page", fromlist=["research_block"]).research_block(report) if report["issuer_id"] == "tesla" else "")
     )
     structured = {
         "@context":"https://schema.org","@type":"Article",
