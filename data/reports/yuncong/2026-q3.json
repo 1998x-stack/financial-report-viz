@@ -1,0 +1,931 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "yuncong-2026-q3",
+  "issuer_id": "yuncong",
+  "slug": "2026-q3",
+  "title": "云从科技 2026 三季报：减亏背后的收入收缩与现金压力",
+  "short_title": "云从科技 · 2026 Q3",
+  "status": "published",
+  "language": "zh-CN",
+  "year": 2026,
+  "period_type": "q3",
+  "description": "逐页核验云从科技 2026 年前三季度未经审计财报，以收入、毛利、费用、减值、现金回款、存货和借款的独立 SVG 说明减亏质量。",
+  "period_start": "2026-01-01",
+  "period_end": "2026-09-30",
+  "comparison_period_start": "2025-01-01",
+  "comparison_period_end": "2025-09-30",
+  "review_approval_date": "2026-10-29",
+  "publication_date": "2026-10-31",
+  "source": {
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-10-31/688327_20261031_RMLF.pdf",
+    "alternate_url": "https://static.cninfo.com.cn/finalpage/2026-10-31/1225646462.PDF",
+    "title": "云从科技集团股份有限公司2026年第三季度报告",
+    "pdf_pages": 13,
+    "pdf_page_offset": 0,
+    "accounting_standard": "中国企业会计准则",
+    "assurance": "unaudited",
+    "statement": "中国企业会计准则 · 合并财务报表 · 未经审计。利润和现金流以2026/2025年1—9月同期间比较；资产负债表以2026-09-30对比2025-12-31，非同比。单位披露为人民币元，存储为精确人民币分。"
+  },
+  "currency": "CNY",
+  "unit": "CNY_fen",
+  "unit_display": "人民币元（底层精度为分）",
+  "topics": [
+    "growth",
+    "profitability",
+    "cash-flow"
+  ],
+  "keywords": [
+    "云从科技",
+    "688327",
+    "算力建设",
+    "人工智能",
+    "现金流",
+    "2026三季报"
+  ],
+  "narrative": {
+    "eyebrow": "SSE 688327 / 2026 Q3 · JAN–SEP",
+    "lead": "减亏不是增长复苏的同义词。收入同比下降63.25%，毛利率上升但毛利额下降；归母亏损由3.10亿元收窄到1.02亿元，而经营现金流由正转负。此报告将费用节约、减值变化、回款与融资逐项拆开。",
+    "findings": [
+      {
+        "title": "收入同比 -63.25%，第三季度单季 -83.75%",
+        "body": "前三季度营业收入1.305亿元，去年同期3.552亿元。公司解释：2025年同期部分算力建设类项目集中验收、本期同类项目验收和收入确认规模减少。这是管理层的原因说明，不是本报告独立证实的订单变化。",
+        "pages": [
+          1,
+          3,
+          9
+        ]
+      },
+      {
+        "title": "亏损收窄，但毛利额减少",
+        "body": "归母亏损由3.096亿元收窄至1.021亿元；毛利润由收入减营业成本计算，从0.968亿元降到0.563亿元。费用下降及信用/资产减值损失的变化共同影响利润，不能把减亏全部归因于产品变现改善。",
+        "pages": [
+          9,
+          10
+        ]
+      },
+      {
+        "title": "经营现金流从+0.31亿变-1.19亿",
+        "body": "销售商品及提供劳务收到的现金减少约2.03亿元，购买商品接受劳务支付的现金反而增加约0.57亿元。公司在主要变动说明中将经营现金流下降归因于回款减少。",
+        "pages": [
+          3,
+          12
+        ]
+      },
+      {
+        "title": "存货与短贷同步走高",
+        "body": "存货从2025年末0.489亿元升至2026年9月末1.665亿元，短期借款从1.896亿元升至3.727亿元；这是不同资产负债表时点的变化，不能当作九个月同比。需观察项目验收、库存减值与还本压力。",
+        "pages": [
+          6,
+          7
+        ]
+      }
+    ]
+  },
+  "analysis_sections": [
+    {
+      "heading": "01 / 收入：高基数解释了同比，但不等于验证了未来订单",
+      "body": [
+        "披露事实：2026年1—9月收入130,523,774.29元，同比-63.25%；第三季度单季收入30,260,154.01元，同比-83.75%。管理层将主要原因归于去年同期算力建设类项目集中验收，而本期验收与确认较少（p.3）。",
+        "分析判断：项目制收入确认的季节性可能制造波动，但本期收入弱、固定费用较高是可核算事实；三季报未提供当季分产品收入或可核验的新订单分层，不能从AI行业热度推断公司收入必然回升。"
+      ],
+      "pages": [
+        1,
+        3,
+        9
+      ]
+    },
+    {
+      "heading": "02 / 利润：两类改善要分开",
+      "body": [
+        "披露事实：营业利润较上年同期改善约2.139亿元。毛利润反而减少约0.405亿元；销售、管理、研发三费合计较上年同期下降约1.807亿元；信用减值损失项目改善约0.790亿元，资产减值损失项目改善约0.553亿元。",
+        "研究判断：费用压缩和减值损失变化，对减亏的解释力高于收入增长。信用减值损失本期为正1,327万元，表示当期该项目的净转回/收益效应；不能当成客户现金回款。其他收益本期4,419万元，也不是全部可认定为非经常性政府补助。"
+      ],
+      "pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "heading": "03 / 利润质量：扣非与研发的口径差异",
+      "body": [
+        "披露事实：归母净利润为-102,147,158.64元，扣非归母净利润-126,988,492.80元，二者相差24,841,334.16元（计算值）。三季报披露研发投入合计69,907,093.28元，利润表研发费用64,161,201.14元，两者定义不同，不应混为一项。",
+        "研究判断：扣非后仍亏损，且研发投入同比下降58.76%，需要跟踪技术更新及商业化转化；不能直接从投入下降推定技术水平已经下降。"
+      ],
+      "pages": [
+        1,
+        2,
+        9,
+        10
+      ]
+    },
+    {
+      "heading": "04 / 回款：经营性现金流比会计利润更早暴露压力",
+      "body": [
+        "披露事实：经营活动现金流入同比减少186,184,745.17元，经营现金流出同比减少36,037,105.47元，净额由+31,258,581.22元降到-118,889,058.48元。同期筹资现金流净流入132,307,284.80元，投资净流入20,693,707.26元。",
+        "研究判断：期末现金及现金等价物5.671亿元不代表经营自我造血；融资和投资现金流是期内现金增加的重要来源。账面货币资金5.834亿元不等于不受限现金及现金等价物，应分别列示。"
+      ],
+      "pages": [
+        12,
+        13,
+        6
+      ]
+    },
+    {
+      "heading": "05 / 资产负债：库存上行与债务集中",
+      "body": [
+        "披露事实：2026年9月末存货1.665亿元（2025年末0.489亿元），合同负债0.936亿元（2025年末0.713亿元），短期借款3.727亿元（2025年末1.896亿元），流动负债7.494亿元。",
+        "研究判断：合同负债增加可来自预收款或履约安排，但不等于未来一定实现的收入。存货上升也不能仅凭一个报表判定是订单增长或滞销。应对照后续验收、跌价计提、短债续借与回款。"
+      ],
+      "pages": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "heading": "06 / 情景观察：三个可证伪的后续信号",
+      "body": [
+        "改善情景：未来多个季度的营业收入和毛利润额同步回升，经营现金流转正，存货周转与短期借款压力缓解，意味着减亏更可能来自主营业务。",
+        "压力情景：费用下降接近极限，但项目验收仍低、现金回款不及预期，或库存减值继续发生，将使利润收窄难以持续。两类情景是研究框架，不是公司经营指引或盈利预测。"
+      ],
+      "pages": [
+        3,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13
+      ]
+    }
+  ],
+  "cross_filings": [
+    {
+      "title": "2025年年度报告（已审计）",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225149854.PDF",
+      "date": "2026-04-23",
+      "note": "2025全年营收500,598,522.34元，归母净亏损555,609,808.04元；人工智能解决方案占全年收入82.95%，但该分部结构不能直接等同于2026年Q3。"
+    },
+    {
+      "title": "2026年半年度报告（非三季报口径）",
+      "url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12519497&stockid=688327",
+      "date": "2026-08-21",
+      "note": "2026 H1收入100,263,620.28元；报告在6月末披露未履行/未履行完毕履约义务金额696,568,150.23元，预计2026确认303,203,842.13元。为6月末时点的管理层预计，不是9月末订单，也不能当成保证收入。"
+    },
+    {
+      "title": "2026年提质增效行动方案半年度评估",
+      "url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12519498&stockid=688327",
+      "date": "2026-08",
+      "note": "公司明确强调利润、现金流、客户信用与项目交付条件，并称审慎承接垫资大、回款长的项目；属管理层策略陈述，实际改善仍以现金流验证。"
+    }
+  ],
+  "values": {
+    "revenue": {
+      "label": "营业收入",
+      "values": {
+        "prior": 35519093101,
+        "current": 13052377429
+      },
+      "source_values": {
+        "prior": "355190931.01",
+        "current": "130523774.29"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "cost_of_revenue": {
+      "label": "营业成本",
+      "values": {
+        "prior": 25844006742,
+        "current": 7424526060
+      },
+      "source_values": {
+        "prior": "258440067.42",
+        "current": "74245260.60"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "gross_profit": {
+      "label": "毛利润（计算值）",
+      "values": {
+        "prior": 9675086359,
+        "current": 5627851369
+      },
+      "source_values": {
+        "prior": null,
+        "current": null
+      },
+      "page": 9,
+      "kind": "derived",
+      "formula": "revenue - cost_of_revenue",
+      "inputs": [
+        "revenue",
+        "cost_of_revenue"
+      ],
+      "period_basis": "nine_month"
+    },
+    "total_operating_cost": {
+      "label": "营业总成本",
+      "values": {
+        "prior": 64070593014,
+        "current": 27927967361
+      },
+      "source_values": {
+        "prior": "640705930.14",
+        "current": "279279673.61"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "tax_surcharges": {
+      "label": "税金及附加",
+      "values": {
+        "prior": 127800860,
+        "current": 53806749
+      },
+      "source_values": {
+        "prior": "1278008.60",
+        "current": "538067.49"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "selling_expense": {
+      "label": "销售费用",
+      "values": {
+        "prior": 8625658465,
+        "current": 5846299730
+      },
+      "source_values": {
+        "prior": "86256584.65",
+        "current": "58462997.30"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "administrative_expense": {
+      "label": "管理费用",
+      "values": {
+        "prior": 13658794341,
+        "current": 8184199994
+      },
+      "source_values": {
+        "prior": "136587943.41",
+        "current": "81841999.94"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "rd_expense": {
+      "label": "研发费用",
+      "values": {
+        "prior": 16236484550,
+        "current": 6416120114
+      },
+      "source_values": {
+        "prior": "162364845.50",
+        "current": "64161201.14"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "finance_expense": {
+      "label": "财务费用（可为负）",
+      "values": {
+        "prior": -422151944,
+        "current": 3014714
+      },
+      "source_values": {
+        "prior": "-4221519.44",
+        "current": "30147.14"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "other_income": {
+      "label": "其他收益",
+      "values": {
+        "prior": 10260744594,
+        "current": 4419268251
+      },
+      "source_values": {
+        "prior": "102607445.94",
+        "current": "44192682.51"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "investment_income": {
+      "label": "投资收益",
+      "values": {
+        "prior": 43269314,
+        "current": 556323995
+      },
+      "source_values": {
+        "prior": "432693.14",
+        "current": "5563239.95"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "fair_value_income": {
+      "label": "公允价值变动收益",
+      "values": {
+        "prior": 535022,
+        "current": 2532174
+      },
+      "source_values": {
+        "prior": "5350.22",
+        "current": "25321.74"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "credit_impairment": {
+      "label": "信用减值损失（正数为转回）",
+      "values": {
+        "prior": -6572361907,
+        "current": 1327079606
+      },
+      "source_values": {
+        "prior": "-65723619.07",
+        "current": "13270796.06"
+      },
+      "page": 9,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "asset_impairment": {
+      "label": "资产减值损失",
+      "values": {
+        "prior": -8006482287,
+        "current": -2478346116
+      },
+      "source_values": {
+        "prior": "-80064822.87",
+        "current": "-24783461.16"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "asset_disposal_income": {
+      "label": "资产处置收益",
+      "values": {
+        "prior": 1253576861,
+        "current": 870768751
+      },
+      "source_values": {
+        "prior": "12535768.61",
+        "current": "8707687.51"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "operating_profit": {
+      "label": "营业利润（亏损）",
+      "values": {
+        "prior": -31572218316,
+        "current": -10177963271
+      },
+      "source_values": {
+        "prior": "-315722183.16",
+        "current": "-101779632.71"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "nonoperating_income": {
+      "label": "营业外收入",
+      "values": {
+        "prior": 469135396,
+        "current": 163214976
+      },
+      "source_values": {
+        "prior": "4691353.96",
+        "current": "1632149.76"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "nonoperating_expense": {
+      "label": "营业外支出",
+      "values": {
+        "prior": 48774174,
+        "current": 100548295
+      },
+      "source_values": {
+        "prior": "487741.74",
+        "current": "1005482.95"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "profit_before_tax": {
+      "label": "利润总额",
+      "values": {
+        "prior": -31151857094,
+        "current": -10115296590
+      },
+      "source_values": {
+        "prior": "-311518570.94",
+        "current": "-101152965.90"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "income_tax_expense": {
+      "label": "所得税费用（负数为收益）",
+      "values": {
+        "prior": -49104642,
+        "current": 129807466
+      },
+      "source_values": {
+        "prior": "-491046.42",
+        "current": "1298074.66"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "period_profit": {
+      "label": "净利润（含少数股东）",
+      "values": {
+        "prior": -31102752452,
+        "current": -10245104056
+      },
+      "source_values": {
+        "prior": "-311027524.52",
+        "current": "-102451040.56"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "parent_profit": {
+      "label": "归母净利润",
+      "values": {
+        "prior": -30955525246,
+        "current": -10214715864
+      },
+      "source_values": {
+        "prior": "-309555252.46",
+        "current": "-102147158.64"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "minority_profit": {
+      "label": "少数股东损益",
+      "values": {
+        "prior": -147227206,
+        "current": -30388192
+      },
+      "source_values": {
+        "prior": "-1472272.06",
+        "current": "-303881.92"
+      },
+      "page": 10,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "deducted_parent_profit": {
+      "label": "扣非归母净利润",
+      "values": {
+        "prior": null,
+        "current": -12698849280
+      },
+      "source_values": {
+        "prior": null,
+        "current": "-126988492.80"
+      },
+      "page": 1,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "rd_investment": {
+      "label": "研发投入合计",
+      "values": {
+        "prior": null,
+        "current": 6990709328
+      },
+      "source_values": {
+        "prior": null,
+        "current": "69907093.28"
+      },
+      "page": 2,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "quarter_revenue": {
+      "label": "第三季度单季营业收入",
+      "values": {
+        "prior": null,
+        "current": 3026015401
+      },
+      "source_values": {
+        "prior": null,
+        "current": "30260154.01"
+      },
+      "page": 1,
+      "kind": "reported",
+      "period_basis": "quarter"
+    },
+    "quarter_parent_profit": {
+      "label": "第三季度单季归母净利润",
+      "values": {
+        "prior": null,
+        "current": -2337267106
+      },
+      "source_values": {
+        "prior": null,
+        "current": "-23372671.06"
+      },
+      "page": 1,
+      "kind": "reported",
+      "period_basis": "quarter"
+    },
+    "quarter_rd_investment": {
+      "label": "第三季度单季研发投入",
+      "values": {
+        "prior": null,
+        "current": 1880670806
+      },
+      "source_values": {
+        "prior": null,
+        "current": "18806708.06"
+      },
+      "page": 2,
+      "kind": "reported",
+      "period_basis": "quarter"
+    },
+    "sales_cash_received": {
+      "label": "销售商品、提供劳务收到的现金",
+      "values": {
+        "prior": 53301238136,
+        "current": 33034265027
+      },
+      "source_values": {
+        "prior": "533012381.36",
+        "current": "330342650.27"
+      },
+      "page": 12,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "operating_cash_inflows": {
+      "label": "经营活动现金流入小计",
+      "values": {
+        "prior": 56378128339,
+        "current": 37759653822
+      },
+      "source_values": {
+        "prior": "563781283.39",
+        "current": "377596538.22"
+      },
+      "page": 12,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "goods_cash_paid": {
+      "label": "购买商品、接受劳务支付的现金",
+      "values": {
+        "prior": 27154297214,
+        "current": 32816385562
+      },
+      "source_values": {
+        "prior": "271542972.14",
+        "current": "328163855.62"
+      },
+      "page": 12,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "employee_cash_paid": {
+      "label": "支付给职工及为职工支付的现金",
+      "values": {
+        "prior": 15318832836,
+        "current": 11254573376
+      },
+      "source_values": {
+        "prior": "153188328.36",
+        "current": "112545733.76"
+      },
+      "page": 12,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "operating_cash_outflows": {
+      "label": "经营活动现金流出小计",
+      "values": {
+        "prior": 53252270217,
+        "current": 49648559670
+      },
+      "source_values": {
+        "prior": "532522702.17",
+        "current": "496485596.70"
+      },
+      "page": 12,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "operating_cash_flow": {
+      "label": "经营活动现金流量净额",
+      "values": {
+        "prior": 3125858122,
+        "current": -11888905848
+      },
+      "source_values": {
+        "prior": "31258581.22",
+        "current": "-118889058.48"
+      },
+      "page": 12,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "investing_cash_flow": {
+      "label": "投资活动现金流量净额",
+      "values": {
+        "prior": -16203853787,
+        "current": 2069370726
+      },
+      "source_values": {
+        "prior": "-162038537.87",
+        "current": "20693707.26"
+      },
+      "page": 13,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "financing_cash_flow": {
+      "label": "筹资活动现金流量净额",
+      "values": {
+        "prior": 3360664640,
+        "current": 13230728480
+      },
+      "source_values": {
+        "prior": "33606646.40",
+        "current": "132307284.80"
+      },
+      "page": 13,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "cash_fx": {
+      "label": "汇率影响",
+      "values": {
+        "prior": null,
+        "current": -368570
+      },
+      "source_values": {
+        "prior": null,
+        "current": "-3685.70"
+      },
+      "page": 13,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "cash_change": {
+      "label": "现金及现金等价物净增加额",
+      "values": {
+        "prior": -9717331025,
+        "current": 3410824788
+      },
+      "source_values": {
+        "prior": "-97173310.25",
+        "current": "34108247.88"
+      },
+      "page": 13,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "cash_open": {
+      "label": "期初现金及现金等价物",
+      "values": {
+        "prior": 82620387095,
+        "current": 53301733665
+      },
+      "source_values": {
+        "prior": "826203870.95",
+        "current": "533017336.65"
+      },
+      "page": 13,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "cash_close": {
+      "label": "期末现金及现金等价物",
+      "values": {
+        "prior": 72903056070,
+        "current": 56712558453
+      },
+      "source_values": {
+        "prior": "729030560.70",
+        "current": "567125584.53"
+      },
+      "page": 13,
+      "kind": "reported",
+      "period_basis": "nine_month"
+    },
+    "balance_cash": {
+      "label": "货币资金",
+      "values": {
+        "prior": 55915745923,
+        "current": 58342442343
+      },
+      "source_values": {
+        "prior": "559157459.23",
+        "current": "583424423.43"
+      },
+      "page": 6,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_trade_receivables": {
+      "label": "应收账款账面价值",
+      "values": {
+        "prior": 15927539829,
+        "current": 16796010417
+      },
+      "source_values": {
+        "prior": "159275398.29",
+        "current": "167960104.17"
+      },
+      "page": 6,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_inventory": {
+      "label": "存货",
+      "values": {
+        "prior": 4886570346,
+        "current": 16651652592
+      },
+      "source_values": {
+        "prior": "48865703.46",
+        "current": "166516525.92"
+      },
+      "page": 6,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_contract_assets": {
+      "label": "合同资产",
+      "values": {
+        "prior": 10921468708,
+        "current": 7770278224
+      },
+      "source_values": {
+        "prior": "109214687.08",
+        "current": "77702782.24"
+      },
+      "page": 6,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_current_assets": {
+      "label": "流动资产合计",
+      "values": {
+        "prior": 113951295897,
+        "current": 122937952027
+      },
+      "source_values": {
+        "prior": "1139512958.97",
+        "current": "1229379520.27"
+      },
+      "page": 6,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_total_assets": {
+      "label": "资产总计",
+      "values": {
+        "prior": 123000145540,
+        "current": 131918133806
+      },
+      "source_values": {
+        "prior": "1230001455.40",
+        "current": "1319181338.06"
+      },
+      "page": 7,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_short_debt": {
+      "label": "短期借款",
+      "values": {
+        "prior": 18956125347,
+        "current": 37274343696
+      },
+      "source_values": {
+        "prior": "189561253.47",
+        "current": "372743436.96"
+      },
+      "page": 7,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_contract_liabilities": {
+      "label": "合同负债",
+      "values": {
+        "prior": 7133780976,
+        "current": 9357261566
+      },
+      "source_values": {
+        "prior": "71337809.76",
+        "current": "93572615.66"
+      },
+      "page": 7,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_current_liabilities": {
+      "label": "流动负债合计",
+      "values": {
+        "prior": 59508428828,
+        "current": 74936319158
+      },
+      "source_values": {
+        "prior": "595084288.28",
+        "current": "749363191.58"
+      },
+      "page": 7,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_liabilities": {
+      "label": "负债合计",
+      "values": {
+        "prior": 74198606407,
+        "current": 85800991007
+      },
+      "source_values": {
+        "prior": "741986064.07",
+        "current": "858009910.07"
+      },
+      "page": 8,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_equity": {
+      "label": "所有者权益合计（含少数股东）",
+      "values": {
+        "prior": 48801539133,
+        "current": 46117142799
+      },
+      "source_values": {
+        "prior": "488015391.33",
+        "current": "461171427.99"
+      },
+      "page": 8,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_parent_equity": {
+      "label": "归母股东权益",
+      "values": {
+        "prior": 73269415244,
+        "current": 70518559593
+      },
+      "source_values": {
+        "prior": "732694152.44",
+        "current": "705185595.93"
+      },
+      "page": 8,
+      "kind": "reported",
+      "period_basis": "balance"
+    },
+    "balance_minority_equity": {
+      "label": "少数股东权益",
+      "values": {
+        "prior": -24467876111,
+        "current": -24401416794
+      },
+      "source_values": {
+        "prior": "-244678761.11",
+        "current": "-244014167.94"
+      },
+      "page": 8,
+      "kind": "reported",
+      "period_basis": "balance"
+    }
+  }
+}
