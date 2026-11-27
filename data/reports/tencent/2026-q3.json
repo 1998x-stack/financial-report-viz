@@ -1,0 +1,490 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "tencent-2026-q3",
+  "issuer_id": "tencent",
+  "slug": "2026-q3",
+  "title": "腾讯 2026 Q3：核心业务增长与 AI 投资的现金流拐点",
+  "short_title": "腾讯控股 · 2026 Q3",
+  "description": "基于港交所2026年11月18日50页业绩公告：拆解腾讯第三季度收入、分部毛利、IFRS利润桥、AI成本、资本开支及自由现金流。",
+  "status": "published",
+  "language": "zh-CN",
+  "year": 2026,
+  "period_type": "q3",
+  "period_start": "2026-07-01",
+  "period_end": "2026-09-30",
+  "comparison_period_start": "2025-07-01",
+  "comparison_period_end": "2025-09-30",
+  "publication_date": "2026-11-18",
+  "review_approval_date": null,
+  "source": {
+    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1118/2026111800448.pdf",
+    "title": "腾讯控股 2026 年第三季度及首九个月业绩公告（港交所）",
+    "pdf_pages": 50,
+    "pdf_page_offset": 0,
+    "source_type": "primary_exchange_filing",
+    "accounting_standard": "IFRS / IAS 34",
+    "assurance": "reviewed_unaudited",
+    "statement": "按照IAS 34编制之中期合并财务资料；未经审计、已由核数师审阅。主表为独立第三季度对比2025年同季；现金流量表另列首九个月数据，绝不与独立季度混用。金额除注明外均为人民币百万元。"
+  },
+  "currency": "CNY",
+  "unit": "CNY_million",
+  "unit_display": "人民币百万元",
+  "topics": [
+    "growth",
+    "profitability",
+    "segments",
+    "cash-flow",
+    "users"
+  ],
+  "keywords": [
+    "腾讯",
+    "2026 Q3",
+    "0700",
+    "广告",
+    "AI",
+    "云服务",
+    "资本开支",
+    "现金流"
+  ],
+  "narrative": {
+    "eyebrow": "HKEX 0700 / 2026 THIRD QUARTER",
+    "lead": "收入同比增长7.5%，IFRS经营利润却下降6.9%。高毛利自研游戏支撑增值服务；广告增速最快但毛利率回落。AI新产品研发、算力资本支出及预付款改变了利润与现金流节奏。",
+    "findings": [
+      {
+        "title": "新增营收主要来自广告与金融科技／企业服务",
+        "body": "按披露精确金额计算，营销服务贡献68.07亿元同比增量，金融科技及企业服务贡献54.81亿元；两者合计占集团新增营收约84.9%。这不等于云服务收入的直接贡献，云收入绝对金额没有单独披露。",
+        "pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "title": "管理费用增量超过新增毛利",
+        "body": "收入同比增加144.67亿元、毛利增加71.13亿元，但一般及行政费用增加98.18亿元。公司在第8页称费用增长主要由研发推动；IFRS经营利润下降44.07亿元。",
+        "pages": [
+          5,
+          8
+        ]
+      },
+      {
+        "title": "利润口径分叉，投资收益影响归母利润",
+        "body": "IFRS归母利润增长0.8%，Non-IFRS归母利润下降5.7%。投资及其他净收益由28.20亿元升至100.57亿元；两种归母利润口径不能混为一谈。",
+        "pages": [
+          1,
+          5,
+          14
+        ]
+      },
+      {
+        "title": "自由现金流转负，注意双重计算陷阱",
+        "body": "公司披露Q3自由现金流约-691亿元，其中经营现金流约26亿元、资本开支付款约651亿元。814.33亿元为应计资本开支，不应与预付现金及资本开支付款简单相加。",
+        "pages": [
+          12,
+          17
+        ]
+      },
+      {
+        "title": "云收入增35%，但总量和盈利尚未披露",
+        "body": "管理层称云服务收入同比增长35%，由AI相关需求和国际扩张驱动，但云服务单独收入金额、盈利及AI新增产品损益明细未披露；只能做定性归因，不能推算单位经济性。",
+        "pages": [
+          7,
+          8
+        ]
+      }
+    ]
+  },
+  "values": {
+    "revenue": {
+      "label": "营业收入",
+      "values": {
+        "prior": 192869,
+        "current": 207336
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "cost_of_revenue": {
+      "label": "收入成本（正数）",
+      "values": {
+        "prior": 84071,
+        "current": 91425
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "gross_profit": {
+      "label": "毛利润",
+      "values": {
+        "prior": 108798,
+        "current": 115911
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "selling_marketing": {
+      "label": "销售及营销费用（正数）",
+      "values": {
+        "prior": 11468,
+        "current": 12144
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "general_admin": {
+      "label": "一般及行政费用（正数）",
+      "values": {
+        "prior": 34259,
+        "current": 44077
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "other_gains_net": {
+      "label": "其他收益／（亏损）净额",
+      "values": {
+        "prior": 483,
+        "current": -543
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "operating_profit": {
+      "label": "IFRS经营利润",
+      "values": {
+        "prior": 63554,
+        "current": 59147
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "investments_net_gains": {
+      "label": "投资及其他净收益",
+      "values": {
+        "prior": 2820,
+        "current": 10057
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "interest_income": {
+      "label": "利息收入",
+      "values": {
+        "prior": 4256,
+        "current": 3992
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "finance_costs": {
+      "label": "财务费用（正数）",
+      "values": {
+        "prior": 3756,
+        "current": 3487
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "equity_method_result": {
+      "label": "联营合营利润份额",
+      "values": {
+        "prior": 7854,
+        "current": 4482
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "profit_before_tax": {
+      "label": "税前利润",
+      "values": {
+        "prior": 74728,
+        "current": 74191
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "income_tax_expense": {
+      "label": "所得税费用（正数）",
+      "values": {
+        "prior": 9785,
+        "current": 9052
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "period_profit": {
+      "label": "期内利润",
+      "values": {
+        "prior": 64943,
+        "current": 65139
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "attributable_profit": {
+      "label": "IFRS归母净利润",
+      "values": {
+        "prior": 63133,
+        "current": 63612
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "minority_profit": {
+      "label": "非控股权益应占利润",
+      "values": {
+        "prior": 1810,
+        "current": 1527
+      },
+      "page": 5,
+      "kind": "reported"
+    },
+    "non_ifrs_operating_profit": {
+      "label": "Non-IFRS经营利润",
+      "values": {
+        "prior": 72570,
+        "current": 68073
+      },
+      "page": 1,
+      "kind": "reported"
+    },
+    "non_ifrs_attributable_profit": {
+      "label": "Non-IFRS归母净利润",
+      "values": {
+        "prior": 70551,
+        "current": 66519
+      },
+      "page": 1,
+      "kind": "reported"
+    },
+    "ebitda": {
+      "label": "EBITDA",
+      "values": {
+        "prior": 80357,
+        "current": 79439
+      },
+      "page": 12,
+      "kind": "reported"
+    },
+    "adjusted_ebitda": {
+      "label": "经调整EBITDA",
+      "values": {
+        "prior": 86698,
+        "current": 84893
+      },
+      "page": 12,
+      "kind": "reported"
+    },
+    "accrual_capex": {
+      "label": "资本开支（应计口径）",
+      "values": {
+        "prior": 12983,
+        "current": 81433
+      },
+      "page": 12,
+      "kind": "reported"
+    },
+    "vas_revenue": {
+      "label": "增值服务收入",
+      "values": {
+        "prior": 95860,
+        "current": 98326
+      },
+      "page": 6,
+      "kind": "reported"
+    },
+    "marketing_revenue": {
+      "label": "营销服务收入",
+      "values": {
+        "prior": 36242,
+        "current": 43049
+      },
+      "page": 6,
+      "kind": "reported"
+    },
+    "fintech_revenue": {
+      "label": "金融科技及企业服务收入",
+      "values": {
+        "prior": 58174,
+        "current": 63655
+      },
+      "page": 6,
+      "kind": "reported"
+    },
+    "other_revenue": {
+      "label": "其他收入",
+      "values": {
+        "prior": 2593,
+        "current": 2306
+      },
+      "page": 6,
+      "kind": "reported"
+    },
+    "vas_gross_profit": {
+      "label": "增值服务毛利",
+      "values": {
+        "prior": 58623,
+        "current": 63017
+      },
+      "page": 7,
+      "kind": "reported"
+    },
+    "marketing_gross_profit": {
+      "label": "营销服务毛利",
+      "values": {
+        "prior": 20551,
+        "current": 22578
+      },
+      "page": 7,
+      "kind": "reported"
+    },
+    "fintech_gross_profit": {
+      "label": "金融科技及企业服务毛利",
+      "values": {
+        "prior": 29210,
+        "current": 31551
+      },
+      "page": 7,
+      "kind": "reported"
+    },
+    "other_gross_profit": {
+      "label": "其他分部毛利／（亏损）",
+      "values": {
+        "prior": 414,
+        "current": -1235
+      },
+      "page": 7,
+      "kind": "reported"
+    },
+    "wechat_mau": {
+      "label": "微信及WeChat合并月活（百万）",
+      "values": {
+        "prior": 1414,
+        "current": 1449
+      },
+      "page": 3,
+      "kind": "reported",
+      "unit": "million_users"
+    },
+    "qq_mau": {
+      "label": "QQ移动终端月活（百万）",
+      "values": {
+        "prior": 517,
+        "current": 533
+      },
+      "page": 3,
+      "kind": "reported",
+      "unit": "million_users"
+    },
+    "vas_subscriptions": {
+      "label": "收费增值服务订阅（日均百万）",
+      "values": {
+        "prior": 265,
+        "current": 253
+      },
+      "page": 3,
+      "kind": "reported",
+      "unit": "million_users"
+    }
+  },
+  "supplementary": {
+    "basis_note": "以下为不同于独立Q3同比表的披露，独立存储并在图表逐项注明日期及取整精度。",
+    "q2_2026": {
+      "revenue": 204785,
+      "gross_profit": 118433,
+      "operating_profit": 67276,
+      "non_ifrs_operating_profit": 75636,
+      "accrual_capex": 52784,
+      "source_page": 9
+    },
+    "quarterly_cash_flow_rounded": {
+      "period": "2026 Q3",
+      "scale": "RMB_million",
+      "accuracy": "管理层以十亿元保留一位小数披露，即人民币百万元值约数",
+      "operating": 2600,
+      "capex_payments": 65100,
+      "media_payments": 4600,
+      "lease_payments": 2000,
+      "free_cash_flow": -69100,
+      "free_cash_flow_without_compute_prepayment": 16900,
+      "source_page": 17
+    },
+    "liquidity": {
+      "periods": [
+        "2026-06-30",
+        "2026-09-30"
+      ],
+      "cash_and_equivalents": [
+        206930,
+        231717
+      ],
+      "term_deposits_and_others": [
+        304224,
+        294010
+      ],
+      "borrowings": [
+        298942,
+        380101
+      ],
+      "notes_payable": [
+        154021,
+        159328
+      ],
+      "net_cash_debt": [
+        58191,
+        -13702
+      ],
+      "source_page": 17
+    },
+    "nine_month_cash_flows": {
+      "period": "首九个月，2025同期及2026本期，非独立Q3",
+      "operating": [
+        236577,
+        156713
+      ],
+      "investing": [
+        -147914,
+        -122357
+      ],
+      "financing": [
+        -60748,
+        60910
+      ],
+      "change_in_cash": [
+        27915,
+        95266
+      ],
+      "source_page": 24
+    },
+    "management_indicators": {
+      "domestic_games_revenue_approx_billion": 47.6,
+      "domestic_games_yoy_percent": 11,
+      "international_games_revenue_approx_billion": 18.9,
+      "international_games_yoy_percent": -9,
+      "cloud_revenue_yoy_percent": 35,
+      "advertising_margin_reported_prior_percent": 57,
+      "advertising_margin_reported_current_percent": 52,
+      "ex_ai_product_non_ifrs_operating_profit_approx": 83300,
+      "source_pages": [
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  "external_research": [
+    {
+      "label": "路透社：收入预期与芯片供应限制",
+      "publisher": "Reuters",
+      "date": "2026-11-18",
+      "url": "https://www.reuters.com/technology/tencent-q3-revenue-growth-slows-8-misses-estimates-2026-11-18/",
+      "note": "路透社引述LSEG收入一致预期2108亿元；并采访/记录管理层关于推理云业务及训练受限的看法。此处为外部共识，不作为港交所披露。"
+    },
+    {
+      "label": "腾讯2026 Q3业绩电话会议记录",
+      "publisher": "Stock Analysis（第三方转录）",
+      "date": "2026-11-18",
+      "url": "https://stockanalysis.com/quote/hkg/0700/transcripts/731168-q3-2026/",
+      "note": "管理层称应计资本开支与预付款不宜简单相加，以免双重计算；转录文本非经核实逐字官方记录。"
+    }
+  ]
+}
