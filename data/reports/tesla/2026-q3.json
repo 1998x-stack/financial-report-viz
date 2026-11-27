@@ -668,5 +668,35 @@
       "kind": "reported",
       "unit": "connectors"
     }
+  },
+  "consensus": {
+    "as_of": "2026-10-19",
+    "url": "https://ir.tesla.com/press-release/earnings-consensus-third-quarter-2026",
+    "items": [
+      {
+        "key": "revenue",
+        "label": "营业收入",
+        "mean": 28341,
+        "actual": 28046
+      },
+      {
+        "key": "operating_profit",
+        "label": "营业利润",
+        "mean": 721,
+        "actual": 718
+      },
+      {
+        "key": "capital_expenditures",
+        "label": "资本开支（支出绝对值）",
+        "mean": 7771,
+        "actual": 4732
+      },
+      {
+        "key": "free_cash_flow",
+        "label": "自由现金流",
+        "mean": -4506,
+        "actual": 1531
+      }
+    ]
   }
 }
