@@ -59,7 +59,7 @@ def errors_for_report(r, issuers, taxonomy):
           "invalid audit/review status")
     check(urlparse(source.get("url","")).scheme == "https", "primary filing URL must be https")
     check(source.get("pdf_page_offset") is not None, "PDF page offset required")
-    check(r["unit"] in ("CNY_thousand","CNY_million","HKD_thousand","USD_thousand"),
+    check(r["unit"] in ("CNY_thousand","CNY_million","HKD_thousand","USD_thousand","USD_million"),
           "unexpected amount unit")
     check(isinstance(r["values"],dict) and bool(r["values"]), "metric dictionary missing")
     for key,m in r["values"].items():
@@ -70,7 +70,8 @@ def errors_for_report(r, issuers, taxonomy):
               "bad source printed page: "+key)
         for period in ("prior","current"):
             v = m.get("values",{}).get(period)
-            check(v is None or (type(v) is int), "numeric values must be exact integers or null: "+key+"/"+period)
+            check(v is None or (type(v) is int) or (type(v) is float and m.get("unit") in ("GWh","million_subscriptions")),
+                  "numeric values must be exact integers or allowed original-unit decimals: "+key+"/"+period)
         for key2,page in m.get("pages",{}).items():
             check(key2 in ("prior","current") and isinstance(page,int) and page>0,
                   "bad per-period printed page: " + key)
@@ -179,6 +180,45 @@ def errors_for_report(r, issuers, taxonomy):
                 eq(nine["operating"][i]+nine["investing"][i]+nine["financing"][i],
                    nine["change_in_cash"][i],"nine-month cash change",p)
         else: check(False,"Tencent 9-month cash flow missing")
+    if rid == "tesla-2026-q3":
+        for period in ("prior","current"):
+            eq(sum(val(k,period) for k in ("automotive_revenue","energy_revenue","services_revenue")),
+               val("revenue",period),"automotive+energy+services revenue",period)
+            eq(sum(val(k,period) for k in ("automotive_sales","regulatory_credits","automotive_leasing")),
+               val("automotive_revenue",period),"automotive subsegments",period)
+            eq(sum(val(k,period) for k in ("automotive_cost","energy_cost","services_cost")),
+               val("cost_of_revenue",period),"business cost of revenue",period)
+            opex=sum(val(k,period) or 0 for k in ("research_development","selling_general_admin","restructuring_other"))
+            eq(opex,val("operating_expenses",period),"operating expenses",period)
+            eq(val("gross_profit",period)-opex,val("operating_profit",period),
+               "GAAP gross profit to operating profit",period)
+            eq(val("operating_profit",period)+val("interest_income",period)-
+               val("interest_expense",period)+val("other_income_net",period),
+               val("profit_before_tax",period),"GAAP operating-to-pre-tax bridge",period)
+            eq(val("period_profit",period)-val("noncontrolling_profit",period),
+               val("attributable_profit",period),"GAAP attributable net income",period)
+            eq(val("operating_cash_flow",period)-val("capital_expenditures",period),
+               val("free_cash_flow",period),"FCF after capex",period)
+            eq(sum((val(k,period) or 0) for k in
+               ("attributable_profit","stock_comp_net_tax","digital_asset_adjustment",
+                "spacex_investment_adjustment","certain_tax_adjustment")),
+               val("non_gaap_attributable_profit",period),"non-GAAP GAAP reconciliation",period)
+            eq(val("total_liabilities",period)+val("total_stockholders_equity",period)+
+               val("noncontrolling_equity",period)+val("redeemable_noncontrolling_equity",period),
+               val("total_assets",period),"balance sheet assets=liabilities+equity",period)
+            eq(val("model_3_y_deliveries",period)+val("other_models_deliveries",period),
+               val("total_deliveries",period),"model deliveries total",period)
+        quarters=r["quarterly_series"]
+        for k in ("revenue","gross_profit","operating_profit","operating_cash_flow",
+                  "capital_expenditures","free_cash_flow"):
+            eq(quarters[k][0],val(k,"prior"),k+" quarterly first value","prior")
+            eq(quarters[k][-1],val(k,"current"),k+" quarterly last value","current")
+        for i in range(5):
+            eq(quarters["operating_cash_flow"][i]-quarters["capital_expenditures"][i],
+               quarters["free_cash_flow"][i],"quarterly FCF","quarter "+str(i))
+        for row in r["consensus"]["items"]:
+            if row["key"] in v:
+                eq(row["actual"],val(row["key"],"current"),"consensus compare actual:"+row["key"],"current")
     return errs
 
 

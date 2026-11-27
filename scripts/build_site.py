@@ -159,6 +159,9 @@ def money(v, unit="CNY_thousand"):
 
 
 def kpi_cards(report):
+    if report.get("issuer_id") == "tesla":
+        from src.tesla_page import kpi_cards as tesla_kpi
+        return tesla_kpi(report)
     v = report["values"]
     if report["issuer_id"] == "tencent":
         unit = report["unit"]
@@ -222,6 +225,9 @@ def figures_markup(report, report_path):
 
 
 def metric_tables(report):
+    if report.get("issuer_id") == "tesla":
+        from src.tesla_page import metric_tables as tesla_table
+        return tesla_table(report,source_link)
     finance, users = [], []
     term = "H1" if report["period_type"] == "h1" else report["period_type"].upper()
     prior_label = str(report["year"]-1)+" "+term
@@ -286,10 +292,19 @@ def report_page(report, issuer, tax):
         currency_label=H(report["currency"]),source_unit=H(report["unit_display"]),
         comparison_text=H(report["comparison_period_start"]+" 至 "+report["comparison_period_end"]+" / "+report["period_start"]+" 至 "+report["period_end"]),
         accounting_text=H(report["source"]["statement"]),
-        approval_text=H(("公告发布日期："+report["publication_date"]+"；未经审计中期财务资料已由核数师审阅。") if report.get("publication_date") else (("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。")),
+        approval_text=H(("公告日期："+report["publication_date"]+"；US GAAP 季度报表未经审计。") if report["issuer_id"]=="tesla" else ("公告发布日期："+report["publication_date"]+"；未经审计中期财务资料已由核数师审阅。") if report.get("publication_date") else (("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。")),
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
         figures=figures_markup(report,path), metric_tables=metric_tables(report)
     )
+    if report["issuer_id"] == "tesla":
+        from src.tesla_page import research_block
+        content = content.replace("独立矢量图，金额使用人民币亿元；精确数值保存在下方的原始指标表。",
+            "独立 SVG · 财务金额展示为十亿美元，精确原始数据保留百万美元；运营指标保留辆、GWh 等原始单位。")
+        content = content.replace("不包含股价、PE 或市场一致预期等外部数据；非 IFRS 调整后利润与报表期内利润分开。管理层对业务原因的描述须注明来源。",
+            "GAAP 与 Non-GAAP 利润不可混同；FSD 订阅量不等于收入；发布前分析师预期单独标明日期与出处。")
+        content = content.replace("</article>",research_block(report)+"</article>")
+        content = content.replace('<a href="#source-table">财务表格</a>',
+                                  '<a href="#research-context">外部研究</a><a href="#source-table">财务表格</a>')
     if report.get("analysis_sections"):
         chapters=['<section class="block" id="deep-analysis"><div class="section-head"><div><p class="kicker">04 / DEEP RESEARCH</p><h2>调查笔记：数据驱动的投资问题</h2><p>先列可核算事实，再明确管理层解释、分析推论与尚未披露的信息。</p></div></div>']
         for idx,section in enumerate(report["analysis_sections"],1):
