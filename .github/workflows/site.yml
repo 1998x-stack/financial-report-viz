@@ -65,5 +65,7 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
+      - name: Allow GitHub Pages artifact metadata indexing
+        run: sleep 20
       - id: deployment
         uses: actions/deploy-pages@v4
