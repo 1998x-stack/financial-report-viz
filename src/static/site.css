@@ -54,3 +54,10 @@ table{border-collapse:collapse;width:100%;min-width:690px;font-size:12px;font-va
 @media(max-width:640px){.header-inner{padding:15px}.top-nav{gap:11px;justify-content:flex-end;flex-wrap:wrap}.top-nav a{font-size:11px}.top-nav a:last-child{display:none}.site-main{padding:0 15px 55px}.hero{padding:55px 0 30px}.hero h1{font-size:44px}.hero-art{min-height:280px}.hero-art strong{font-size:95px}.stat-ribbon{grid-template-columns:repeat(2,1fr)}.stat-ribbon>div{padding:14px}.stat-ribbon>div:nth-child(2){border-right:0}.stat-ribbon>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.report-grid,.facet-grid,.method-section{grid-template-columns:1fr}.block{margin-top:55px}.page-heading{padding:48px 0 26px}.report-hero{padding-top:42px}.report-hero h1{font-size:39px}.kpi-card{padding:14px}.kpi-card strong{font-size:25px}.figure-card{padding:12px}.figure-scroll img{min-width:750px}.footer-inner{padding:30px 15px;grid-template-columns:1fr}.footer-inner>div:last-child{text-align:left}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 @media print{body{background:#fff}.site-header,.site-footer,.report-toc,.table-controls{display:none!important}.site-main{max-width:none;padding:0 14px}.figure-card{break-inside:avoid}.figure-scroll{overflow:visible}.figure-scroll img{min-width:0}.block{margin-top:36px}.kpi-grid{grid-template-columns:repeat(4,1fr)}a{text-decoration:underline}}
+
+/* Tesla research: source-attributed comparisons rather than price/valuation estimates. */
+.research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:28px}
+.research-panel{background:var(--card);border:1px solid var(--line);padding:22px;border-top:3px solid var(--teal)}
+.research-panel h3{font-size:18px}.research-panel p,.evidence-note{font-size:13px;color:var(--muted);line-height:1.85}
+.evidence-note{margin:20px 0}.evidence-note a{color:var(--teal)}
+@media(max-width:860px){.research-grid{grid-template-columns:1fr}}
