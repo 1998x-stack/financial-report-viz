@@ -449,9 +449,10 @@ def check_concepts(data):
         seen.add(ident)
         if c.get("order")!=i:errors.append(f"concept {ident} order mismatch")
         if c.get("category") not in category_ids:errors.append(f"unknown category: {ident}")
-        for f in ("title","en","definition","formula","pitfall"):
-            if len(c.get(f,""))<8:
-                errors.append(f"{ident}: {f} missing or too short")
+        min_lengths={"title":2,"en":4,"definition":12,"formula":6,"pitfall":12}
+        for field,min_length in min_lengths.items():
+            if len(c.get(field,""))<min_length:
+                errors.append(f"{ident}: {field} missing or too short")
         if c.get("illustrative") is not True:
             errors.append(f"{ident} must mark example data as illustrative")
         spec=c.get("diagram",{})
