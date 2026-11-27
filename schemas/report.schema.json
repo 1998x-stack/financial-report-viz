@@ -103,7 +103,8 @@
       "enum": [
         "CNY_thousand",
         "HKD_thousand",
-        "USD_thousand"
+        "USD_thousand",
+        "USD_million"
       ]
     },
     "topics": {
