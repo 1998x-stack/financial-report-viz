@@ -1,0 +1,791 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "moutai-2026-q3",
+  "issuer_id": "moutai",
+  "slug": "2026-q3",
+  "title": "贵州茅台 2026 三季报：增长回暖，毛利承压",
+  "description": "以2026年1—9月官方财报为核心，研究成本消化收入增量、直销主导、财务公司现金流与合同负债变动；附独立矢量图和可追溯财务表。",
+  "status": "published",
+  "language": "zh-CN",
+  "year": 2026,
+  "period_type": "q3",
+  "period_start": "2026-01-01",
+  "period_end": "2026-09-30",
+  "comparison_period_start": "2025-01-01",
+  "comparison_period_end": "2025-09-30",
+  "review_approval_date": null,
+  "publication_date": "2026-10-31",
+  "currency": "CNY",
+  "unit": "CNY_fen",
+  "unit_display": "元（销售表万元）；以整数分无损保存",
+  "topics": [
+    "growth",
+    "profitability",
+    "segments",
+    "cash-flow",
+    "geography"
+  ],
+  "source": {
+    "url": "https://www.moutaichina.com/mtgf/articleFileDir/2026-11/10/ad52ec07cef046609c25ac217defade9.pdf",
+    "title": "贵州茅台酒股份有限公司2026年第三季度报告",
+    "pdf_page_offset": 0,
+    "pdf_pages": 12,
+    "accounting_standard": "中国企业会计准则报表格式",
+    "assurance": "unaudited",
+    "statement": "合并报表，1—9月累计；资产负债表对比上年末，单季指标另列；董事会落款2026-10-29。"
+  },
+  "values": {
+    "revenue": {
+      "label": "营业收入",
+      "values": {
+        "prior": 12845370765586,
+        "current": 13097074364904
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "128453707655.86",
+        "current": "130970743649.04"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "cost_of_revenue": {
+      "label": "营业成本",
+      "values": {
+        "prior": 1118397207377,
+        "current": 1364571893290
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "11183972073.77",
+        "current": "13645718932.90"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "total_revenue": {
+      "label": "营业总收入",
+      "values": {
+        "prior": 13090388963488,
+        "current": 13328365250895
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "130903889634.88",
+        "current": "133283652508.95"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "total_cost": {
+      "label": "营业总成本",
+      "values": {
+        "prior": 4142615405285,
+        "current": 4448691882021
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "41426154052.85",
+        "current": "44486918820.21"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "selling_marketing": {
+      "label": "销售费用",
+      "values": {
+        "prior": 447867225248,
+        "current": 483062883678
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "4478672252.48",
+        "current": "4830628836.78"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "general_admin": {
+      "label": "管理费用",
+      "values": {
+        "prior": 550338366862,
+        "current": 532262237782
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "5503383668.62",
+        "current": "5322622377.82"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "research_development": {
+      "label": "研发费用",
+      "values": {
+        "prior": 11308664098,
+        "current": 14765244232
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "113086640.98",
+        "current": "147652442.32"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "tax_surcharge": {
+      "label": "税金及附加",
+      "values": {
+        "prior": 2064570792655,
+        "current": 2077601572876
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "20645707926.55",
+        "current": "20776015728.76"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "operating_profit": {
+      "label": "营业利润",
+      "values": {
+        "prior": 8948969456648,
+        "current": 8897984625779
+      },
+      "page": 9,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "89489694566.48",
+        "current": "88979846257.79"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "profit_before_tax": {
+      "label": "利润总额",
+      "values": {
+        "prior": 8940344445468,
+        "current": 8901766197163
+      },
+      "page": 9,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "89403444454.68",
+        "current": "89017661971.63"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "income_tax_expense": {
+      "label": "所得税费用",
+      "values": {
+        "prior": 2250463970851,
+        "current": 2230051875359
+      },
+      "page": 9,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "22504639708.51",
+        "current": "22300518753.59"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "period_profit": {
+      "label": "合并净利润",
+      "values": {
+        "prior": 6689880474617,
+        "current": 6671714321804
+      },
+      "page": 9,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "66898804746.17",
+        "current": "66717143218.04"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "parent_profit": {
+      "label": "归母净利润",
+      "values": {
+        "prior": 6462674671218,
+        "current": 6446742598195
+      },
+      "page": 9,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "64626746712.18",
+        "current": "64467425981.95"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "minority_profit": {
+      "label": "少数股东损益",
+      "values": {
+        "prior": 227205803399,
+        "current": 224971723609
+      },
+      "page": 9,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "2272058033.99",
+        "current": "2249717236.09"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "operating_cash_flow": {
+      "label": "经营活动现金流净额",
+      "values": {
+        "prior": 3819680215527,
+        "current": 8405897983229
+      },
+      "page": 11,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "38196802155.27",
+        "current": "84058979832.29"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "investing_cash_flow": {
+      "label": "投资活动现金流净额",
+      "values": {
+        "prior": -542336809574,
+        "current": 2582515684190
+      },
+      "page": 11,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "-5423368095.74",
+        "current": "25825156841.90"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "financing_cash_flow": {
+      "label": "筹资活动现金流净额",
+      "values": {
+        "prior": -4324380350628,
+        "current": -4031615951778
+      },
+      "page": 12,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "-43243803506.28",
+        "current": "-40316159517.78"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "cash_fx": {
+      "label": "汇率变动影响",
+      "values": {
+        "prior": 274253120,
+        "current": -248257587
+      },
+      "page": 12,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "2742531.20",
+        "current": "-2482575.87"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "cash_change": {
+      "label": "现金及现金等价物净增加额",
+      "values": {
+        "prior": -1046762691555,
+        "current": 6956549458054
+      },
+      "page": 12,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "-10467626915.55",
+        "current": "69565494580.54"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "cash_open": {
+      "label": "期初现金及现金等价物",
+      "values": {
+        "prior": 16997008925783,
+        "current": 12642560944772
+      },
+      "page": 12,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "169970089257.83",
+        "current": "126425609447.72"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "cash_close": {
+      "label": "期末现金及现金等价物",
+      "values": {
+        "prior": 15950246234228,
+        "current": 19599110402826
+      },
+      "page": 12,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "159502462342.28",
+        "current": "195991104028.26"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "sales_cash": {
+      "label": "销售商品提供劳务收到的现金",
+      "values": {
+        "prior": 13879171999159,
+        "current": 14352275251923
+      },
+      "page": 10,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "138791719991.59",
+        "current": "143522752519.23"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "interbank_net": {
+      "label": "存放中央银行和同业款项净增加额",
+      "values": {
+        "prior": 1250727212736,
+        "current": -2271543959884
+      },
+      "page": 11,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "12507272127.36",
+        "current": "-22715439598.84"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "customer_deposits_net": {
+      "label": "客户存款和同业存放款项净增加额",
+      "values": {
+        "prior": -865974576825,
+        "current": -77490168437
+      },
+      "page": 10,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "-8659745768.25",
+        "current": "-774901684.37"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "capex": {
+      "label": "购建长期资产支付现金",
+      "values": {
+        "prior": 228286226989,
+        "current": 144999841496
+      },
+      "page": 11,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "2282862269.89",
+        "current": "1449998414.96"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "assets": {
+      "label": "资产总计",
+      "values": {
+        "prior": 30383484402144,
+        "current": 31830489188272
+      },
+      "page": 2,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "303834844021.44",
+        "current": "318304891882.72"
+      },
+      "comparison": "2025-12-31 vs 2026-09-30"
+    },
+    "liabilities": {
+      "label": "负债合计",
+      "values": {
+        "prior": 4987559011237,
+        "current": 3788327485987
+      },
+      "page": 7,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "49875590112.37",
+        "current": "37883274859.87"
+      },
+      "comparison": "2025-12-31 vs 2026-09-30"
+    },
+    "equity": {
+      "label": "所有者权益合计",
+      "values": {
+        "prior": 25395925390907,
+        "current": 28042161702285
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "253959253909.07",
+        "current": "280421617022.85"
+      },
+      "comparison": "2025-12-31 vs 2026-09-30"
+    },
+    "contract_liabilities": {
+      "label": "合同负债",
+      "values": {
+        "prior": 800673978094,
+        "current": 208448574475
+      },
+      "page": 7,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "8006739780.94",
+        "current": "2084485744.75"
+      },
+      "comparison": "2025-12-31 vs 2026-09-30"
+    },
+    "parent_equity": {
+      "label": "归母权益",
+      "values": {
+        "prior": 24463781103218,
+        "current": 27120474054163
+      },
+      "page": 8,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": "244637811032.18",
+        "current": "271204740541.63"
+      },
+      "comparison": "2025-12-31 vs 2026-09-30"
+    },
+    "moutai_liquor": {
+      "label": "茅台酒",
+      "values": {
+        "prior": null,
+        "current": 11292545230000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "11292545.23"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "series_liquor": {
+      "label": "系列酒",
+      "values": {
+        "prior": null,
+        "current": 1796854270000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "1796854.27"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "direct_sales": {
+      "label": "直销",
+      "values": {
+        "prior": null,
+        "current": 7377359300000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "7377359.30"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "wholesale": {
+      "label": "批发代理",
+      "values": {
+        "prior": null,
+        "current": 5712040200000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "5712040.20"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "domestic": {
+      "label": "国内",
+      "values": {
+        "prior": null,
+        "current": 12925258610000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "12925258.61"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "overseas": {
+      "label": "国外",
+      "values": {
+        "prior": null,
+        "current": 164140890000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "164140.89"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "i_moutai": {
+      "label": "i茅台平台",
+      "values": {
+        "prior": null,
+        "current": 5856230600000
+      },
+      "page": 3,
+      "kind": "reported",
+      "source_unit": "CNY_10000",
+      "source_values": {
+        "prior": null,
+        "current": "5856230.60"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    },
+    "q3_revenue": {
+      "label": "第三季度单季营业收入",
+      "values": {
+        "prior": null,
+        "current": 4026748268456
+      },
+      "page": 1,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": null,
+        "current": "40267482684.56"
+      },
+      "comparison": "2026-07-01 to 2026-09-30"
+    },
+    "q3_parent_profit": {
+      "label": "第三季度单季归母净利润",
+      "values": {
+        "prior": null,
+        "current": 1995054556009
+      },
+      "page": 1,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": null,
+        "current": "19950545560.09"
+      },
+      "comparison": "2026-07-01 to 2026-09-30"
+    },
+    "adjusted_parent_profit": {
+      "label": "扣非归母净利润",
+      "values": {
+        "prior": null,
+        "current": 6432482459918
+      },
+      "page": 1,
+      "kind": "reported",
+      "source_unit": "CNY_yuan",
+      "source_values": {
+        "prior": null,
+        "current": "64324824599.18"
+      },
+      "comparison": "2025/2026 Jan-Sep"
+    }
+  },
+  "narrative": {
+    "eyebrow": "600519.SH / 2026 Q3",
+    "lead": "前三季度营收增1.96%、归母利润降0.25%；单三季度增速回正。解读毛利率、直销和财务公司现金流时，必须分别识别统计口径。",
+    "findings": [
+      {
+        "title": "增长不等于毛利增长",
+        "body": "营业收入增加25.17亿元，营业成本增加24.62亿元。毛利率为计算值，未包含利息收入。",
+        "pages": [
+          8
+        ]
+      },
+      {
+        "title": "渠道结构正在变化",
+        "body": "直销占主营收入56.36%，i茅台收入属于渠道内部而非额外收入。终端动销及渠道库存未知。",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "title": "现金流需区别金融业务",
+        "body": "公司解释经营现金流增长主要来自财务公司同业存款到期收回及成员单位存款变动。",
+        "pages": [
+          3,
+          10,
+          11
+        ]
+      },
+      {
+        "title": "回款增幅远小于合并现金流增幅",
+        "body": "销售商品及劳务收现同比约3.41%；存放中央银行和同业款项净增加额由125.07亿元转为负227.15亿元，单项现金流方向变动约352.23亿元。不是可直接等同的白酒自由现金流。",
+        "pages": [
+          10,
+          11
+        ]
+      },
+      {
+        "title": "负债与合同负债下降需谨慎解读",
+        "body": "资产负债率从约16.41%降至11.90%；合同负债较上年末下降约74%。季节性、结算节奏和终端需求影响尚不能区分。",
+        "pages": [
+          2,
+          7,
+          8
+        ]
+      },
+      {
+        "title": "第三季度改善不等于全年复苏",
+        "body": "Q3营业收入同比3.08%，归母净利润同比3.78%；前三季度扣非归母净利润同比下降0.55%。未来需要观察毛利率、渠道库存和回款的持续性。",
+        "pages": [
+          1
+        ]
+      }
+    ]
+  },
+  "research_context": [
+    {
+      "title": "东方证券：直销放量，经营稳健（2026-10-31）",
+      "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/846803580428/index.phtml",
+      "note": "第三方券商看法：渠道优化和i茅台平台作为驱动。该观点不等于发行人披露的因果归因。"
+    },
+    {
+      "title": "大众网：拆解三季报和渠道调整（2026-10-31）",
+      "url": "https://www.dzwww.com/news/hlcjnews/202610/t20261031_18258706.htm",
+      "note": "媒体报道认为行业调整、渠道库存和价格机制变化影响业绩。终端售价、行业口径并非本研究已审计的财报数值。"
+    }
+  ],
+  "analysis_sections": [
+    {
+      "heading": "01｜增长回暖和利润滞后：哪些是真正的财务变化？",
+      "body": [
+        "披露事实：1—9月营业收入1309.71亿元，同比增长1.96%；归母净利润644.67亿元，同比下降0.25%。单三季度营业收入402.67亿元同比增长3.08%，归母净利润199.51亿元同比增长3.78%。累计和单季数据期间不同，不能混为一条同比序列。",
+        "计算指标：2025年同期营业毛利润约1172.70亿元，2026年约1173.25亿元。新增收入约25.17亿元，营业成本增加约24.62亿元，营业毛利润增加约0.55亿元。营业毛利率由约91.29%降至89.58%，下降约1.71个百分点。",
+        "研究判断：增量毛利润显著弱于营收增速，是本期经营质量的首要观察点。未有充分证据精确拆分为产品结构、价格、运费或生产成本贡献，不能将全部成本变化简单归因于其中之一。"
+      ],
+      "pages": [
+        1,
+        8,
+        9
+      ]
+    },
+    {
+      "heading": "02｜直销收入占优，但不等于终端销量同步增长",
+      "body": [
+        "披露事实：主营业务收入按产品为茅台酒1129.25亿元和系列酒179.69亿元；按渠道为直销737.74亿元和批发代理571.20亿元。两种分类相互独立，总数均约1308.94亿元。i茅台平台不含税收入585.62亿元，不可以与直销收入再加总。",
+        "计算指标：直销约占主营业务收入56.36%，i茅台平台收入约相当于直销收入的79.38%，这个比例不代表平台利润贡献比例。",
+        "研究判断：渠道结构更向直销集中，可强化对零售触达的掌握，但财报未披露终端真实销量、经销商库存和消费者回购行为，不能证明最终消费需求已复苏。"
+      ],
+      "pages": [
+        3
+      ]
+    },
+    {
+      "heading": "03｜合同负债的下降：需分清季节性与需求信号",
+      "body": [
+        "披露事实：2026年9月末合同负债20.84亿元，2025年末80.07亿元，减少约59.22亿元。2026年9月末总负债378.83亿元、资产3183.05亿元。",
+        "计算指标：合同负债较年初下降约73.97%；资产负债率约11.90%，较上年末约16.42%下降。两组数据均是不同资产负债表时点的比较，不能标作同比。",
+        "风险与待验证：预收款下降既可能与合同回款或发货节奏有关，也可能受到季节性和渠道政策影响。需结合年度年末合同负债、库存以及渠道回款数据进一步检验。"
+      ],
+      "pages": [
+        2,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "heading": "04｜经营现金流翻倍：财务公司影响不可忽略",
+      "body": [
+        "披露事实：经营活动现金流净额由381.97亿元增至840.59亿元，同比增长120.07%。公司明确解释，主要原因是贵州茅台集团财务有限公司不可随时支取的同业存款到期收回，以及成员单位存款净增加额的变动。",
+        "分解与计算：存放中央银行和同业款项净增加额从上期的125.07亿元转为本期的负227.15亿元，此处是现金流出项目，方向变化对经营现金流形成约352.23亿元正向影响；销售商品、提供劳务收到的现金同比仅增长约3.41%。",
+        "解释边界：合并经营现金流不等于白酒经营自由现金流。未经完整剥离财务公司经营活动，不应将120.07%的增长视作白酒回款同比改善幅度。"
+      ],
+      "pages": [
+        3,
+        10,
+        11
+      ]
+    },
+    {
+      "heading": "05｜盈利能力与财务安全：强盈利、高现金，仍要观察边际趋势",
+      "body": [
+        "计算指标：营业毛利率89.58%，归母净利率约49.22%。资产负债率约11.90%，基于报告期合并资产和负债计算。",
+        "事实与推断边界：这些比率表明公司仍具较高的会计盈利能力及较低的账面负债比重；但财务公司同业存放与拆出资金规模较大，现金项目和财务公司资产不能全部等价为可任意分配给股东的剩余现金。",
+        "后续优先观察营业成本率、销售现金回款、合同负债、主业渠道数据与经营活动现金流的构成变化，不将未经验证的终端批价或机构估值作为公司公告数字。"
+      ],
+      "pages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "heading": "06｜反证与观察清单：如何判断改善能持续？",
+      "body": [
+        "正面情形：单三季度营收和归母利润增速高于累计增速；直销成为主要收入渠道。后续若主营毛利率企稳且销售回款稳健，盈利质量可能增强。",
+        "谨慎情形：毛利率降低、累计利润微降、合同负债较年初显著下降，与行业渠道去库存的外部报道相互呼应，但目前无法识别终端需求变动幅度。",
+        "不在本次财报披露范围：实时股票价格、2026全年未经披露利润、单品真实终端销量、行业一致预期。这些变量没有可靠的同时点数据时，不绘制估值区间和盈利预测。"
+      ],
+      "pages": [
+        1,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  ]
+}

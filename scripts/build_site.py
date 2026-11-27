@@ -163,6 +163,20 @@ def kpi_cards(report):
         from src.tesla_page import kpi_cards as tesla_kpi
         return tesla_kpi(report)
     v = report["values"]
+    if report["issuer_id"] == "moutai":
+        def mv(k,p="current"): return v[k]["values"][p]
+        def item(label,k,note):
+            m=v[k]; val=mv(k)/10000000000
+            change=yoy_label(yoy(m))
+            return (f'<div class="kpi-card"><span class="label">{H(label)}</span>'
+                    f'<strong>{val:,.2f}<small style="display:inline;font-size:13px;margin-left:5px">亿元</small></strong>'
+                    f'<span class="change {"neg" if change.startswith("-") else ""}">{H(change)}</span><small>{H(note)}</small></div>')
+        margin=lambda p:(1-mv("cost_of_revenue",p)/mv("revenue",p))*100
+        delta=margin("current")-margin("prior")
+        return (item("营业收入","revenue","2026年1—9月 · 同比")
+                +item("归母净利润","parent_profit","2026年1—9月 · 同比")
+                +f'<div class="kpi-card"><span class="label">营业毛利率（计算）</span><strong>{margin("current"):.2f}%</strong><span class="change neg">{delta:+.2f} pp</span><small>收入减成本 / 收入，不含金融利息</small></div>'
+                +item("经营现金流净额","operating_cash_flow","含集团财务公司业务"))
     if report["issuer_id"] == "tencent":
         unit = report["unit"]
         signals = [
@@ -206,7 +220,11 @@ def kpi_cards(report):
 
 def figures_markup(report, report_path):
     asset_folder = DIST / Path(report_path).parent / "assets"
-    figure_list = build_figures(report, asset_folder)
+    if report["issuer_id"] == "moutai":
+        from src.moutai import charts
+        figure_list = charts(report, asset_folder)
+    else:
+        figure_list = build_figures(report, asset_folder)
     parts = []
     for i, fig in enumerate(figure_list, 1):
         p = fig["filename"]
@@ -228,6 +246,20 @@ def metric_tables(report):
     if report.get("issuer_id") == "tesla":
         from src.tesla_page import metric_tables as tesla_table
         return tesla_table(report,source_link)
+    if report["issuer_id"] == "moutai":
+        rows=[]
+        for key,m in report["values"].items():
+            a,b=m["source_values"]["prior"],m["source_values"]["current"]
+            unit="万元" if m["source_unit"]=="CNY_10000" else "元"
+            change=yoy_label(yoy(m)) if m["comparison"]=="2025/2026 Jan-Sep" else "—"
+            rows.append(
+                f'<tr data-metric-row="{H(m["label"]+" "+key)}"><th scope="row">{H(m["label"])}</th>'
+                f'<td>{H(a if a is not None else "—")}</td><td>{H(b if b is not None else "—")}</td>'
+                f'<td>{H(unit)}</td><td>{H(m["comparison"])}</td><td>{change}</td>'
+                f'<td><a href="{source_link(report,m["page"])}" target="_blank" rel="noopener noreferrer">p.{m["page"]}</a></td></tr>')
+        return ('<div class="table-wrap"><table><caption>财报原始精确数值 · 金额不预先四舍五入</caption>'
+            '<thead><tr><th>项目</th><th>比较期</th><th>本期</th><th>单位</th><th>比较口径</th><th>变化</th><th>财报页码</th></tr></thead><tbody>'
+            + "".join(rows)+"</tbody></table></div>")
     finance, users = [], []
     term = "H1" if report["period_type"] == "h1" else report["period_type"].upper()
     prior_label = str(report["year"]-1)+" "+term
@@ -279,7 +311,7 @@ def report_page(report, issuer, tax):
             f'<h3>{H(item["title"])}</h3><p>{H(item["body"])}</p>'
             + pages_html(report, item["pages"]) + "</section>"
         )
-    period = str(report["year"]) + " " + ("H1" if report["period_type"] == "h1" else report["period_type"].upper())
+    period = str(report["year"]) + (" H1" if report["period_type"] == "h1" else (" Q3 · 1—9月累计" if report["issuer_id"] == "moutai" else " Q3"))
     content = template(
         "report", home_href=H(link(path, "index.html")),
         issuer_href=H(link(path, f'companies/{report["issuer_id"]}/index.html')),
@@ -315,6 +347,12 @@ def report_page(report, issuer, tax):
         chapters.append('</section>')
         content=content.replace('<section class="block" id="source-table">',"".join(chapters)+'<section class="block" id="source-table">')
         content=content.replace('<a href="#source-table">财务表格</a>', '<a href="#deep-analysis">深度研究</a><a href="#source-table">财务表格</a>')
+    if report.get("research_context"):
+        blocks=['<section class="block" id="research-context"><div class="section-head"><div><p class="kicker">CONTEXT / ATTRIBUTED COMMENTARY</p><h2>行业与外部研究视角</h2><p>仅作为外部观点，不属于公司公告事实；不得直接代替实证判断。</p></div></div><div class="method-grid">']
+        for q in report["research_context"]:
+            blocks.append('<div><h3><a target="_blank" rel="noopener noreferrer" href="'+H(q["url"])+'">'+H(q.get("title","外部研究"))+'</a></h3><p>'+H(q["note"])+'</p></div>')
+        blocks.append('</div></section>')
+        content=content.replace('</article>',"".join(blocks)+'</article>')
     if report.get("external_research"):
         research = ['<section class="block" id="external-research"><div class="section-head"><div><p class="kicker">06 / INDEPENDENT CONTEXT</p><h2>外部调查与反证</h2><p>第三方资料并非港交所披露；只用于对照市场预期及管理层问答。</p></div></div><div class="method-grid">']
         for ext in report["external_research"]:
@@ -445,7 +483,7 @@ def main():
     sitemap+="".join("  <url><loc>"+H(u)+"</loc></url>\n" for u in urls)+"</urlset>\n"
     mkdir_file("sitemap.xml",sitemap)
     mkdir_file("robots.txt","User-agent: *\nAllow: /\nSitemap: "+BASE_URL+"sitemap.xml\n")
-    print(f"PASS: generated {len(PAGES)} pages, {concept_pages} concept HTMLs, {len(reports)} real issuer reports")
+    print(f"PASS: generated {len(PAGES)} pages, {len(reports)} reports, {len(issuers)} issuers, {concept_pages} concept HTMLs")
 
 
 if __name__ == "__main__":

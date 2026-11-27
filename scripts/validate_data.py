@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 
 def parse(path):
@@ -59,7 +60,7 @@ def errors_for_report(r, issuers, taxonomy):
           "invalid audit/review status")
     check(urlparse(source.get("url","")).scheme == "https", "primary filing URL must be https")
     check(source.get("pdf_page_offset") is not None, "PDF page offset required")
-    check(r["unit"] in ("CNY_thousand","CNY_million","HKD_thousand","USD_thousand","USD_million"),
+    check(r["unit"] in ("CNY_thousand","CNY_million","CNY_fen","HKD_thousand","USD_thousand","USD_million"),
           "unexpected amount unit")
     check(isinstance(r["values"],dict) and bool(r["values"]), "metric dictionary missing")
     for key,m in r["values"].items():
@@ -76,6 +77,9 @@ def errors_for_report(r, issuers, taxonomy):
             check(key2 in ("prior","current") and isinstance(page,int) and page>0,
                   "bad per-period printed page: " + key)
     v = r["values"]
+    if rid == "moutai-2026-q3":
+        from src.moutai import reconciliation_errors
+        return errs + [rid+": "+x for x in reconciliation_errors(r)]
     def val(key,period):
         return v[key]["values"][period]
     def eq(expression,value,label,period):

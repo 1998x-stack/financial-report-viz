@@ -39,3 +39,8 @@ https://img.xdcdn.net/xdwp/2026/10/20261009091224167.pdf
 Primary figures: financial highlights printed p.5; segment revenue p.9 and notes pp.68-69; consolidated income p.49; operating cash p.58; operation users p.5; geography p.70. Reporting basis: IFRS/IAS 34, reviewed interim financial information (unaudited). Board approval/reviewer date August 28, 2026 (pp.47,53), **not asserted as publication date**.
 
 No fictitious peer, valuation band, price, revenue forecasts or company's unpublished user data should be added.
+
+## Moutai 2026 Q3 exact currency extension
+- `unit: CNY_fen` values are integer fen to preserve reported RMB yuan decimals exactly; `source_values` retains original decimal text per financial statement item. Sales disclosures originally expressed as RMB 10k are preserved using `source_unit: CNY_10000`, retaining exact cents in printed unit. Conversion to presentation RMB 100m only happens in SVG/HTML. Do not apply a thousand-unit divisor to these reports.
+- `comparison` distinguishes Jan–Sep year-on-year, standalone quarter, and September 30 versus prior December 31; balance sheet comparison is **not YoY**.
+- Gross profit and associated margins are derived from reported revenue and cost, not falsely listed as issuer-reported.

@@ -18,6 +18,8 @@ def run():
              ("concepts/index.html","concept-search"),
              ("concepts/accounting-equation/index.html","concept-detail"),
              ("concepts/pe-ratio/index.html","concept-detail")]
+    if (DIST/"reports/moutai/2026-q3/index.html").exists():
+        targets.append(("reports/moutai/2026-q3/index.html","metric-search"))
     sizes=[(1440,900),(768,1024),(390,844),(360,800)]
     output=ROOT/"reports"/"browser"
     output.mkdir(parents=True,exist_ok=True)
