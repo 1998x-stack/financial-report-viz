@@ -1,0 +1,2838 @@
+{
+  "schema_version": "1.0",
+  "editorial_note": "人工甄选的100个高频财报概念，编号是教学顺序而非统计频率排名。示例数字为合成教学数据，不是上市公司披露或市场实时数据。",
+  "categories": [
+    {
+      "id": "statements",
+      "name": "报表框架",
+      "en": "Financial statements",
+      "description": "从三张主表、会计期间到合并口径，先理解财报如何连接。",
+      "color": "#3f7274"
+    },
+    {
+      "id": "revenue",
+      "name": "收入与业务",
+      "en": "Revenue and operations",
+      "description": "看清收入来源、确认时点、成本和增长口径。",
+      "color": "#3277a1"
+    },
+    {
+      "id": "profit",
+      "name": "利润与费用",
+      "en": "Profitability",
+      "description": "理解利润从哪来、被哪些费用影响，以及调整口径的边界。",
+      "color": "#ad7950"
+    },
+    {
+      "id": "assets",
+      "name": "资产与计量",
+      "en": "Assets and measurement",
+      "description": "区分资产价值、折旧摊销与减值，并理解流动性。",
+      "color": "#6a7c53"
+    },
+    {
+      "id": "capital",
+      "name": "负债与权益",
+      "en": "Liabilities and equity",
+      "description": "理解企业如何融资、履约，以及剩余权益如何分配。",
+      "color": "#776f9c"
+    },
+    {
+      "id": "cash",
+      "name": "现金流与营运",
+      "en": "Cash flow and working capital",
+      "description": "用现金流验证利润，理解营运资本和现金转换。",
+      "color": "#3b8177"
+    },
+    {
+      "id": "returns",
+      "name": "回报与每股",
+      "en": "Returns and per-share",
+      "description": "把盈利与资本投入联系起来，理解每股收益和股东回报。",
+      "color": "#9b7046"
+    },
+    {
+      "id": "risk",
+      "name": "偿债与风险",
+      "en": "Solvency and risk",
+      "description": "判断负债水平、短期偿付能力以及持续经营风险。",
+      "color": "#b56d60"
+    },
+    {
+      "id": "valuation",
+      "name": "估值基础",
+      "en": "Valuation fundamentals",
+      "description": "从股权价值和企业价值出发理解价格倍数与现金流估值。",
+      "color": "#6f68a3"
+    },
+    {
+      "id": "analysis",
+      "name": "比较与质量",
+      "en": "Comparability and quality",
+      "description": "跨期比较、非经常项目与财务披露质量的分析工具。",
+      "color": "#54758a"
+    }
+  ],
+  "concepts": [
+    {
+      "order": 1,
+      "id": "accounting-equation",
+      "title": "会计等式",
+      "en": "Accounting Equation",
+      "category": "statements",
+      "definition": "资产是企业控制的资源；负债为现时义务，权益是扣除负债后的剩余权益。",
+      "formula": "资产＝负债＋所有者权益",
+      "pitfall": "等式成立不等于资产可以立即变现，也不代表企业盈利。",
+      "diagram": {
+        "kind": "balance",
+        "items": [
+          {
+            "label": "资产",
+            "value": 120
+          },
+          {
+            "label": "负债",
+            "value": 70
+          },
+          {
+            "label": "权益",
+            "value": 50
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 2,
+      "id": "balance-sheet",
+      "title": "资产负债表",
+      "en": "Balance Sheet",
+      "category": "statements",
+      "definition": "在一个特定日期呈现企业的资产、负债和所有者权益，是存量报表。",
+      "formula": "资产＝负债＋权益（特定时点）",
+      "pitfall": "不要把资产负债表日期当作一整年的经营成果。",
+      "diagram": {
+        "kind": "balance",
+        "items": [
+          {
+            "label": "总资产",
+            "value": 150
+          },
+          {
+            "label": "总负债",
+            "value": 90
+          },
+          {
+            "label": "股东权益",
+            "value": 60
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 3,
+      "id": "income-statement",
+      "title": "利润表",
+      "en": "Income Statement",
+      "category": "statements",
+      "definition": "归集一个期间内的收入、费用和损益，展现利润如何形成。",
+      "formula": "收入－费用＋其他损益＝利润（简化）",
+      "pitfall": "净利润并不等于同期流入账户的现金。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "收入",
+            "value": 100
+          },
+          {
+            "label": "成本",
+            "value": -55
+          },
+          {
+            "label": "费用",
+            "value": -25
+          },
+          {
+            "label": "利润",
+            "value": 20
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 4,
+      "id": "cash-flow-statement",
+      "title": "现金流量表",
+      "en": "Statement of Cash Flows",
+      "category": "statements",
+      "definition": "按经营、投资和筹资活动解释一个期间内现金及现金等价物的变动。",
+      "formula": "现金净变动＝经营＋投资＋筹资＋汇率等影响",
+      "pitfall": "投资现金流为负不必然意味着经营恶化。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "经营活动",
+            "value": 38
+          },
+          {
+            "label": "投资活动",
+            "value": -24
+          },
+          {
+            "label": "筹资活动",
+            "value": -9
+          },
+          {
+            "label": "净现金",
+            "value": 5
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 5,
+      "id": "notes-and-policies",
+      "title": "附注与会计政策",
+      "en": "Notes and Accounting Policies",
+      "category": "statements",
+      "definition": "解释会计政策、估计、分部和重要项目明细，补足主表无法说清的条件。",
+      "formula": "主表数字＋附注口径＝可解释的财务信息",
+      "pitfall": "只看主表不看确认方式和附注，容易误读。",
+      "diagram": {
+        "kind": "layers",
+        "items": [
+          {
+            "label": "主表数字",
+            "value": 100
+          },
+          {
+            "label": "会计政策",
+            "value": 40
+          },
+          {
+            "label": "重要估计",
+            "value": 25
+          },
+          {
+            "label": "披露附注",
+            "value": 15
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 6,
+      "id": "reporting-period",
+      "title": "会计期间",
+      "en": "Reporting Period",
+      "category": "statements",
+      "definition": "经营成果按季度、半年或全年归属特定期间，期末余额则是时点。",
+      "formula": "同比必须匹配相同长度和季节的期间",
+      "pitfall": "半年累计数据不能直接当作独立季度数。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "期初",
+            "value": 0
+          },
+          {
+            "label": "一季度",
+            "value": 3
+          },
+          {
+            "label": "上半年",
+            "value": 6
+          },
+          {
+            "label": "年末",
+            "value": 12
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 7,
+      "id": "accrual-basis",
+      "title": "权责发生制",
+      "en": "Accrual Accounting",
+      "category": "statements",
+      "definition": "收入和费用按照赚取与发生时点确认，而不必等到收付现金。",
+      "formula": "确认时点依经济实质与准则，而非单看现金到账",
+      "pitfall": "开具发票不一定等于所有收入确认条件均已满足。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "履约",
+            "value": 1
+          },
+          {
+            "label": "确认收入",
+            "value": 2
+          },
+          {
+            "label": "收取现金",
+            "value": 3
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 8,
+      "id": "cash-basis",
+      "title": "现金收付制",
+      "en": "Cash Basis",
+      "category": "statements",
+      "definition": "按现金实际收付记录收入与支出，是与权责发生制不同的计量基础。",
+      "formula": "收入／支出与现金到账／支付时点对应",
+      "pitfall": "大多数上市公司财报的损益表并非按纯现金收付制编制。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "履约",
+            "value": 1
+          },
+          {
+            "label": "开票",
+            "value": 2
+          },
+          {
+            "label": "收款",
+            "value": 3
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 9,
+      "id": "consolidated-statements",
+      "title": "合并财务报表",
+      "en": "Consolidated Statements",
+      "category": "statements",
+      "definition": "把受控制的子公司纳入同一报告主体，并抵销集团内部交易和余额。",
+      "formula": "合并总额＝母子公司合计－内部抵销（简化）",
+      "pitfall": "不能把内部交易重复当成集团对外收入。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "母公司",
+            "value": 70
+          },
+          {
+            "label": "子公司",
+            "value": 50
+          },
+          {
+            "label": "内部抵销",
+            "value": -20
+          },
+          {
+            "label": "合并收入",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 10,
+      "id": "noncontrolling-interest",
+      "title": "非控股权益",
+      "en": "Non-controlling Interest",
+      "category": "statements",
+      "definition": "合并子公司的净资产和利润中，不属于母公司股东的份额。",
+      "formula": "合并净利润＝归母利润＋非控股权益应占利润",
+      "pitfall": "非控股权益不是公司需要偿还的借款。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "归母权益",
+            "value": 80
+          },
+          {
+            "label": "非控股权益",
+            "value": 20
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 11,
+      "id": "revenue",
+      "title": "营业收入",
+      "en": "Revenue",
+      "category": "revenue",
+      "definition": "企业在日常经营活动中因向客户提供商品或服务而确认的收入。",
+      "formula": "收入＝符合确认条件的履约对价（视准则）",
+      "pitfall": "订单、流水、收款和会计收入不是同一概念。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "上期收入",
+            "value": 90
+          },
+          {
+            "label": "本期收入",
+            "value": 110
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 12,
+      "id": "revenue-recognition",
+      "title": "收入确认",
+      "en": "Revenue Recognition",
+      "category": "revenue",
+      "definition": "依据控制权转移或履约进度，在适当时点或期间确认收入。",
+      "formula": "合同识别→履约义务→交易价格→分摊→确认",
+      "pitfall": "预收款不必然立即产生收入。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "签约",
+            "value": 1
+          },
+          {
+            "label": "收预款",
+            "value": 2
+          },
+          {
+            "label": "完成履约",
+            "value": 3
+          },
+          {
+            "label": "确认收入",
+            "value": 4
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 13,
+      "id": "contract-liability",
+      "title": "合同负债（递延收入）",
+      "en": "Contract Liability",
+      "category": "revenue",
+      "definition": "已收或应收客户对价，但尚有需要继续履行的合同义务。",
+      "formula": "期末合同负债＝期初＋新增预收－本期履约释放等",
+      "pitfall": "合同负债通常不能简单等同净利润或可自由使用的现金。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "期初余额",
+            "value": 30
+          },
+          {
+            "label": "新增预收",
+            "value": 25
+          },
+          {
+            "label": "履约释放",
+            "value": -15
+          },
+          {
+            "label": "期末余额",
+            "value": 40
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 14,
+      "id": "accounts-receivable",
+      "title": "应收账款",
+      "en": "Accounts Receivable",
+      "category": "revenue",
+      "definition": "企业已取得无条件收款权，但尚未收到客户款项的余额。",
+      "formula": "期末应收＝期初＋赊销－回款－调整（简化）",
+      "pitfall": "收入增长但应收增速更快时，要关注回款与信用风险。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "期初应收",
+            "value": 20
+          },
+          {
+            "label": "赊销增加",
+            "value": 50
+          },
+          {
+            "label": "收回款项",
+            "value": -40
+          },
+          {
+            "label": "期末应收",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 15,
+      "id": "contract-asset",
+      "title": "合同资产",
+      "en": "Contract Asset",
+      "category": "revenue",
+      "definition": "履约后享有的收款权仍取决于时间流逝以外的其他条件。",
+      "formula": "履约已发生＋收款权尚附条件→合同资产",
+      "pitfall": "合同资产与无条件的应收账款不同。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "完成阶段履约",
+            "value": 1
+          },
+          {
+            "label": "满足验收条件",
+            "value": 2
+          },
+          {
+            "label": "转为应收",
+            "value": 3
+          },
+          {
+            "label": "收款",
+            "value": 4
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 16,
+      "id": "cost-of-revenue",
+      "title": "营业成本／收入成本",
+      "en": "Cost of Revenue",
+      "category": "revenue",
+      "definition": "与已确认收入直接相关的产品、服务或项目成本，按企业业务口径列示。",
+      "formula": "毛利润＝营业收入－营业成本",
+      "pitfall": "研发、营销和管理费用不一定计入营业成本。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "直接成本",
+            "value": 62
+          },
+          {
+            "label": "毛利润",
+            "value": 38
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 17,
+      "id": "gross-profit",
+      "title": "毛利润",
+      "en": "Gross Profit",
+      "category": "revenue",
+      "definition": "营业收入扣除对应营业成本后的余额，反映直接经营贡献。",
+      "formula": "毛利润＝收入－营业成本",
+      "pitfall": "毛利润尚未扣除所有运营费用、融资及税费。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "营业收入",
+            "value": 100
+          },
+          {
+            "label": "营业成本",
+            "value": -60
+          },
+          {
+            "label": "毛利润",
+            "value": 40
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 18,
+      "id": "gross-margin",
+      "title": "毛利率",
+      "en": "Gross Margin",
+      "category": "revenue",
+      "definition": "毛利润占营业收入的比例，用于观察收入中的直接盈利空间。",
+      "formula": "毛利率＝毛利润÷收入×100%",
+      "pitfall": "毛利率高并不自动意味着净利率或现金回报高。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "毛利润",
+            "value": 42
+          },
+          {
+            "label": "营业收入",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 19,
+      "id": "segment-revenue",
+      "title": "分部收入",
+      "en": "Segment Revenue",
+      "category": "revenue",
+      "definition": "按照企业披露的经营分部拆分收入，便于理解业务贡献。",
+      "formula": "合并收入＝分部对外收入合计±抵销调整",
+      "pitfall": "分部口径可能调整，且内部交易不能重复相加。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "游戏业务",
+            "value": 55
+          },
+          {
+            "label": "平台业务",
+            "value": 30
+          },
+          {
+            "label": "其他业务",
+            "value": 15
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 20,
+      "id": "yoy-growth",
+      "title": "同比增长率",
+      "en": "Year-over-year Growth",
+      "category": "revenue",
+      "definition": "比较当前期间与上年相同期间的变化幅度。",
+      "formula": "同比＝（本期－上年同期）÷上年同期×100%",
+      "pitfall": "上年同期为零或负数时，常规百分比可能没有经济意义。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "上年同期",
+            "value": 100
+          },
+          {
+            "label": "本期",
+            "value": 120
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 21,
+      "id": "operating-profit",
+      "title": "营业利润／经营利润",
+      "en": "Operating Profit",
+      "category": "profit",
+      "definition": "主营经营及相关损益形成的利润层级，具体包含项目以适用准则为准。",
+      "formula": "经营利润＝毛利－营业费用＋／－其他经营损益",
+      "pitfall": "不同公司对经营利润的定义可能不完全一致。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "毛利润",
+            "value": 45
+          },
+          {
+            "label": "营业费用",
+            "value": -20
+          },
+          {
+            "label": "其他经营收益",
+            "value": 5
+          },
+          {
+            "label": "经营利润",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 22,
+      "id": "operating-margin",
+      "title": "营业利润率",
+      "en": "Operating Margin",
+      "category": "profit",
+      "definition": "经营利润占收入的比重，用于观察营业层面的盈利效率。",
+      "formula": "营业利润率＝经营利润÷营业收入×100%",
+      "pitfall": "经营利润的会计口径不同，跨公司直接对比应谨慎。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "经营利润",
+            "value": 24
+          },
+          {
+            "label": "营业收入",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 23,
+      "id": "research-and-development",
+      "title": "研发费用",
+      "en": "Research and Development Expense",
+      "category": "profit",
+      "definition": "为研究开发活动确认的当期费用；部分开发成本可能在符合条件时资本化。",
+      "formula": "研发费用率＝当期研发费用÷营业收入",
+      "pitfall": "研发投入不等于全部计入当期损益的研发费用。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "上期研发费用",
+            "value": 14
+          },
+          {
+            "label": "本期研发费用",
+            "value": 18
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 24,
+      "id": "selling-marketing",
+      "title": "销售及营销费用",
+      "en": "Selling and Marketing Expense",
+      "category": "profit",
+      "definition": "获取和服务客户、推广产品及渠道销售发生的费用。",
+      "formula": "销售费用率＝销售费用÷营业收入",
+      "pitfall": "广告预算提升不保证当期收入同比例上升。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "上期销售费用",
+            "value": 12
+          },
+          {
+            "label": "本期销售费用",
+            "value": 19
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 25,
+      "id": "general-administrative",
+      "title": "管理费用",
+      "en": "General and Administrative Expense",
+      "category": "profit",
+      "definition": "企业行政管理、支持职能等费用，分类依会计政策。",
+      "formula": "管理费用率＝管理费用÷营业收入",
+      "pitfall": "成本划分方式会影响公司间费用率可比性。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "上期管理费用",
+            "value": 9
+          },
+          {
+            "label": "本期管理费用",
+            "value": 11
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 26,
+      "id": "ebitda",
+      "title": "EBITDA",
+      "en": "Earnings Before Interest Taxes Depreciation and Amortization",
+      "category": "profit",
+      "definition": "息税折旧摊销前利润，用于辅助观察经营表现，但不是统一定义的 IFRS 利润指标。",
+      "formula": "EBITDA≈税前利润＋净利息费用＋折旧＋摊销（视调整口径）",
+      "pitfall": "EBITDA 不等于经营现金流，也不代表资本开支为零。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "税前利润",
+            "value": 25
+          },
+          {
+            "label": "净利息费用",
+            "value": 5
+          },
+          {
+            "label": "折旧摊销",
+            "value": 10
+          },
+          {
+            "label": "EBITDA",
+            "value": 40
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 27,
+      "id": "adjusted-ebitda",
+      "title": "经调整 EBITDA",
+      "en": "Adjusted EBITDA",
+      "category": "profit",
+      "definition": "公司在 EBITDA 基础上按其披露口径排除或纳入特定项目的替代业绩指标。",
+      "formula": "经调整 EBITDA＝EBITDA±披露的调整项",
+      "pitfall": "跨公司调整项目可能不一致；必须逐项对账与披露。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "EBITDA",
+            "value": 40
+          },
+          {
+            "label": "股权激励调整",
+            "value": 6
+          },
+          {
+            "label": "其他调整",
+            "value": -1
+          },
+          {
+            "label": "调整后",
+            "value": 45
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 28,
+      "id": "attributable-profit",
+      "title": "归母净利润",
+      "en": "Profit Attributable to Owners",
+      "category": "profit",
+      "definition": "合并期内利润中属于母公司权益持有人的份额。",
+      "formula": "期内利润＝归母利润＋非控股权益应占利润",
+      "pitfall": "归母净利润和合并总净利润不能互换。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "归母净利润",
+            "value": 18
+          },
+          {
+            "label": "少数股东份额",
+            "value": 2
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 29,
+      "id": "net-profit",
+      "title": "净利润／期内利润",
+      "en": "Net Profit",
+      "category": "profit",
+      "definition": "扣除所得税等影响后的期间利润，是利润表的重要终点。",
+      "formula": "净利润＝税前利润－所得税费用（简化）",
+      "pitfall": "利润受非现金项目及会计估计影响，不能视为全部可分配现金。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "税前利润",
+            "value": 30
+          },
+          {
+            "label": "所得税费用",
+            "value": -8
+          },
+          {
+            "label": "净利润",
+            "value": 22
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 30,
+      "id": "net-margin",
+      "title": "净利率",
+      "en": "Net Profit Margin",
+      "category": "profit",
+      "definition": "净利润占营业收入的比例，衡量最终利润留存水平。",
+      "formula": "净利率＝净利润÷营业收入×100%",
+      "pitfall": "需辨别使用合并净利润还是归母净利润作为分子。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "净利润",
+            "value": 16
+          },
+          {
+            "label": "营业收入",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 31,
+      "id": "cash-equivalents",
+      "title": "现金及现金等价物",
+      "en": "Cash and Cash Equivalents",
+      "category": "assets",
+      "definition": "现金及期限短、流动性强、易转换为已知现金金额且价值变动风险很小的投资。",
+      "formula": "期末现金≈期初现金＋净现金变动＋汇率影响",
+      "pitfall": "受限制存款及部分短期投资可能不符合现金等价物定义。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "银行存款及库存现金",
+            "value": 75
+          },
+          {
+            "label": "现金等价物",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 32,
+      "id": "short-term-investments",
+      "title": "短期投资",
+      "en": "Short-term Investments",
+      "category": "assets",
+      "definition": "预期较短期间内变现或持有的金融资产，分类和计量依金融工具准则。",
+      "formula": "金融资产分类取决于业务模式、现金流特征等",
+      "pitfall": "短期投资不必然能按账面价值即时变现。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "现金类",
+            "value": 45
+          },
+          {
+            "label": "短期投资",
+            "value": 35
+          },
+          {
+            "label": "其他流动资产",
+            "value": 20
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 33,
+      "id": "inventory",
+      "title": "存货",
+      "en": "Inventory",
+      "category": "assets",
+      "definition": "企业持有待销售、在生产中或生产耗用的商品与材料等。",
+      "formula": "期末存货＝期初存货＋购入／生产－结转成本±调整",
+      "pitfall": "库存增加未必说明销售增长，需关注跌价与滞销。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "期初存货",
+            "value": 24
+          },
+          {
+            "label": "采购生产",
+            "value": 50
+          },
+          {
+            "label": "结转销售成本",
+            "value": -44
+          },
+          {
+            "label": "期末存货",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 34,
+      "id": "prepaid-expenses",
+      "title": "预付费用",
+      "en": "Prepaid Expenses",
+      "category": "assets",
+      "definition": "企业已经付款但对应服务或经济利益尚未在本期完全消耗的资产。",
+      "formula": "预付余额随服务实际获得转入当期费用",
+      "pitfall": "预付不是当期发生的全部费用。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "预先付款",
+            "value": 1
+          },
+          {
+            "label": "开始服务",
+            "value": 2
+          },
+          {
+            "label": "期间摊销",
+            "value": 3
+          },
+          {
+            "label": "服务完成",
+            "value": 4
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 35,
+      "id": "property-plant-equipment",
+      "title": "固定资产",
+      "en": "Property Plant and Equipment",
+      "category": "assets",
+      "definition": "为生产经营、租赁或管理持有并预计使用超过一个期间的有形资产。",
+      "formula": "期末账面价值＝成本－累计折旧－减值",
+      "pitfall": "账面价值不等于市场售价；投入资本支出也未必立即费用化。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "购建成本",
+            "value": 100
+          },
+          {
+            "label": "累计折旧",
+            "value": -28
+          },
+          {
+            "label": "减值准备",
+            "value": -7
+          },
+          {
+            "label": "账面价值",
+            "value": 65
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 36,
+      "id": "depreciation",
+      "title": "折旧",
+      "en": "Depreciation",
+      "category": "assets",
+      "definition": "将固定资产可折旧金额在预计使用寿命内系统分配到不同期间的费用。",
+      "formula": "年度直线折旧＝（成本－残值）÷预计年限",
+      "pitfall": "折旧是非现金会计费用，不等于当年购买设备的现金支出。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "第1年费用",
+            "value": 20
+          },
+          {
+            "label": "第2年费用",
+            "value": 20
+          },
+          {
+            "label": "第3年费用",
+            "value": 20
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 37,
+      "id": "intangible-assets",
+      "title": "无形资产",
+      "en": "Intangible Assets",
+      "category": "assets",
+      "definition": "企业控制的可辨认、无实物形态的非货币性资产，例如软件或特定权利。",
+      "formula": "账面价值＝成本－累计摊销－减值（有限寿命者）",
+      "pitfall": "并非所有内部形成品牌、研发或用户关系都可确认为无形资产。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "购入软件",
+            "value": 45
+          },
+          {
+            "label": "授权权利",
+            "value": 35
+          },
+          {
+            "label": "其他",
+            "value": 20
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 38,
+      "id": "amortization",
+      "title": "摊销",
+      "en": "Amortization",
+      "category": "assets",
+      "definition": "对有限使用寿命的无形资产或其他相关项目在受益期间分配成本。",
+      "formula": "每期摊销≈可摊销金额÷受益期（直线法例）",
+      "pitfall": "摊销不是每期重新支付现金；无限寿命无形资产处理不同。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "购入",
+            "value": 0
+          },
+          {
+            "label": "第1年",
+            "value": 1
+          },
+          {
+            "label": "第2年",
+            "value": 2
+          },
+          {
+            "label": "第3年",
+            "value": 3
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 39,
+      "id": "goodwill",
+      "title": "商誉",
+      "en": "Goodwill",
+      "category": "assets",
+      "definition": "企业合并时，收购对价等超过取得可辨认净资产相关份额的差额。",
+      "formula": "商誉＝收购对价等－取得可辨认净资产公允价值份额（简化）",
+      "pitfall": "商誉不能单独出售，且不应简单解释成品牌估值。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "支付对价",
+            "value": 100
+          },
+          {
+            "label": "可辨认净资产",
+            "value": -72
+          },
+          {
+            "label": "商誉",
+            "value": 28
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 40,
+      "id": "impairment",
+      "title": "资产减值",
+      "en": "Asset Impairment",
+      "category": "assets",
+      "definition": "资产可收回金额低于账面价值时需要确认减值，具体规则取决于准则与资产类别。",
+      "formula": "减值损失＝账面价值－可收回金额（若为正）",
+      "pitfall": "减值费用不一定当期付现金，也不总能在未来转回。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "减值前账面额",
+            "value": 80
+          },
+          {
+            "label": "可收回金额",
+            "value": 55
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 41,
+      "id": "current-liabilities",
+      "title": "流动负债",
+      "en": "Current Liabilities",
+      "category": "capital",
+      "definition": "通常在正常营业周期或 12 个月内到期或需清偿的义务。",
+      "formula": "流动负债＝符合分类条件的短期义务合计",
+      "pitfall": "短期流动性风险取决于到期时点和可用资金，非仅规模。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "应付账款",
+            "value": 35
+          },
+          {
+            "label": "短期借款",
+            "value": 40
+          },
+          {
+            "label": "其他流动负债",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 42,
+      "id": "noncurrent-liabilities",
+      "title": "非流动负债",
+      "en": "Non-current Liabilities",
+      "category": "capital",
+      "definition": "不满足流动负债分类条件的负债，往往到期时间较长。",
+      "formula": "总负债＝流动负债＋非流动负债",
+      "pitfall": "长期负债仍需要关注利率、契约及未来到期安排。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "流动负债",
+            "value": 40
+          },
+          {
+            "label": "非流动负债",
+            "value": 60
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 43,
+      "id": "accounts-payable",
+      "title": "应付账款",
+      "en": "Accounts Payable",
+      "category": "capital",
+      "definition": "向供应商采购商品或服务后尚未支付的款项。",
+      "formula": "期末应付＝期初＋赊购－支付等",
+      "pitfall": "应付款多可能是账期优势，也可能反映付款压力。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "期初应付",
+            "value": 20
+          },
+          {
+            "label": "赊购",
+            "value": 55
+          },
+          {
+            "label": "付款",
+            "value": -45
+          },
+          {
+            "label": "期末应付",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 44,
+      "id": "short-term-borrowings",
+      "title": "短期借款",
+      "en": "Short-term Borrowings",
+      "category": "capital",
+      "definition": "在较短期间内需偿还的有息融资，通常属于流动负债。",
+      "formula": "短期借款余额＝期初＋新增借款－偿还",
+      "pitfall": "短债增加需结合现金余额、再融资能力与到期日判断。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "期初短债",
+            "value": 35
+          },
+          {
+            "label": "新增融资",
+            "value": 30
+          },
+          {
+            "label": "偿还",
+            "value": -25
+          },
+          {
+            "label": "期末短债",
+            "value": 40
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 45,
+      "id": "long-term-debt",
+      "title": "长期借款",
+      "en": "Long-term Debt",
+      "category": "capital",
+      "definition": "期限较长的有息债务；其中未来 12 个月到期部分可能重分类为流动负债。",
+      "formula": "长期借款账面值与到期表需一并阅读",
+      "pitfall": "长债不一定利率低，且会产生再融资和契约风险。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "一年内到期",
+            "value": 20
+          },
+          {
+            "label": "一年后到期",
+            "value": 80
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 46,
+      "id": "lease-liabilities",
+      "title": "租赁负债",
+      "en": "Lease Liabilities",
+      "category": "capital",
+      "definition": "承租人因租赁合同未来付款义务确认的负债，依相应租赁准则计量。",
+      "formula": "租赁负债≈未来租赁付款的折现值",
+      "pitfall": "租赁负债不等于每年租金费用，也不可简单忽略。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "起租确认",
+            "value": 0
+          },
+          {
+            "label": "第1期付款",
+            "value": 1
+          },
+          {
+            "label": "第2期付款",
+            "value": 2
+          },
+          {
+            "label": "租约到期",
+            "value": 3
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 47,
+      "id": "shareholders-equity",
+      "title": "股东权益",
+      "en": "Shareholders' Equity",
+      "category": "capital",
+      "definition": "公司资产扣除负债后归属于股东的剩余权益。",
+      "formula": "权益＝资产－负债",
+      "pitfall": "权益账面值不是公司股票市值。",
+      "diagram": {
+        "kind": "balance",
+        "items": [
+          {
+            "label": "总资产",
+            "value": 160
+          },
+          {
+            "label": "总负债",
+            "value": 100
+          },
+          {
+            "label": "股东权益",
+            "value": 60
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 48,
+      "id": "retained-earnings",
+      "title": "留存收益",
+      "en": "Retained Earnings",
+      "category": "capital",
+      "definition": "企业累计利润扣除已分配利润等后留在企业的权益组成部分。",
+      "formula": "期末留存收益＝期初＋归属利润－股利±调整",
+      "pitfall": "留存收益并不等于银行账户上的可用现金。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "期初余额",
+            "value": 30
+          },
+          {
+            "label": "本期利润",
+            "value": 15
+          },
+          {
+            "label": "已发股利",
+            "value": -7
+          },
+          {
+            "label": "期末余额",
+            "value": 38
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 49,
+      "id": "share-capital",
+      "title": "股本",
+      "en": "Share Capital",
+      "category": "capital",
+      "definition": "按照发行股份及企业法律结构确认的权益项目，面值与资本公积需区分。",
+      "formula": "股本与股数、面值及发行条款相关",
+      "pitfall": "发行价高于面值的部分通常不全计入股本。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "股本",
+            "value": 20
+          },
+          {
+            "label": "资本公积",
+            "value": 55
+          },
+          {
+            "label": "留存收益",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 50,
+      "id": "treasury-shares",
+      "title": "库存股",
+      "en": "Treasury Shares",
+      "category": "capital",
+      "definition": "企业回购但尚未注销或重新发行的本公司股份，在权益中按准则处理。",
+      "formula": "回购库存股通常减少归属股东权益",
+      "pitfall": "库存股一般不列为可供交易的金融资产收益。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "回购前权益",
+            "value": 100
+          },
+          {
+            "label": "回购后权益",
+            "value": 85
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 51,
+      "id": "operating-cash-flow",
+      "title": "经营活动现金流",
+      "en": "Operating Cash Flow",
+      "category": "cash",
+      "definition": "企业日常经营活动形成的净现金流入或流出。",
+      "formula": "CFO＝经营现金流入－经营现金流出",
+      "pitfall": "CFO 与净利润不同，营运资本和非现金项目会造成差异。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "净利润",
+            "value": 24
+          },
+          {
+            "label": "经营现金流",
+            "value": 32
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 52,
+      "id": "investing-cash-flow",
+      "title": "投资活动现金流",
+      "en": "Investing Cash Flow",
+      "category": "cash",
+      "definition": "购买处置长期资产、部分投资等活动造成的现金流。",
+      "formula": "CFI＝投资活动现金流入－流出",
+      "pitfall": "CFI 负值不必然是坏事，可能是扩产或购置资产。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "购建设备现金流",
+            "value": -30
+          },
+          {
+            "label": "处置资产收款",
+            "value": 5
+          },
+          {
+            "label": "净投资现金流",
+            "value": -25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 53,
+      "id": "financing-cash-flow",
+      "title": "筹资活动现金流",
+      "en": "Financing Cash Flow",
+      "category": "cash",
+      "definition": "借款、偿债、股权融资、股利等筹资相关现金变动。",
+      "formula": "CFF＝融资流入－偿债及股利等流出",
+      "pitfall": "筹资现金流为正并不代表经营改善。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "新增借款",
+            "value": 50
+          },
+          {
+            "label": "偿还债务",
+            "value": -25
+          },
+          {
+            "label": "派息",
+            "value": -10
+          },
+          {
+            "label": "筹资净额",
+            "value": 15
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 54,
+      "id": "free-cash-flow",
+      "title": "自由现金流",
+      "en": "Free Cash Flow",
+      "category": "cash",
+      "definition": "常见简化定义为经营现金流减资本开支，定义需明确。",
+      "formula": "FCF＝经营现金流－资本开支（常见简化）",
+      "pitfall": "FCF 不是统一会计准则行项目；现金流中的资本开支需识别。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "经营现金流",
+            "value": 45
+          },
+          {
+            "label": "资本开支",
+            "value": -18
+          },
+          {
+            "label": "自由现金流",
+            "value": 27
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 55,
+      "id": "capex",
+      "title": "资本开支",
+      "en": "Capital Expenditure",
+      "category": "cash",
+      "definition": "为购建长期资产或扩张能力而投入的现金支出。",
+      "formula": "资本开支常按购建固定资产等现金支付识别",
+      "pitfall": "资本开支不等于利润表折旧费用，也可能包含无形资产投资。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "购建设备",
+            "value": 25
+          },
+          {
+            "label": "软件资本化现金支出",
+            "value": 8
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 56,
+      "id": "cash-conversion",
+      "title": "利润现金转化率",
+      "en": "Cash Conversion",
+      "category": "cash",
+      "definition": "观察经营现金流与净利润之间的关系，辅助评价利润质量。",
+      "formula": "经营现金转化率＝经营现金流÷净利润（示例定义）",
+      "pitfall": "净利润极小或为负时比率会失真；非现金项目应拆解。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "经营现金流",
+            "value": 36
+          },
+          {
+            "label": "净利润",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 57,
+      "id": "net-working-capital",
+      "title": "净营运资本",
+      "en": "Net Working Capital",
+      "category": "cash",
+      "definition": "流动资产与流动负债之差，反映短期资金占用的简要情况。",
+      "formula": "净营运资本＝流动资产－流动负债",
+      "pitfall": "某些行业负营运资本是商业模式特征，不必然为危机。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "流动资产",
+            "value": 90
+          },
+          {
+            "label": "流动负债",
+            "value": -65
+          },
+          {
+            "label": "净营运资本",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 58,
+      "id": "dso",
+      "title": "应收账款周转天数",
+      "en": "Days Sales Outstanding",
+      "category": "cash",
+      "definition": "衡量应收账款相对赊销收入的回收周期，常用平均余额。",
+      "formula": "DSO＝平均应收账款÷赊销收入×期间天数",
+      "pitfall": "使用总收入代替赊销收入可能导致估计偏差。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "平均应收",
+            "value": 20
+          },
+          {
+            "label": "期间赊销",
+            "value": 120
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 59,
+      "id": "dio",
+      "title": "存货周转天数",
+      "en": "Days Inventory Outstanding",
+      "category": "cash",
+      "definition": "衡量存货从取得到转入营业成本的平均占用天数。",
+      "formula": "DIO＝平均存货÷营业成本×期间天数",
+      "pitfall": "不同品类季节性和跌价政策会影响可比性。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "平均存货",
+            "value": 30
+          },
+          {
+            "label": "期间营业成本",
+            "value": 180
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 60,
+      "id": "dpo",
+      "title": "应付账款周转天数",
+      "en": "Days Payable Outstanding",
+      "category": "cash",
+      "definition": "衡量应付账款相对采购或成本的付款周期。",
+      "formula": "DPO≈平均应付账款÷相关采购或成本×期间天数",
+      "pitfall": "部分公司只披露成本而非赊购，需注明近似。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "平均应付",
+            "value": 25
+          },
+          {
+            "label": "相关采购",
+            "value": 150
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 61,
+      "id": "roe",
+      "title": "净资产收益率 ROE",
+      "en": "Return on Equity",
+      "category": "returns",
+      "definition": "归属于股东的利润相对平均股东权益的回报率。",
+      "formula": "ROE＝归母净利润÷平均归母权益×100%",
+      "pitfall": "用期末权益代替平均权益、忽略杠杆可能扭曲比较。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "归母净利润",
+            "value": 15
+          },
+          {
+            "label": "平均归母权益",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 62,
+      "id": "roa",
+      "title": "总资产收益率 ROA",
+      "en": "Return on Assets",
+      "category": "returns",
+      "definition": "企业利润与平均总资产的关系，利润口径要写清楚。",
+      "formula": "ROA＝所选利润÷平均总资产×100%",
+      "pitfall": "税后净利润与息税前利润版本的 ROA 不可混为一谈。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "期内净利润",
+            "value": 12
+          },
+          {
+            "label": "平均总资产",
+            "value": 150
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 63,
+      "id": "roic",
+      "title": "投入资本回报率 ROIC",
+      "en": "Return on Invested Capital",
+      "category": "returns",
+      "definition": "税后经营利润与经营性投入资本的比率，试图区分融资结构影响。",
+      "formula": "ROIC＝NOPAT÷平均投入资本×100%",
+      "pitfall": "NOPAT、现金扣除和投入资本定义可能因机构而异。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "税后经营利润",
+            "value": 18
+          },
+          {
+            "label": "平均投入资本",
+            "value": 120
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 64,
+      "id": "invested-capital",
+      "title": "投入资本",
+      "en": "Invested Capital",
+      "category": "returns",
+      "definition": "通常是为经营提供资金的资本，常由有息债务与权益减非经营资产推导。",
+      "formula": "投入资本≈有息债务＋权益－超额现金等",
+      "pitfall": "不同公司的经营租赁、商誉和现金调整口径应一致。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "有息债务",
+            "value": 60
+          },
+          {
+            "label": "股东权益",
+            "value": 90
+          },
+          {
+            "label": "超额现金",
+            "value": -30
+          },
+          {
+            "label": "投入资本",
+            "value": 120
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 65,
+      "id": "net-assets",
+      "title": "净资产",
+      "en": "Net Assets",
+      "category": "returns",
+      "definition": "企业全部资产减去全部负债后的余额，通常等于权益账面值。",
+      "formula": "净资产＝资产－负债",
+      "pitfall": "净资产账面值并不是公司股权公允价值。",
+      "diagram": {
+        "kind": "balance",
+        "items": [
+          {
+            "label": "总资产",
+            "value": 135
+          },
+          {
+            "label": "总负债",
+            "value": 80
+          },
+          {
+            "label": "净资产",
+            "value": 55
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 66,
+      "id": "eps",
+      "title": "基本每股收益 EPS",
+      "en": "Basic Earnings per Share",
+      "category": "returns",
+      "definition": "归属于普通股股东的利润相对加权平均普通股股数的金额。",
+      "formula": "基本 EPS＝归普股利润÷加权平均普通股数",
+      "pitfall": "不能简单使用期末总股数；需处理优先股和股数变更。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "归普股利润",
+            "value": 36
+          },
+          {
+            "label": "加权平均股数",
+            "value": 12
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 67,
+      "id": "diluted-eps",
+      "title": "稀释每股收益",
+      "en": "Diluted EPS",
+      "category": "returns",
+      "definition": "考虑潜在普通股稀释影响后的每股收益，按准则进行调整。",
+      "formula": "稀释 EPS＝调整后归普股利润÷稀释加权平均股数",
+      "pitfall": "潜在股份具有反稀释性时不得机械地纳入计算。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "基本 EPS",
+            "value": 3
+          },
+          {
+            "label": "稀释 EPS",
+            "value": 2.7
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 68,
+      "id": "dividend-payout",
+      "title": "股利支付率",
+      "en": "Dividend Payout Ratio",
+      "category": "returns",
+      "definition": "股利分配相对于当期归属利润的比重，反映利润向股东分配程度。",
+      "formula": "股利支付率＝股利金额÷对应利润（需统一期间）",
+      "pitfall": "股利由董事会/股东决议安排，利润高不等于必须全额派息。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "现金股利",
+            "value": 30
+          },
+          {
+            "label": "归母利润",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 69,
+      "id": "dividend-yield",
+      "title": "股息率",
+      "en": "Dividend Yield",
+      "category": "returns",
+      "definition": "每股年度股利与指定日期股价的比值，是一个价格相关的收益率指标。",
+      "formula": "股息率＝年度每股股利÷当日股价×100%",
+      "pitfall": "股价与股利应有明确日期，未来股息率不是保证收益。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "年度每股股利",
+            "value": 2
+          },
+          {
+            "label": "指定日期股价",
+            "value": 40
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 70,
+      "id": "dupont-analysis",
+      "title": "杜邦分析",
+      "en": "DuPont Analysis",
+      "category": "returns",
+      "definition": "把 ROE 拆解为利润率、资产周转与权益乘数，用于寻找回报来源。",
+      "formula": "ROE＝净利率×资产周转率×权益乘数",
+      "pitfall": "高 ROE 可能来自加杠杆，而不只来自经营优势。",
+      "diagram": {
+        "kind": "tree",
+        "items": [
+          {
+            "label": "净利率",
+            "value": 10
+          },
+          {
+            "label": "资产周转率",
+            "value": 1.2
+          },
+          {
+            "label": "权益乘数",
+            "value": 2
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 71,
+      "id": "debt-to-assets",
+      "title": "资产负债率",
+      "en": "Debt-to-assets Ratio",
+      "category": "risk",
+      "definition": "企业负债总额占资产总额的比例，是整体杠杆的基本信号。",
+      "formula": "资产负债率＝总负债÷总资产×100%",
+      "pitfall": "高负债率未必等于高短期偿债风险，应结合期限和现金流。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "总负债",
+            "value": 65
+          },
+          {
+            "label": "总资产",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 72,
+      "id": "leverage-ratio",
+      "title": "权益乘数／资产权益比",
+      "en": "Equity Multiplier",
+      "category": "risk",
+      "definition": "总资产相对股东权益的倍数，反映资金结构中的杠杆作用。",
+      "formula": "权益乘数＝平均总资产÷平均股东权益",
+      "pitfall": "高倍数可能放大 ROE，同时也放大财务风险。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "平均总资产",
+            "value": 200
+          },
+          {
+            "label": "平均权益",
+            "value": 50
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 73,
+      "id": "current-ratio",
+      "title": "流动比率",
+      "en": "Current Ratio",
+      "category": "risk",
+      "definition": "流动资产与流动负债的比例，衡量账面短期偿付覆盖。",
+      "formula": "流动比率＝流动资产÷流动负债",
+      "pitfall": "并非所有流动资产都能迅速变现。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "流动资产",
+            "value": 150
+          },
+          {
+            "label": "流动负债",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 74,
+      "id": "quick-ratio",
+      "title": "速动比率",
+      "en": "Quick Ratio",
+      "category": "risk",
+      "definition": "流动资产中剔除存货等较难立即变现项目后的短期负债覆盖。",
+      "formula": "速动比率≈（流动资产－存货等）÷流动负债",
+      "pitfall": "速动资产扣除项需按公司业务和所采用口径说明。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "速动资产",
+            "value": 100
+          },
+          {
+            "label": "流动负债",
+            "value": 80
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 75,
+      "id": "cash-ratio",
+      "title": "现金比率",
+      "en": "Cash Ratio",
+      "category": "risk",
+      "definition": "现金及现金等价物等高流动性资产对流动负债的覆盖。",
+      "formula": "现金比率＝现金及现金等价物÷流动负债",
+      "pitfall": "现金比率低不必然出现违约，需评估融资渠道与现金生成。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "现金及等价物",
+            "value": 30
+          },
+          {
+            "label": "流动负债",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 76,
+      "id": "net-debt",
+      "title": "净负债",
+      "en": "Net Debt",
+      "category": "risk",
+      "definition": "有息债务扣减所定义的现金及现金等价物后的净额。",
+      "formula": "净负债＝有息债务－可扣减现金（示例定义）",
+      "pitfall": "负值代表净现金，但现金受限和租赁负债的纳入须明确。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "有息借款",
+            "value": 100
+          },
+          {
+            "label": "可扣减现金",
+            "value": -45
+          },
+          {
+            "label": "净负债",
+            "value": 55
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 77,
+      "id": "net-debt-ebitda",
+      "title": "净负债／EBITDA",
+      "en": "Net Debt to EBITDA",
+      "category": "risk",
+      "definition": "用净债务相对 EBITDA 的倍数衡量杠杆偿付负担。",
+      "formula": "净债务/EBITDA＝净负债÷指定期间 EBITDA",
+      "pitfall": "EBITDA 为零或负时倍数不适用；负债期限也重要。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "净负债",
+            "value": 120
+          },
+          {
+            "label": "年度 EBITDA",
+            "value": 40
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 78,
+      "id": "interest-coverage",
+      "title": "利息保障倍数",
+      "en": "Interest Coverage Ratio",
+      "category": "risk",
+      "definition": "衡量经营利润对利息成本的覆盖能力，常见 EBIT 口径。",
+      "formula": "利息保障倍数≈EBIT÷利息费用",
+      "pitfall": "一次性收益和资本化利息可能改变解释。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "息税前利润",
+            "value": 60
+          },
+          {
+            "label": "利息费用",
+            "value": 10
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 79,
+      "id": "liquidity",
+      "title": "流动性",
+      "en": "Liquidity",
+      "category": "risk",
+      "definition": "企业按时支付到期义务、变现资产并取得资金的能力。",
+      "formula": "流动性判断＝现金＋可用融资＋现金生成－到期付款（框架）",
+      "pitfall": "流动性不是一个固定比率，须看现金可动用性和到期表。",
+      "diagram": {
+        "kind": "layers",
+        "items": [
+          {
+            "label": "现有现金",
+            "value": 45
+          },
+          {
+            "label": "未来现金流",
+            "value": 30
+          },
+          {
+            "label": "可用授信",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 80,
+      "id": "going-concern",
+      "title": "持续经营",
+      "en": "Going Concern",
+      "category": "risk",
+      "definition": "财务报表通常以企业能够在可预见未来持续经营为基础编制。",
+      "formula": "持续经营评估需综合现金预测、融资和不确定性",
+      "pitfall": "持续经营重大不确定性并不自动等于已经破产。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "现有流动性",
+            "value": 1
+          },
+          {
+            "label": "未来12个月",
+            "value": 2
+          },
+          {
+            "label": "到期债务",
+            "value": 3
+          },
+          {
+            "label": "融资方案",
+            "value": 4
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 81,
+      "id": "pe-ratio",
+      "title": "市盈率 P/E",
+      "en": "Price-to-Earnings Ratio",
+      "category": "valuation",
+      "definition": "股价与每股收益的比率，或市值除以对应净利润。",
+      "formula": "P/E＝股价÷EPS＝市值÷归属净利润（口径一致时）",
+      "pitfall": "亏损、非经常收益和使用 TTM/预测利润都会影响解读。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "示意每股股价",
+            "value": 50
+          },
+          {
+            "label": "每股收益",
+            "value": 5
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 82,
+      "id": "pb-ratio",
+      "title": "市净率 P/B",
+      "en": "Price-to-Book Ratio",
+      "category": "valuation",
+      "definition": "股票价格与每股净资产之间的倍数关系。",
+      "formula": "P/B＝股价÷每股净资产",
+      "pitfall": "账面资产不等于现时公允价值；行业间差异很大。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "示意每股股价",
+            "value": 30
+          },
+          {
+            "label": "每股净资产",
+            "value": 10
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 83,
+      "id": "ps-ratio",
+      "title": "市销率 P/S",
+      "en": "Price-to-Sales Ratio",
+      "category": "valuation",
+      "definition": "公司股权市值相对同期营业收入的倍数。",
+      "formula": "P/S＝股权市值÷收入（同币种与期间）",
+      "pitfall": "忽略了毛利率和费用差异；高收入并不保证盈利。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "示意市值",
+            "value": 300
+          },
+          {
+            "label": "年度收入",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 84,
+      "id": "ev-ebitda",
+      "title": "EV/EBITDA",
+      "en": "EV to EBITDA Multiple",
+      "category": "valuation",
+      "definition": "以企业价值相对 EBITDA 衡量估值倍数，减少部分资本结构影响。",
+      "formula": "EV/EBITDA＝企业价值÷对应 EBITDA",
+      "pitfall": "企业价值定义、租赁、现金及 EBITDA 调整必须一致。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "示意企业价值",
+            "value": 500
+          },
+          {
+            "label": "年度 EBITDA",
+            "value": 50
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 85,
+      "id": "enterprise-value",
+      "title": "企业价值 EV",
+      "en": "Enterprise Value",
+      "category": "valuation",
+      "definition": "股权市值加计净债务等对资本结构进行调整后的价值指标。",
+      "formula": "EV≈股权市值＋有息债务－现金＋其他权益调整",
+      "pitfall": "EV 与股权市值不同，现金限制及非控股权益等口径要核对。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "示意股权市值",
+            "value": 250
+          },
+          {
+            "label": "有息债务",
+            "value": 100
+          },
+          {
+            "label": "现金扣减",
+            "value": -50
+          },
+          {
+            "label": "企业价值",
+            "value": 300
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 86,
+      "id": "market-cap",
+      "title": "总市值",
+      "en": "Market Capitalization",
+      "category": "valuation",
+      "definition": "指定时点股票价格乘以流通及非流通股份等相应总股数的股权价值。",
+      "formula": "市值＝每股价格×相应发行股数",
+      "pitfall": "市值随交易价格变化，不能从旧财报直接推算当前市值。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "示意每股价格",
+            "value": 30
+          },
+          {
+            "label": "总股数（百万股）",
+            "value": 10
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 87,
+      "id": "bvps",
+      "title": "每股净资产 BVPS",
+      "en": "Book Value per Share",
+      "category": "valuation",
+      "definition": "归属普通股股东的净资产账面金额除以对应流通在外股数。",
+      "formula": "BVPS＝归普通股净资产÷流通在外普通股数",
+      "pitfall": "需区分非控股权益、优先股和库存股等。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "归普通股权益",
+            "value": 120
+          },
+          {
+            "label": "普通股数",
+            "value": 20
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 88,
+      "id": "fcfe",
+      "title": "股权自由现金流 FCFE",
+      "en": "Free Cash Flow to Equity",
+      "category": "valuation",
+      "definition": "扣除经营投资及净借贷影响后可供普通股股东的理论现金流。",
+      "formula": "FCFE≈经营现金流－资本开支＋净新增借款",
+      "pitfall": "FCFE 与实际已支付股息不同；融资变化会使其波动。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "经营现金流",
+            "value": 45
+          },
+          {
+            "label": "资本开支",
+            "value": -20
+          },
+          {
+            "label": "净借入",
+            "value": 5
+          },
+          {
+            "label": "股权现金流",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 89,
+      "id": "fcff",
+      "title": "企业自由现金流 FCFF",
+      "en": "Free Cash Flow to Firm",
+      "category": "valuation",
+      "definition": "面向全部资本提供者的税后经营自由现金流，不先扣融资成本。",
+      "formula": "FCFF≈EBIT×(1－税率)＋折旧摊销－资本开支－营运资本增加",
+      "pitfall": "FCFF 和 FCFE 的折现率与估值对象不能混用。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "税后经营利润",
+            "value": 40
+          },
+          {
+            "label": "折旧摊销",
+            "value": 12
+          },
+          {
+            "label": "资本开支",
+            "value": -20
+          },
+          {
+            "label": "营运资本增加",
+            "value": -7
+          },
+          {
+            "label": "企业现金流",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 90,
+      "id": "dcf",
+      "title": "现金流折现法 DCF",
+      "en": "Discounted Cash Flow",
+      "category": "valuation",
+      "definition": "把未来自由现金流按匹配风险的折现率折算至估值时点。",
+      "formula": "价值＝Σ 未来现金流/(1＋r)^t＋终值折现",
+      "pitfall": "对增长、终值和折现率很敏感，模型估值不是市场报价。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "第1年现金流",
+            "value": 30
+          },
+          {
+            "label": "第2年现金流",
+            "value": 35
+          },
+          {
+            "label": "第3年现金流",
+            "value": 40
+          },
+          {
+            "label": "终值估计",
+            "value": 100
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 91,
+      "id": "qoq-growth",
+      "title": "环比增长率",
+      "en": "Quarter-over-quarter Growth",
+      "category": "analysis",
+      "definition": "比较相邻独立季度的指标变化幅度。",
+      "formula": "环比＝（本季度－上季度）÷上季度×100%",
+      "pitfall": "不能把累计上半年数与独立一季度直接做环比。",
+      "diagram": {
+        "kind": "compare",
+        "items": [
+          {
+            "label": "上一季度",
+            "value": 80
+          },
+          {
+            "label": "本季度",
+            "value": 88
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 92,
+      "id": "cagr",
+      "title": "复合年增长率 CAGR",
+      "en": "Compound Annual Growth Rate",
+      "category": "analysis",
+      "definition": "描述多个完整年度之间的平滑年化增长速度。",
+      "formula": "CAGR＝（期末值÷期初值）^(1/年数)－1",
+      "pitfall": "它不是每一年的实际增长率；期初为零或负时不适用常规公式。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "第0年",
+            "value": 100
+          },
+          {
+            "label": "第1年",
+            "value": 110
+          },
+          {
+            "label": "第2年",
+            "value": 121
+          },
+          {
+            "label": "第3年",
+            "value": 133
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 93,
+      "id": "ttm",
+      "title": "最近十二个月 TTM",
+      "en": "Trailing Twelve Months",
+      "category": "analysis",
+      "definition": "把最近连续四个独立季度的流量项目合成一个滚动 12 个月值。",
+      "formula": "TTM＝最近四个独立季度之和",
+      "pitfall": "资产负债表时点余额不应简单四季相加。",
+      "diagram": {
+        "kind": "stack",
+        "items": [
+          {
+            "label": "Q1",
+            "value": 20
+          },
+          {
+            "label": "Q2",
+            "value": 24
+          },
+          {
+            "label": "Q3",
+            "value": 26
+          },
+          {
+            "label": "Q4",
+            "value": 30
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 94,
+      "id": "nonrecurring-items",
+      "title": "非经常性损益",
+      "en": "Non-recurring Items",
+      "category": "analysis",
+      "definition": "因偶发或非日常性质而可能需单独分析的损益，适用定义视市场规则。",
+      "formula": "调整后利润＝报表利润±逐项说明的调整",
+      "pitfall": "同一项目是否非经常可能依披露规则和分析目的变化。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "报表净利润",
+            "value": 30
+          },
+          {
+            "label": "一次性收益剔除",
+            "value": -8
+          },
+          {
+            "label": "其他调整",
+            "value": 3
+          },
+          {
+            "label": "示例调整后",
+            "value": 25
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 95,
+      "id": "other-comprehensive-income",
+      "title": "其他综合收益 OCI",
+      "en": "Other Comprehensive Income",
+      "category": "analysis",
+      "definition": "未计入当期损益、但按相关准则进入其他综合收益的项目集合。",
+      "formula": "综合收益总额＝净利润＋其他综合收益",
+      "pitfall": "OCI 有可重分类与不可重分类项目，不能全部当作经营利润。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "净利润",
+            "value": 30
+          },
+          {
+            "label": "其他综合收益",
+            "value": 6
+          },
+          {
+            "label": "综合收益总额",
+            "value": 36
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 96,
+      "id": "deferred-tax",
+      "title": "递延所得税",
+      "en": "Deferred Tax",
+      "category": "analysis",
+      "definition": "因资产负债账面价值与计税基础差异等产生的未来税收影响。",
+      "formula": "递延税项与暂时性差异及适用税率相关",
+      "pitfall": "递延所得税资产并非即期可退回的现金。",
+      "diagram": {
+        "kind": "timeline",
+        "items": [
+          {
+            "label": "形成暂时差异",
+            "value": 1
+          },
+          {
+            "label": "确认递延税项",
+            "value": 2
+          },
+          {
+            "label": "未来转回",
+            "value": 3
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 97,
+      "id": "effective-tax-rate",
+      "title": "实际所得税率",
+      "en": "Effective Tax Rate",
+      "category": "analysis",
+      "definition": "所得税费用相对于税前会计利润的比率。",
+      "formula": "有效税率＝所得税费用÷税前利润×100%",
+      "pitfall": "税收优惠、一次性税项及亏损均可能使税率异常。",
+      "diagram": {
+        "kind": "ratio",
+        "items": [
+          {
+            "label": "所得税费用",
+            "value": 18
+          },
+          {
+            "label": "税前利润",
+            "value": 90
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 98,
+      "id": "cash-conversion-cycle",
+      "title": "现金转换周期 CCC",
+      "en": "Cash Conversion Cycle",
+      "category": "analysis",
+      "definition": "存货与应收占用天数减去供应商提供的应付账期。",
+      "formula": "CCC＝DIO＋DSO－DPO",
+      "pitfall": "负 CCC 不一定是坏事，需结合行业商业模式。",
+      "diagram": {
+        "kind": "bridge",
+        "items": [
+          {
+            "label": "存货天数",
+            "value": 60
+          },
+          {
+            "label": "应收天数",
+            "value": 35
+          },
+          {
+            "label": "应付天数抵减",
+            "value": -50
+          },
+          {
+            "label": "现金转换周期",
+            "value": 45
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 99,
+      "id": "audit-opinion",
+      "title": "审计意见",
+      "en": "Audit Opinion",
+      "category": "analysis",
+      "definition": "审计师对财务报表是否按适用准则在重大方面公允列报发表的意见类型。",
+      "formula": "常见类型：无保留、保留、否定、无法表示意见",
+      "pitfall": "审阅与审计不是同一保证水平；无保留也不代表零风险。",
+      "diagram": {
+        "kind": "layers",
+        "items": [
+          {
+            "label": "无保留意见",
+            "value": 1
+          },
+          {
+            "label": "保留意见",
+            "value": 2
+          },
+          {
+            "label": "否定意见",
+            "value": 3
+          },
+          {
+            "label": "无法表示意见",
+            "value": 4
+          }
+        ]
+      },
+      "illustrative": true
+    },
+    {
+      "order": 100,
+      "id": "comparability",
+      "title": "可比口径",
+      "en": "Comparability",
+      "category": "analysis",
+      "definition": "确保不同期间或公司之间的准则、主体、单位和业务构成足够一致。",
+      "formula": "有效比较＝同期间＋同主体＋同币种＋可解释的政策差异",
+      "pitfall": "重述、收购、分部重划、币种或季度累计会造成虚假的增速。",
+      "diagram": {
+        "kind": "layers",
+        "items": [
+          {
+            "label": "期间一致",
+            "value": 1
+          },
+          {
+            "label": "合并范围",
+            "value": 2
+          },
+          {
+            "label": "币种单位",
+            "value": 3
+          },
+          {
+            "label": "会计政策",
+            "value": 4
+          }
+        ]
+      },
+      "illustrative": true
+    }
+  ]
+}
