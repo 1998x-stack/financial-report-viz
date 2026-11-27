@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Financial Report Atlas Educational Concepts",
+  "description": "Editorially curated glossary — synthetic figures, never issuer facts",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "editorial_note",
+    "categories",
+    "concepts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "editorial_note": {
+      "type": "string",
+      "minLength": 25
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "en",
+          "description",
+          "color"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "en": {
+            "type": "string",
+            "minLength": 4
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          }
+        }
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "required": [
+          "order",
+          "id",
+          "title",
+          "en",
+          "category",
+          "definition",
+          "formula",
+          "pitfall",
+          "diagram",
+          "illustrative"
+        ],
+        "properties": {
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 2
+          },
+          "en": {
+            "type": "string",
+            "minLength": 4
+          },
+          "category": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 12
+          },
+          "formula": {
+            "type": "string",
+            "minLength": 6
+          },
+          "pitfall": {
+            "type": "string",
+            "minLength": 12
+          },
+          "illustrative": {
+            "const": true
+          },
+          "diagram": {
+            "type": "object",
+            "required": [
+              "kind",
+              "items"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "balance",
+                  "bridge",
+                  "compare",
+                  "stack",
+                  "ratio",
+                  "timeline",
+                  "layers",
+                  "tree"
+                ]
+              },
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 5,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
