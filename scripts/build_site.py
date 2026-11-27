@@ -106,7 +106,7 @@ def card(report, issuer, page_path, taxonomy):
     period = "上半年" if report["period_type"] == "h1" else report["period_type"].upper()
     return (
         '<a class="report-card" data-search="' + search + '" href="' + url + '">'
-        '<div class="report-card-top"><span class="flag">HKEX · ' + H(issuer["ticker"]) +
+        '<div class="report-card-top"><span class="flag">' + H(issuer["market"].upper()) + " · " + H(issuer["ticker"]) +
         '</span><span>' + str(report["year"]) + " " + H(period) + '</span></div>'
         '<h3>' + H(report["title"]) + '</h3><p>' + H(report["description"]) + '</p>'
         '<div class="report-card-bottom"><span>' + H(issuer["name"]) +
@@ -256,6 +256,11 @@ def report_page(report, issuer, tax):
         period_label=H(period), eyebrow=H(report["narrative"]["eyebrow"]),
         title=H(report["title"]), lead=H(report["narrative"]["lead"]),
         source_href=source_link(report), source_title=H(report["source"]["title"]),
+        assurance_label=H({"reviewed_unaudited":"经审阅 · 未经审计","audited":"已经审计","unaudited":"未经审计","unknown":"审计状态未确认"}.get(report["source"]["assurance"],"未确认")),
+        currency_label=H(report["currency"]),source_unit=H(report["unit_display"]),
+        comparison_text=H(report["comparison_period_start"]+" 至 "+report["comparison_period_end"]+" / "+report["period_start"]+" 至 "+report["period_end"]),
+        accounting_text=H(report["source"]["statement"]),
+        approval_text=H(("批准／审阅日："+report["review_approval_date"]+"；不得与公开发布日期混同。") if report.get("review_approval_date") else "报告批准日未明确。"),
         kpi_cards=kpi_cards(report), insight_cards="".join(issues),
         figures=figures_markup(report,path), metric_tables=metric_tables(report)
     )
